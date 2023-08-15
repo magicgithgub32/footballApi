@@ -1,0 +1,16 @@
+.hero {
+    height: 60vh;
+    margin: 20px;
+}
+
+.hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo {
+    height: 300px;
+}
