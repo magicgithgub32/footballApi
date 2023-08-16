@@ -1,13 +1,9 @@
 header {
-    height: 20vh;
-    margin: 20px;
+    height: 15vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.searchInput {
-    width: 200px;
-    height: 30px;
-}
+
