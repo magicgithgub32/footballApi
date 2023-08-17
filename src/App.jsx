@@ -1,15 +1,17 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Hero from "./components/Hero/Hero";
+import Home from "./components/Home/Home";
 
 const App = () => {
   return (
     <>
-      <Header />
-      <Hero />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="*" element={<Home />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

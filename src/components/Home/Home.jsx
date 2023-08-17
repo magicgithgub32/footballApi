@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./Hero.css";
+import "./Home.css";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
-const Hero = () => {
+const Home = () => {
   const [standingsData, setStandingsData] = useState(null);
   const [footballTeam, setFootballTeam] = useState("");
   const [teamLogo, setTeamLogo] = useState("");
@@ -16,42 +18,47 @@ const Hero = () => {
     if (result.status === 200) {
       const res = await result.json();
       setStandingsData(res.data.standings);
-      setFootballTeam(standingsData[teamId]?.team.name);
-      setTeamLogo(standingsData[teamId]?.team.logos[0].href);
     } else {
-      setFootballTeam(null);
-      setTeamLogo("");
+      setStandingsData(null);
     }
   };
 
   useEffect(() => {
     getFootball();
-  }, [standingsData]);
+  }, []);
+
+  useEffect(() => {
+    if (standingsData) {
+      setFootballTeam(standingsData[teamId]?.team.name);
+      setTeamLogo(standingsData[teamId]?.team.logos[0].href);
+    }
+  }, [standingsData, teamId]);
 
   const getPreviousTeam = () => {
-    setTeamId(teamId - 1);
+    if (teamId > 0) {
+      setTeamId(teamId - 1);
+    }
   };
 
   const getNextTeam = () => {
-    setTeamId(teamId + 1);
+    if (teamId < 19) {
+      setTeamId(teamId + 1);
+    }
   };
 
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
-    event.preventDefault();
   };
 
   const handleClick = () => {
     if (standingsData) {
       const foundTeam = standingsData.find(
-        (team) => team.team.name.toLowerCase() === searchQuery.toLowerCase()
+        (team) => team.name?.toLowerCase() === searchQuery.toLowerCase()
       );
+      console.log("foundTeam", foundTeam);
 
       if (foundTeam) {
-        console.log("foundTeam", foundTeam);
         setTeamId(foundTeam.stats[0].rank - 1);
-        setFootballTeam(foundTeam.team.displayName);
-        setTeamLogo(foundTeam.team.logos[0].href);
       } else {
         setFootballTeam(null);
         setTeamLogo("");
@@ -61,6 +68,7 @@ const Hero = () => {
 
   return (
     <>
+      <Header />
       {footballTeam && (
         <section className="hero-wrapper">
           <article className="search-buttons">
@@ -72,7 +80,7 @@ const Hero = () => {
               onChange={handleSearchInputChange}
             />
             <button
-              type="submit"
+              type="button"
               className="search-button"
               onClick={handleClick}
             >
@@ -81,7 +89,7 @@ const Hero = () => {
           </article>
           <article className="name-logo-wrapper">
             <h2 className="team-name">{footballTeam}</h2>
-            <img className="logo" src={teamLogo} />
+            <img className="logo" src={teamLogo} alt="logo" />
           </article>
           <article className="next-prev-buttons">
             {teamId > 0 && (
@@ -106,7 +114,8 @@ const Hero = () => {
           </article>
         </section>
       )}
+      <Footer />
     </>
   );
 };
-export default Hero;
+export default Home;
