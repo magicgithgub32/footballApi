@@ -1,10 +1,10 @@
 import React from "react";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ headerText }) => {
   return (
     <header>
-      <h1>PREMIER LEAGUE CLUBS & THEIR LOGOS</h1>
+      <h1>{headerText}</h1>
     </header>
   );
 };

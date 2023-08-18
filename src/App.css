@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Chicle&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=League+Spartan:wght@300;700&family=Montserrat:wght@200;300;400;500;600;800&family=Playball&display=swap');
 
 :root {
-  --main-bg-color: #ffffff;
-  --area-bg-color: #00529e;
-  --button-color: #c72929;
+  --main-bg-color: #c2d3e9;
+  --button-bg-color: #477198;
   --primary-text-color: #020202;
+
   --button-text-color: whitesmoke;
 
   --transition: 0.8s ease-in-out;
@@ -37,4 +37,6 @@
   button {
     padding: 5px;
     cursor: pointer;
+    color: var(--button-text-color);
+    background-color: var(--button-bg-color);
   }

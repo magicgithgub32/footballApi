@@ -1,17 +1,42 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { createContext, useState } from "react";
 import "./App.css";
-import Home from "./components/Home/Home";
+import Home from "./pages/Home/Home";
+import Stats from "./pages/Stats/Stats";
+
+export const FootballContext = createContext();
 
 const App = () => {
+  const [standingsData, setStandingsData] = useState(null);
+  const [footballTeam, setFootballTeam] = useState("");
+  const [teamLogo, setTeamLogo] = useState("");
+  const [teamId, setTeamId] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="*" element={<Home />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <FootballContext.Provider
+        value={{
+          standingsData: standingsData,
+          setStandingsData: setStandingsData,
+          footballTeam: footballTeam,
+          setFootballTeam: setFootballTeam,
+          teamLogo: teamLogo,
+          setTeamLogo: setTeamLogo,
+          teamId: teamId,
+          setTeamId: setTeamId,
+          searchQuery: searchQuery,
+          setSearchQuery: setSearchQuery,
+        }}
+      >
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="*" element={<Home />}></Route>
+            <Route path="/stats" element={<Stats />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </FootballContext.Provider>
     </>
   );
 };
