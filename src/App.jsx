@@ -12,6 +12,7 @@ const App = () => {
   const [teamLogo, setTeamLogo] = useState("");
   const [teamId, setTeamId] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
+  const [season, setSeason] = useState(2001);
 
   return (
     <>
@@ -27,6 +28,8 @@ const App = () => {
           setTeamId: setTeamId,
           searchQuery: searchQuery,
           setSearchQuery: setSearchQuery,
+          season: season,
+          setSeason: setSeason,
         }}
       >
         <BrowserRouter>

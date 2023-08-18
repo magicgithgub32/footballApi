@@ -18,11 +18,12 @@ const Home = () => {
     searchQuery,
     footballTeam,
     teamLogo,
+    season,
   } = useContext(FootballContext);
 
   const getFootball = async () => {
     const result = await fetch(
-      "https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=2020&sort=asc"
+      `https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=${season}&sort=asc`
     );
 
     if (result.status === 200) {
@@ -79,7 +80,7 @@ const Home = () => {
 
   return (
     <>
-      <Header headerText="PREMIER LEAGUE CLUBS" />
+      <Header headerText="PREMIER LEAGUE STATS" />
       {footballTeam && (
         <section className="hero-wrapper">
           <article className="search-buttons">
