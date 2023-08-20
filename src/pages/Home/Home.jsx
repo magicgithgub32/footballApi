@@ -19,6 +19,7 @@ const Home = () => {
     footballTeam,
     teamLogo,
     season,
+    setSeason,
   } = useContext(FootballContext);
 
   const getFootball = async () => {
@@ -36,13 +37,23 @@ const Home = () => {
 
   useEffect(() => {
     getFootball();
-  }, []);
+  }, [season]);
+
+  console.log("footballTeam", footballTeam);
+
+  // useEffect(() => {
+  //   if (standingsData) {
+  //     setFootballTeam(standingsData[teamId]?.team.name);
+
+  //     setTeamLogo(standingsData[teamId]?.team.logos[0].href);
+  //   }
+  // }, [standingsData, teamId, season]);
 
   useEffect(() => {
-    if (standingsData) {
-      setFootballTeam(standingsData[teamId]?.team.name);
-
-      setTeamLogo(standingsData[teamId]?.team.logos[0].href);
+    if (standingsData && teamId >= 0 && teamId < standingsData.length) {
+      const currentTeamData = standingsData[teamId];
+      setFootballTeam(currentTeamData.team.name);
+      setTeamLogo(currentTeamData.team.logos[0].href);
     }
   }, [standingsData, teamId]);
 
@@ -55,6 +66,19 @@ const Home = () => {
   const getNextTeam = () => {
     if (teamId < 19) {
       setTeamId(teamId + 1);
+    }
+  };
+
+  const getPrevSeason = () => {
+    if (season > 2001) {
+      setSeason(season - 1);
+    }
+  };
+
+  const getNextSeason = () => {
+    if (season < 2023) {
+      setSeason(season + 1);
+      getFootball();
     }
   };
 
@@ -99,6 +123,34 @@ const Home = () => {
               Go!{" "}
             </button>
           </article>
+
+          <article className="season">
+            <h2>
+              {season} - {season + 1}
+            </h2>
+          </article>
+
+          <article className="season-buttons">
+            {season > 2001 && (
+              <button
+                type="button"
+                className="prev-season-button"
+                onClick={getPrevSeason}
+              >
+                PREV SEASON
+              </button>
+            )}
+            {season < 2023 && (
+              <button
+                type="button"
+                className="prev-season-button"
+                onClick={getNextSeason}
+              >
+                NEXT SEASON
+              </button>
+            )}
+          </article>
+
           <article className="name-logo-wrapper">
             <h2 className="team-name">{footballTeam}</h2>
 
@@ -113,7 +165,7 @@ const Home = () => {
                 className="prevButton"
                 onClick={getPreviousTeam}
               >
-                Prev
+                Prev Club
               </button>
             )}
 
@@ -123,7 +175,7 @@ const Home = () => {
                 className="nextButton"
                 onClick={getNextTeam}
               >
-                Next
+                Next Club
               </button>
             )}
           </article>

@@ -23,7 +23,14 @@
     padding-left: 31px;
 }
 
+.season {
+    margin-top: 20px;
+}
 
+.season-buttons {
+    display: flex;
+    gap: 10px;
+}
 .name-logo-wrapper {
     display: flex;
     flex-direction: column;
@@ -33,7 +40,7 @@
 }
 
 .logo {
-    height: 300px;
+    height: 250px;
 }
 
 .next-prev-buttons {

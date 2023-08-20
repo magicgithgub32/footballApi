@@ -22,11 +22,15 @@ const Stats = () => {
     }
   };
 
+  // useEffect(() => {}, [season]);
+
   return (
     <>
       {standingsData && (
         <section>
-          <Header headerText={`${season} PREMIER LEAGUE STATS`} />
+          <Header
+            headerText={`${season} - ${season + 1} PREMIER LEAGUE STATS`}
+          />
           <article className="back-home-article-wrapper">
             <Link to="/">
               <button type="button" className="back-home-button">
