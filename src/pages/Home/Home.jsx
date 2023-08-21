@@ -5,6 +5,10 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 
 import { FootballContext } from "../../App";
+import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
+import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
+
+//? TOP SCORER BY SEASON
 
 const Home = () => {
   const {
@@ -41,21 +45,13 @@ const Home = () => {
 
   console.log("footballTeam", footballTeam);
 
-  // useEffect(() => {
-  //   if (standingsData) {
-  //     setFootballTeam(standingsData[teamId]?.team.name);
-
-  //     setTeamLogo(standingsData[teamId]?.team.logos[0].href);
-  //   }
-  // }, [standingsData, teamId, season]);
-
   useEffect(() => {
-    if (standingsData && teamId >= 0 && teamId < standingsData.length) {
-      const currentTeamData = standingsData[teamId];
-      setFootballTeam(currentTeamData.team.name);
-      setTeamLogo(currentTeamData.team.logos[0].href);
+    if (standingsData) {
+      setFootballTeam(standingsData[teamId]?.team.name);
+
+      setTeamLogo(standingsData[teamId]?.team.logos[0].href);
     }
-  }, [standingsData, teamId]);
+  }, [standingsData, teamId, season]);
 
   const getPreviousTeam = () => {
     if (teamId > 0) {
@@ -66,19 +62,6 @@ const Home = () => {
   const getNextTeam = () => {
     if (teamId < 19) {
       setTeamId(teamId + 1);
-    }
-  };
-
-  const getPrevSeason = () => {
-    if (season > 2001) {
-      setSeason(season - 1);
-    }
-  };
-
-  const getNextSeason = () => {
-    if (season < 2023) {
-      setSeason(season + 1);
-      getFootball();
     }
   };
 
@@ -102,6 +85,8 @@ const Home = () => {
     }
   };
 
+  const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
+
   return (
     <>
       <Header headerText="PREMIER LEAGUE STATS" />
@@ -124,36 +109,28 @@ const Home = () => {
             </button>
           </article>
 
-          <article className="season">
+          <article className="season-buttons">
+            <PrevSeasonButton season={season} setSeason={setSeason} />
+
             <h2>
               {season} - {season + 1}
             </h2>
-          </article>
 
-          <article className="season-buttons">
-            {season > 2001 && (
-              <button
-                type="button"
-                className="prev-season-button"
-                onClick={getPrevSeason}
-              >
-                PREV SEASON
-              </button>
-            )}
-            {season < 2023 && (
-              <button
-                type="button"
-                className="prev-season-button"
-                onClick={getNextSeason}
-              >
-                NEXT SEASON
-              </button>
-            )}
+            <NextSeasonButton season={season} setSeason={setSeason} />
           </article>
 
           <article className="name-logo-wrapper">
-            <h2 className="team-name">{footballTeam}</h2>
+            {rank === 1 && standingsData[teamId].stats[0].value === 38 ? (
+              <p>🍾 CHAMPION 🍾</p>
+            ) : (
+              rank
+            )}
 
+            {console.log("standingsData", standingsData)}
+            {console.log("rank", rank)}
+            {console.log("games Played", standingsData[teamId].stats[0].value)}
+
+            <h2 className="team-name">{footballTeam}</h2>
             <Link to="/stats">
               <img className="logo" src={teamLogo} alt="logo" />
             </Link>
