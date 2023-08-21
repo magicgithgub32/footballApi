@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 
 import { FootballContext } from "../../App";
 import Header from "../../components/Header/Header";
-import { Link } from "react-router-dom";
 
 import StatsCard from "../../components/StatsCard/StatsCard";
 import HomeButton from "../../components/HomeButton/HomeButton";

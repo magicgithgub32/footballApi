@@ -21,6 +21,13 @@
     height: 30px;
     font-size: 20px;
     padding-left: 31px;
+    border-radius: 5px;
+}
+
+.seasons-scorer-article {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .season {

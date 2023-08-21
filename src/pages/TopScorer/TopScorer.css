@@ -1,0 +1,5 @@
+.header-season {
+    display: flex;
+    flex-direction: column;
+}
+

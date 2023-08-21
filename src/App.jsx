@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Stats from "./pages/Stats/Stats";
+import TopScorer from "./pages/TopScorer/TopScorer";
 
 export const FootballContext = createContext();
 
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/" element={<Home />}></Route>
             <Route path="*" element={<Home />}></Route>
             <Route path="/stats" element={<Stats />}></Route>
+            <Route path="/topscorer" element={<TopScorer />}></Route>
           </Routes>
         </BrowserRouter>
       </FootballContext.Provider>

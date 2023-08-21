@@ -8,7 +8,7 @@ import { FootballContext } from "../../App";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 
-//? TOP SCORER BY SEASON
+//? TOP SCORER BY SEASON -  SHALL I CREATE AN ARRAY WITH ALL OF THEM AND MAP?
 
 const Home = () => {
   const {
@@ -109,14 +109,22 @@ const Home = () => {
             </button>
           </article>
 
-          <article className="season-buttons">
-            <PrevSeasonButton season={season} setSeason={setSeason} />
+          <article className="seasons-scorer-article">
+            <article className="season-buttons">
+              <PrevSeasonButton season={season} setSeason={setSeason} />
 
-            <h2>
-              {season} - {season + 1}
-            </h2>
+              <h2>
+                {season} - {season + 1}
+              </h2>
 
-            <NextSeasonButton season={season} setSeason={setSeason} />
+              <NextSeasonButton season={season} setSeason={setSeason} />
+            </article>
+
+            <Link to="/topscorer">
+              <button type="submit" className="top-scorer">
+                TOP SCORER
+              </button>
+            </Link>
           </article>
 
           <article className="name-logo-wrapper">
