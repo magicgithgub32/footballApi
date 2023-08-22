@@ -3,9 +3,11 @@ import "./TopScorer.css";
 import Header from "../../components/Header/Header";
 import { FootballContext } from "../../App";
 import HomeButton from "../../components/HomeButton/HomeButton";
+import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
+import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 
 const TopScorer = () => {
-  const { season, teamLogo } = useContext(FootballContext);
+  const { season, topScorer } = useContext(FootballContext);
   return (
     <section>
       <article className="header-season">
@@ -14,6 +16,31 @@ const TopScorer = () => {
         />
         <HomeButton />
       </article>
+
+      <article className="topscorer-article">
+        <div className="topscorer-card">
+          <div className="name-goals">
+            {topScorer.name.length > 1 ? (
+              topScorer.name.map((playerName, index) => (
+                <p key={index}>{playerName}</p>
+              ))
+            ) : (
+              <p>{topScorer.name[0]}</p>
+            )}
+            <p>{topScorer.goals} Goals</p>
+          </div>
+          {topScorer.name.length > 1 ? (
+            topScorer.pic.map((playerPic, index) => (
+              <img key={index} src={playerPic} alt="Top Scorer" />
+            ))
+          ) : (
+            <img src={topScorer.pic} alt="top Scorer" />
+          )}
+        </div>
+      </article>
+
+      <NextSeasonButton />
+      <PrevSeasonButton />
     </section>
   );
 };

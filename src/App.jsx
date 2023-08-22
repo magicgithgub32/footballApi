@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home/Home";
 import Stats from "./pages/Stats/Stats";
 import TopScorer from "./pages/TopScorer/TopScorer";
+import { topScorers } from "./data/topScorers";
 
 export const FootballContext = createContext();
 
@@ -14,6 +15,8 @@ const App = () => {
   const [teamId, setTeamId] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [season, setSeason] = useState(2001);
+  const [topScorerId, setTopScorerId] = useState(0);
+  const [topScorer, setTopScorer] = useState(topScorers[topScorerId]);
 
   return (
     <>
@@ -31,6 +34,10 @@ const App = () => {
           setSearchQuery: setSearchQuery,
           season: season,
           setSeason: setSeason,
+          topScorer: topScorer,
+          setTopScorer: setTopScorer,
+          topScorerId: topScorerId,
+          setTopScorerId: setTopScorerId,
         }}
       >
         <BrowserRouter>
@@ -38,7 +45,7 @@ const App = () => {
             <Route path="/" element={<Home />}></Route>
             <Route path="*" element={<Home />}></Route>
             <Route path="/stats" element={<Stats />}></Route>
-            <Route path="/topscorer" element={<TopScorer />}></Route>
+            <Route path="/topScorer" element={<TopScorer />}></Route>
           </Routes>
         </BrowserRouter>
       </FootballContext.Provider>

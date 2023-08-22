@@ -8,8 +8,6 @@ import { FootballContext } from "../../App";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 
-//? TOP SCORER BY SEASON -  SHALL I CREATE AN ARRAY WITH ALL OF THEM AND MAP?
-
 const Home = () => {
   const {
     setStandingsData,
@@ -24,6 +22,10 @@ const Home = () => {
     teamLogo,
     season,
     setSeason,
+    topScorerId,
+    setTopScorerId,
+    topScorer,
+    setTopScorer,
   } = useContext(FootballContext);
 
   const getFootball = async () => {
@@ -111,13 +113,25 @@ const Home = () => {
 
           <article className="seasons-scorer-article">
             <article className="season-buttons">
-              <PrevSeasonButton season={season} setSeason={setSeason} />
+              <PrevSeasonButton
+                season={season}
+                setSeason={setSeason}
+                setTopScorerId={setTopScorerId}
+                topScorerId={topScorerId}
+                setTopScorer={setTopScorer}
+              />
 
               <h2>
                 {season} - {season + 1}
               </h2>
 
-              <NextSeasonButton season={season} setSeason={setSeason} />
+              <NextSeasonButton
+                season={season}
+                setSeason={setSeason}
+                setTopScorerId={setTopScorerId}
+                topScorerId={topScorerId}
+                setTopScorer={setTopScorer}
+              />
             </article>
 
             <Link to="/topscorer">
@@ -137,6 +151,7 @@ const Home = () => {
             {console.log("standingsData", standingsData)}
             {console.log("rank", rank)}
             {console.log("games Played", standingsData[teamId].stats[0].value)}
+            {console.log("topSCorer", topScorer)}
 
             <h2 className="team-name">{footballTeam}</h2>
             <Link to="/stats">

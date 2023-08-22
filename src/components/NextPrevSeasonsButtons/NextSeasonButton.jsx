@@ -1,15 +1,27 @@
 import React from "react";
+import { topScorers } from "../../data/topScorers";
 
-const NextSeasonButton = ({ season, setSeason }) => {
+var today = new Date();
+var year = today.getFullYear();
+
+const NextSeasonButton = ({
+  season,
+  setSeason,
+  setTopScorerId,
+  topScorerId,
+  setTopScorer,
+}) => {
   const getNextSeason = () => {
-    if (season < 2023) {
+    if (season <= year && topScorerId < topScorers.length - 1) {
       setSeason(season + 1);
+      setTopScorerId(topScorerId + 1);
+      setTopScorer(topScorers[topScorerId + 1]);
     }
   };
 
   return (
     <>
-      {season < 2023 && (
+      {season <= year && (
         <button
           type="button"
           className="prev-season-button"
