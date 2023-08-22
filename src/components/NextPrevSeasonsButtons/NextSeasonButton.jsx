@@ -12,7 +12,7 @@ const NextSeasonButton = ({
   setTopScorer,
 }) => {
   const getNextSeason = () => {
-    if (season <= year && topScorerId < topScorers.length - 1) {
+    if (season <= year) {
       setSeason(season + 1);
       setTopScorerId(topScorerId + 1);
       setTopScorer(topScorers[topScorerId + 1]);
@@ -21,15 +21,13 @@ const NextSeasonButton = ({
 
   return (
     <>
-      {season <= year && (
-        <button
-          type="button"
-          className="prev-season-button"
-          onClick={getNextSeason}
-        >
-          NEXT SEASON
-        </button>
-      )}
+      <button
+        type="button"
+        className="prev-season-button"
+        onClick={getNextSeason}
+      >
+        NEXT SEASON
+      </button>
     </>
   );
 };

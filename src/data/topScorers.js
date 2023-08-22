@@ -55,7 +55,7 @@ export const topScorers = [
   },
   {
     season: 2010,
-    name: ["Dimitar Berbatov", "Carlos Tevez"],
+    name: ["Berbatov", "Tevez"],
     goals: 20,
     pic: ["./DB.jpeg", "./CT.jpeg"],
   },
@@ -97,15 +97,15 @@ export const topScorers = [
   },
   {
     season: 2017,
-    name: ["Mohamed Sala"],
+    name: ["Mohamed Salah"],
     goals: 32,
     pic: ["./MS.jpeg"],
   },
   {
     season: 2018,
-    name: ["Mohamed Sala", "Pierre Emerick Aubameyang", "Sadio Mane"],
+    name: ["Salah", "Aubameyang"],
     goals: 22,
-    pic: ["./MS.jpeg", "PEA.jpeg", "SM.jpeg"],
+    pic: ["./MS.jpeg", "PEA.jpeg"],
   },
   {
     season: 2019,
@@ -121,7 +121,7 @@ export const topScorers = [
   },
   {
     season: 2021,
-    name: ["Mohamed Sala", "Song Heu-min"],
+    name: ["Salah", "Song"],
     goals: 23,
     pic: ["./MS.jpeg", "./SEM.jpeg"],
   },
@@ -129,6 +129,12 @@ export const topScorers = [
     season: 2022,
     name: ["Erling Haaland"],
     goals: 36,
+    pic: ["./EH.jpeg"],
+  },
+  {
+    season: 2023,
+    name: ["Anyone to beat Haaland?"],
+    goals: "?",
     pic: ["./EH.jpeg"],
   },
 ];

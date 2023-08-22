@@ -7,7 +7,14 @@ import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeason
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 
 const TopScorer = () => {
-  const { season, topScorer } = useContext(FootballContext);
+  const {
+    season,
+    topScorer,
+    setSeason,
+    setTopScorerId,
+    topScorerId,
+    setTopScorer,
+  } = useContext(FootballContext);
   return (
     <section>
       <article className="header-season">
@@ -22,7 +29,7 @@ const TopScorer = () => {
           <div className="name-goals">
             {topScorer.name.length > 1 ? (
               topScorer.name.map((playerName, index) => (
-                <p key={index}>{playerName}</p>
+                <p key={index}>{playerName} -</p>
               ))
             ) : (
               <p>{topScorer.name[0]}</p>
@@ -39,8 +46,23 @@ const TopScorer = () => {
         </div>
       </article>
 
-      <NextSeasonButton />
-      <PrevSeasonButton />
+      <article className="season-buttons">
+        <PrevSeasonButton
+          season={season}
+          setSeason={setSeason}
+          setTopScorerId={setTopScorerId}
+          topScorerId={topScorerId}
+          setTopScorer={setTopScorer}
+        />
+
+        <NextSeasonButton
+          season={season}
+          setSeason={setSeason}
+          setTopScorerId={setTopScorerId}
+          topScorerId={topScorerId}
+          setTopScorer={setTopScorer}
+        />
+      </article>
     </section>
   );
 };
