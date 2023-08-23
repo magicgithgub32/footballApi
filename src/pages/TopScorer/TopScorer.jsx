@@ -14,12 +14,13 @@ const TopScorer = () => {
     setTopScorerId,
     topScorerId,
     setTopScorer,
+    leagueName,
   } = useContext(FootballContext);
   return (
     <section>
       <article className="header-season">
         <Header
-          headerText={`${season} - ${season + 1} PREMIER LEAGUE TOP SCORER`}
+          headerText={`${season} - ${season + 1} ${leagueName} TOP SCORER`}
         />
         <HomeButton />
       </article>

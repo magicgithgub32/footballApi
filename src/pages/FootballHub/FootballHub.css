@@ -1,0 +1,15 @@
+.selection-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+
+.league-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 250px;
+    
+}

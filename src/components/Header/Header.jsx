@@ -1,10 +1,10 @@
 import React from "react";
 import "./Header.css";
 
-const Header = ({ headerText }) => {
+const Header = ({ img, alt, headerText }) => {
   return (
     <header>
-      <img src="./premier-league-logo.png" alt="premier-league-logo" />
+      <img src={img} alt={alt} />
       <h1>{headerText}</h1>
     </header>
   );

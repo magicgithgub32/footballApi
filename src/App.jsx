@@ -1,14 +1,22 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { createContext, useState } from "react";
 import "./App.css";
-import Home from "./pages/Home/Home";
+import Home from "./pages/Premier/Premier";
 import Stats from "./pages/Stats/Stats";
 import TopScorer from "./pages/TopScorer/TopScorer";
 import { topScorers } from "./data/topScorers";
+import ReHome from "./pages/ReHome/Rehome";
+import FootballHub from "./pages/FootballHub/FootballHub";
+import Premier from "./pages/Premier/Premier";
+import LaLiga from "./pages/LaLiga/LaLiga";
 
 export const FootballContext = createContext();
 
 const App = () => {
+  const [league, setLeague] = useState("esp.1");
+  const [leagueName, setLeagueName] = useState("");
+  const [leagueLogo, setLeagueLogo] = useState("");
+
   const [standingsData, setStandingsData] = useState(null);
   const [footballTeam, setFootballTeam] = useState("");
   const [teamLogo, setTeamLogo] = useState("");
@@ -22,6 +30,13 @@ const App = () => {
     <>
       <FootballContext.Provider
         value={{
+          league: league,
+          setLeague: setLeague,
+          leagueName: leagueName,
+          setLeagueName: setLeagueName,
+          leagueLogo: leagueLogo,
+          setLeagueLogo: setLeagueLogo,
+
           standingsData: standingsData,
           setStandingsData: setStandingsData,
           footballTeam: footballTeam,
@@ -42,7 +57,10 @@ const App = () => {
       >
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<FootballHub />}></Route>
+
+            <Route path="/premier" element={<Premier />}></Route>
+            <Route path="/laliga" element={<LaLiga />}></Route>
             <Route path="*" element={<Home />}></Route>
             <Route path="/stats" element={<Stats />}></Route>
             <Route path="/topScorer" element={<TopScorer />}></Route>

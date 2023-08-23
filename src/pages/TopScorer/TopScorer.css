@@ -24,6 +24,8 @@
     height: 90%;
     object-fit: cover;
     border-radius: 5px;
+    box-shadow: 5px 10px 5px 0px rgba(0,0,0,0.75);
+
 }
 
 .name-goals {

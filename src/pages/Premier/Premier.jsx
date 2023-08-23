@@ -1,14 +1,15 @@
 import React, { useContext, useEffect } from "react";
+import "./Premier.css";
 import { Link } from "react-router-dom";
-import "./Home.css";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 
 import { FootballContext } from "../../App";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
+import HomeButton from "../../components/HomeButton/HomeButton";
 
-const Home = () => {
+const Premier = () => {
   const {
     setStandingsData,
     standingsData,
@@ -16,8 +17,8 @@ const Home = () => {
     setTeamLogo,
     teamId,
     setTeamId,
-    setSearchQuery,
-    searchQuery,
+    // setSearchQuery,
+    // searchQuery,
     footballTeam,
     teamLogo,
     season,
@@ -26,9 +27,15 @@ const Home = () => {
     setTopScorerId,
     topScorer,
     setTopScorer,
+    leagueName,
+    setLeagueName,
+    setLeagueLogo,
+    leagueLogo,
+    league,
+    setLeague,
   } = useContext(FootballContext);
 
-  const getFootball = async () => {
+  const getFootballFetch = async () => {
     const result = await fetch(
       `https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=${season}&sort=asc`
     );
@@ -36,13 +43,32 @@ const Home = () => {
     if (result.status === 200) {
       const res = await result.json();
       setStandingsData(res.data.standings);
+      setLeagueName(res.data.name);
+
+      // setLeagueLogo(res.data.logos.light);
     } else {
       setStandingsData(null);
     }
   };
 
+  const getLeagueLogoFetch = async () => {
+    const result = await fetch(
+      "https://api-football-standings.azharimm.dev/leagues"
+    );
+
+    if (result.status === 200) {
+      const res = await result.json();
+      setLeagueLogo(res.data[5].logos);
+      console.log("leagueLogo", leagueLogo);
+    }
+  };
+
   useEffect(() => {
-    getFootball();
+    getLeagueLogoFetch();
+  }, []);
+
+  useEffect(() => {
+    getFootballFetch();
   }, [season]);
 
   console.log("footballTeam", footballTeam);
@@ -67,31 +93,35 @@ const Home = () => {
     }
   };
 
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
+  // const handleSearchInputChange = (event) => {
+  //   setSearchQuery(event.target.value);
+  // };
 
-  const handleClick = () => {
-    if (standingsData) {
-      const foundTeam = standingsData.find(
-        (team) => team.name?.toLowerCase() === searchQuery.toLowerCase()
-      );
-      console.log("foundTeam", foundTeam);
+  // const handleClick = () => {
+  //   if (standingsData) {
+  //     const foundTeam = standingsData.find(
+  //       (team) => team.name?.toLowerCase() === searchQuery.toLowerCase()
+  //     );
+  //     console.log("foundTeam", foundTeam);
 
-      if (foundTeam) {
-        setTeamId(foundTeam.stats[0].rank - 1);
-      } else {
-        setFootballTeam(null);
-        setTeamLogo("");
-      }
-    }
-  };
+  //     if (foundTeam) {
+  //       setTeamId(foundTeam.stats[0].rank - 1);
+  //     } else {
+  //       setFootballTeam(null);
+  //       setTeamLogo("");
+  //     }
+  //   }
+  // };
 
   const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
 
   return (
     <>
-      <Header headerText="PREMIER LEAGUE" />
+      <Header
+        headerText={leagueName}
+        img={leagueLogo ? leagueLogo.light : ""}
+        alt="League Logo"
+      />
       {footballTeam && (
         <section className="hero-wrapper">
           {/* <article className="search-buttons">
@@ -112,6 +142,7 @@ const Home = () => {
           </article> */}
 
           <article className="seasons-scorer-article">
+            <HomeButton />
             <article className="season-buttons">
               <PrevSeasonButton
                 season={season}
@@ -121,7 +152,7 @@ const Home = () => {
                 setTopScorer={setTopScorer}
               />
 
-              <h2>{season}</h2>
+              <h2> - {season} -</h2>
 
               <NextSeasonButton
                 season={season}
@@ -183,4 +214,4 @@ const Home = () => {
     </>
   );
 };
-export default Home;
+export default Premier;
