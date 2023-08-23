@@ -21,13 +21,15 @@ const NextSeasonButton = ({
 
   return (
     <>
-      <button
-        type="button"
-        className="prev-season-button"
-        onClick={getNextSeason}
-      >
-        NEXT SEASON
-      </button>
+      {season < year && (
+        <button
+          type="button"
+          className="prev-season-button"
+          onClick={getNextSeason}
+        >
+          NEXT SEASON
+        </button>
+      )}
     </>
   );
 };

@@ -41,3 +41,13 @@
     background-color: var(--button-bg-color);
     border-radius: 5px;
   }
+
+  @media screen and (max-width: 383px) {
+    h1 {
+      font-size: 25px;
+    }
+
+    h2 {
+      font-size: 15px;
+    }
+  }

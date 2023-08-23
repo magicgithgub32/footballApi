@@ -1,9 +1,6 @@
-.hero {
-    height: 60vh;
-    margin: 20px;
-}
 
 .hero-wrapper {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,4 +55,11 @@
     display: flex;
     gap: 10px;
     margin-bottom: 30px;
+}
+
+@media screen and (max-width: 442px) {
+    .seasons-scorer-article {
+        align-items: flex-start;
+        margin: 10px;
+    }
 }

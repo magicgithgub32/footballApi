@@ -30,3 +30,9 @@
     display: flex;
     gap: 20px;
 }
+
+@media screen and (max-width: 3838px) {
+    .topscorer-article {
+        margin: 10px;
+    }
+}

@@ -91,10 +91,10 @@ const Home = () => {
 
   return (
     <>
-      <Header headerText="PREMIER LEAGUE STATS" />
+      <Header headerText="PREMIER LEAGUE" />
       {footballTeam && (
         <section className="hero-wrapper">
-          <article className="search-buttons">
+          {/* <article className="search-buttons">
             <input
               className="search-input"
               type="text"
@@ -109,7 +109,7 @@ const Home = () => {
             >
               Go!{" "}
             </button>
-          </article>
+          </article> */}
 
           <article className="seasons-scorer-article">
             <article className="season-buttons">
@@ -121,9 +121,7 @@ const Home = () => {
                 setTopScorer={setTopScorer}
               />
 
-              <h2>
-                {season} - {season + 1}
-              </h2>
+              <h2>{season}</h2>
 
               <NextSeasonButton
                 season={season}
