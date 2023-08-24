@@ -1,5 +1,6 @@
 import React from "react";
 import { topScorers } from "../../data/topScorers";
+import { pichichis } from "../../data/pichichis";
 
 const PrevSeasonButton = ({
   season,
@@ -7,13 +8,20 @@ const PrevSeasonButton = ({
   setTopScorerId,
   topScorerId,
   setTopScorer,
-  topScorer,
+  leagueName,
+  setPichichiId,
+  pichichiId,
+  setPichichi,
 }) => {
   const getPrevSeason = () => {
-    if (season > 2001) {
+    if (season > 2001 && leagueName === "English Premier League") {
       setSeason(season - 1);
       setTopScorerId(topScorerId - 1);
       setTopScorer(topScorers[topScorerId - 1]);
+    } else if (season > 2001 && leagueName === "Spanish LALIGA") {
+      setSeason(season - 1);
+      setPichichiId(pichichiId - 1);
+      setPichichi(pichichis[pichichiId - 1]);
     }
   };
 

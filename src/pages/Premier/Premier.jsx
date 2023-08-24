@@ -154,6 +154,7 @@ const Premier = () => {
                 setTopScorerId={setTopScorerId}
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
+                leagueName={leagueName}
               />
 
               <h2> - {season} -</h2>
@@ -164,6 +165,7 @@ const Premier = () => {
                 setTopScorerId={setTopScorerId}
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
+                leagueName={leagueName}
               />
             </article>
 
@@ -189,6 +191,7 @@ const Premier = () => {
             {console.log("rank", rank)}
             {console.log("games Played", standingsData[teamId].stats[0].value)}
             {console.log("topSCorer", topScorer)}
+            {console.log("leagueName", leagueName)}
 
             <h2 className="team-name">{footballTeam}</h2>
             <Link to="/stats">

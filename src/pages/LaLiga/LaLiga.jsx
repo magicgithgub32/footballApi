@@ -160,6 +160,7 @@ const LaLiga = () => {
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
+                leagueName={leagueName}
               />
 
               <h2> - {season} - </h2>
@@ -170,6 +171,7 @@ const LaLiga = () => {
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
+                leagueName={leagueName}
               />
             </article>
 
@@ -191,6 +193,7 @@ const LaLiga = () => {
             {console.log("rank", rank)}
             {console.log("games Played", standingsData[teamId].stats[0].value)}
             {console.log("pichichi", pichichi)}
+            {console.log("leagueName", leagueName)}
 
             <h2 className="team-name">{footballTeam}</h2>
             <Link to="/stats">
