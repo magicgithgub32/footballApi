@@ -35,6 +35,10 @@ const Premier = () => {
     setLeague,
   } = useContext(FootballContext);
 
+  // const { topScorerData } = useContext(TopScorerInfoContext);
+
+  // const premierTopScorers = topScorerData.eng;
+
   const getFootballFetch = async () => {
     const result = await fetch(
       `https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=${season}&sort=asc`
@@ -168,6 +172,10 @@ const Premier = () => {
                 TOP SCORER
               </button>
             </Link>
+
+            {/* <Link to="/topScorer?league=eng">
+              View Premier League Top Scorer
+            </Link> */}
           </article>
 
           <article className="name-logo-wrapper">

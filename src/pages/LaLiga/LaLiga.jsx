@@ -22,16 +22,16 @@ const LaLiga = () => {
     teamLogo,
     season,
     setSeason,
-    topScorerId,
-    setTopScorerId,
-    topScorer,
-    setTopScorer,
     leagueName,
     setLeagueName,
     setLeagueLogo,
     leagueLogo,
     league,
     setLeague,
+    pichichi,
+    setPichichi,
+    pichichiId,
+    setPichichiId,
   } = useContext(FootballContext);
 
   const getFootballFetch = async () => {
@@ -71,19 +71,26 @@ const LaLiga = () => {
 
   useEffect(() => {
     if (standingsData) {
-      setFootballTeam(standingsData[teamId]?.team.name);
+      const currentFootballTeam = standingsData[teamId]?.team.name;
+      setFootballTeam(currentFootballTeam);
+    }
+  }, [standingsData, teamId]);
 
-      if (footballTeam === "Real Murcia") {
+  useEffect(() => {
+    if (footballTeam) {
+      if (footballTeam === "Real Murcia" || footballTeam === "Murcia") {
         setTeamLogo("./Murcia.png");
       } else if (footballTeam === "Recreativo Huelva") {
         setTeamLogo("./Recre.png");
       } else if (footballTeam === "Hercules") {
-        setTeamLogo("./hercules.png");
+        setTeamLogo("./Hercules.png");
       } else {
-        setTeamLogo(standingsData[teamId]?.team.logos[0].href);
+        setTeamLogo(
+          standingsData[teamId]?.team.logos[0]?.href || "./etrusco.png"
+        );
       }
     }
-  }, [standingsData, teamId, season]);
+  }, [footballTeam]);
 
   const getPreviousTeam = () => {
     if (teamId > 0) {
@@ -150,9 +157,9 @@ const LaLiga = () => {
               <PrevSeasonButton
                 season={season}
                 setSeason={setSeason}
-                setTopScorerId={setTopScorerId}
-                topScorerId={topScorerId}
-                setTopScorer={setTopScorer}
+                setPichichiId={setPichichiId}
+                pichichiId={pichichiId}
+                setPichichi={setPichichi}
               />
 
               <h2> - {season} - </h2>
@@ -160,15 +167,15 @@ const LaLiga = () => {
               <NextSeasonButton
                 season={season}
                 setSeason={setSeason}
-                setTopScorerId={setTopScorerId}
-                topScorerId={topScorerId}
-                setTopScorer={setTopScorer}
+                setPichichiId={setPichichiId}
+                pichichiId={pichichiId}
+                setPichichi={setPichichi}
               />
             </article>
 
-            <Link to="/topscorer">
+            <Link to="/pichichi">
               <button type="submit" className="top-scorer">
-                TOP SCORER
+                PICHICHI
               </button>
             </Link>
           </article>
@@ -183,7 +190,7 @@ const LaLiga = () => {
             {console.log("standingsData", standingsData)}
             {console.log("rank", rank)}
             {console.log("games Played", standingsData[teamId].stats[0].value)}
-            {console.log("topSCorer", topScorer)}
+            {console.log("pichichi", pichichi)}
 
             <h2 className="team-name">{footballTeam}</h2>
             <Link to="/stats">

@@ -7,7 +7,7 @@ import StatsCard from "../../components/StatsCard/StatsCard";
 import HomeButton from "../../components/HomeButton/HomeButton";
 
 const Stats = () => {
-  const { standingsData, footballTeam, teamId, season, teamLogo } =
+  const { standingsData, footballTeam, teamId, season, teamLogo, leagueName } =
     useContext(FootballContext);
 
   const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
@@ -18,7 +18,7 @@ const Stats = () => {
         <section>
           <article className="header-back-home-article">
             <Header
-              headerText={`${season} - ${season + 1} PREMIER LEAGUE STATS`}
+              headerText={`${season} - ${season + 1} ${leagueName} STATS`}
             />
 
             <HomeButton />
