@@ -21,8 +21,7 @@ const TopScorerCard = ({ topScorer }) => {
           ))
         ) : (
           <>
-            //? AÑADIR CLAVE VID A CADA TOPSCORER y ARREGLAR CSS
-            <a href={topSCorer.vid}>
+            <a href={topScorer.vid} target="_blank">
               <img
                 className="top-scorer-pic"
                 src={topScorer.pic}

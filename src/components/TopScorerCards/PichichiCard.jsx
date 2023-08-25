@@ -20,7 +20,15 @@ const PichichiCard = ({ pichichi }) => {
             <img key={index} src={playerPic} alt="Top Scorer" />
           ))
         ) : (
-          <img src={pichichi.pic} alt="top Scorer" />
+          <>
+            <a href={pichichi.vid} target="_blank">
+              <img
+                className="top-scorer-pic"
+                src={pichichi.pic}
+                alt="top Scorer"
+              />
+            </a>
+          </>
         )}
       </div>
     </article>
