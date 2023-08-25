@@ -86,6 +86,8 @@ const FootballHub = () => {
     <>
       <Header img="./etrusco.png" alt="football" headerText="FOOTBALL - HUB" />
 
+      {console.log("season at FootballHub", season)}
+
       <article className="selection-wrapper">
         <h2>CHOOSE YOUR LEAGUE</h2>
       </article>

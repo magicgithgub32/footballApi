@@ -5,7 +5,6 @@ import Home from "./pages/Premier/Premier";
 import Stats from "./pages/Stats/Stats";
 import TopScorer from "./pages/TopScorer/TopScorer";
 import { topScorers } from "./data/topScorers";
-import ReHome from "./pages/ReHome/Rehome";
 import FootballHub from "./pages/FootballHub/FootballHub";
 import Premier from "./pages/Premier/Premier";
 import LaLiga from "./pages/LaLiga/LaLiga";

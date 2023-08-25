@@ -32,6 +32,8 @@ const LaLiga = () => {
     setPichichi,
     pichichiId,
     setPichichiId,
+    setTopScorerId,
+    setTopScorer,
   } = useContext(FootballContext);
 
   const getFootballFetch = async () => {
@@ -172,6 +174,8 @@ const LaLiga = () => {
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
                 leagueName={leagueName}
+                setTopScorerId={setTopScorerId}
+                setTopScorer={setTopScorer}
               />
             </article>
 

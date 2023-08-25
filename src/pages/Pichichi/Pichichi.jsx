@@ -3,8 +3,9 @@ import "./Pichichi.css";
 import { FootballContext } from "../../App";
 import Header from "../../components/Header/Header";
 import HomeButton from "../../components/HomeButton/HomeButton";
-import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
-import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
+import NextSeasonButtonSp from "../../components/NextPrevSeasonsButtons/NextSeasonButtonSp";
+import PrevSeasonButtonSp from "../../components/NextPrevSeasonsButtons/PrevSeasonButtonSp";
+import PichichiCard from "../../components/TopScorercards/PichichiCard";
 
 const Pichichi = () => {
   const {
@@ -15,6 +16,9 @@ const Pichichi = () => {
     setPichichi,
     setPichichiId,
     pichichiId,
+    setTopScorerId,
+    topScorerId,
+    setTopScorer,
   } = useContext(FootballContext);
   return (
     <section>
@@ -25,42 +29,49 @@ const Pichichi = () => {
         <HomeButton />
       </article>
 
-      <article className="topscorer-article">
-        <div className="topscorer-card">
-          <div className="name-goals">
-            {pichichi.name.length > 1 ? (
-              pichichi.name.map((playerName, index) => (
-                <p key={index}>{playerName} -</p>
-              ))
-            ) : (
-              <p>{pichichi.name[0]}</p>
-            )}
-            <p>{pichichi.goals} Goals</p>
-          </div>
-          {pichichi.name.length > 1 ? (
-            pichichi.pic.map((playerPic, index) => (
-              <img key={index} src={playerPic} alt="Top Scorer" />
-            ))
-          ) : (
-            <img src={pichichi.pic} alt="top Scorer" />
-          )}
-        </div>
-      </article>
+      <PichichiCard pichichi={pichichi} />
+
       <article className="season-buttons">
-        <PrevSeasonButton
+        {/* <PrevSeasonButton
           season={season}
           setSeason={setSeason}
           setPichichiId={setPichichiId}
           pichichiId={pichichiId}
           setPichichi={setPichichi}
+          setTopScorer={setTopScorer}
+          setTopScorerId={setTopScorerId}
+        /> */}
+
+        {/* <NextSeasonButton
+          season={season}
+          setSeason={setSeason}
+          setPichichiId={setPichichiId}
+          pichichiId={pichichiId}
+          setPichichi={setPichichi}
+        /> */}
+
+        {console.log("season", season)}
+
+        <PrevSeasonButtonSp
+          season={season}
+          setSeason={setSeason}
+          setPichichiId={setPichichiId}
+          pichichiId={pichichiId}
+          setPichichi={setPichichi}
+          setTopScorerId={setTopScorerId}
+          topScorerId={topScorerId}
+          setTopScorer={setTopScorer}
         />
 
-        <NextSeasonButton
+        <NextSeasonButtonSp
           season={season}
           setSeason={setSeason}
           setPichichiId={setPichichiId}
           pichichiId={pichichiId}
           setPichichi={setPichichi}
+          setTopScorerId={setTopScorerId}
+          topScorerId={topScorerId}
+          setTopScorer={setTopScorer}
         />
       </article>
     </section>

@@ -33,6 +33,9 @@ const Premier = () => {
     leagueLogo,
     league,
     setLeague,
+    setPichichiId,
+    setPichichi,
+    pichichiId,
   } = useContext(FootballContext);
 
   // const { topScorerData } = useContext(TopScorerInfoContext);
@@ -155,6 +158,8 @@ const Premier = () => {
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
                 leagueName={leagueName}
+                setPichichiId={setPichichiId}
+                setPichichi={setPichichi}
               />
 
               <h2> - {season} -</h2>
@@ -165,7 +170,10 @@ const Premier = () => {
                 setTopScorerId={setTopScorerId}
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
-                leagueName={leagueName}
+                leagueName="English Premier League"
+                setPichichiId={setPichichiId}
+                pichichiId={pichichiId}
+                setPichichi={setPichichi}
               />
             </article>
 
@@ -188,6 +196,7 @@ const Premier = () => {
             )}
 
             {console.log("standingsData", standingsData)}
+            {console.log("season", season)}
             {console.log("rank", rank)}
             {console.log("games Played", standingsData[teamId].stats[0].value)}
             {console.log("topSCorer", topScorer)}

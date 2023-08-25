@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { topScorers } from "../../data/topScorers";
 import { pichichis } from "../../data/pichichis";
 
@@ -16,16 +16,51 @@ const NextSeasonButton = ({
   pichichiId,
   setPichichi,
 }) => {
+  // const getNextSeason = () => {
+  //   if (leagueName === "English Premier League" && season <= year) {
+  //     setSeason(season + 1);
+  //     setTopScorerId(topScorerId + 1);
+  //     setTopScorer(topScorers[topScorerId + 1]);
+  //   } else if (leagueName === "Spanish LALIGA" && season <= year) {
+  //     setSeason(season + 1);
+  //     setPichichiId(pichichiId + 1);
+  //     setPichichi(pichichis[pichichiId + 1]);
+  //   }
+  // };
+
   const getNextSeason = () => {
-    if (season <= year && leagueName === "English Premier League") {
+    console.log("season at NextSeasonB", season);
+    console.log("leagueNameatNextSeasonB:", leagueName);
+    if (season <= year) {
       setSeason(season + 1);
       setTopScorerId(topScorerId + 1);
       setTopScorer(topScorers[topScorerId + 1]);
-    } else if (season <= year && leagueName === "Spanish LALIGA")
-      setSeason(season + 1);
-    setPichichiId(pichichiId + 1);
-    setPichichi(pichichis[pichichiId + 1]);
+      setPichichiId(pichichiId + 1);
+      setPichichi(pichichis[pichichiId + 1]);
+    }
   };
+
+  // const getNextSeasonSp = () => {
+  //   if (season < year) {
+  //     setSeason(season + 1);
+  //     setPichichiId(pichichiId + 1);
+  //     setPichichi(pichichis[pichichiId + 1]);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   if (leagueName === "English Premier League" && season <= year) {
+  //     setTopScorerId(topScorerId + 1);
+  //     setTopScorer(topScorers[topScorerId + 1]);
+  //   }
+  // }, [leagueName, season]);
+
+  // useEffect(() => {
+  //   if (leagueName === "Spanish LALIGA" && season <= year) {
+  //     setPichichiId(pichichiId + 1);
+  //     setPichichi(pichichis[pichichiId + 1]);
+  //   }
+  // }, [leagueName, season]);
 
   return (
     <>

@@ -5,6 +5,7 @@ import { FootballContext } from "../../App";
 import HomeButton from "../../components/HomeButton/HomeButton";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
+import TopScorerCard from "../../components/TopScorercards/TopScorerCard";
 
 const TopScorer = () => {
   const {
@@ -15,6 +16,9 @@ const TopScorer = () => {
     topScorerId,
     setTopScorer,
     leagueName,
+    setPichichiId,
+    pichichiId,
+    setPichichi,
   } = useContext(FootballContext);
   return (
     <section>
@@ -25,27 +29,7 @@ const TopScorer = () => {
         <HomeButton />
       </article>
 
-      <article className="topscorer-article">
-        <div className="topscorer-card">
-          <div className="name-goals">
-            {topScorer.name.length > 1 ? (
-              topScorer.name.map((playerName, index) => (
-                <p key={index}>{playerName} -</p>
-              ))
-            ) : (
-              <p>{topScorer.name[0]}</p>
-            )}
-            <p>{topScorer.goals} Goals</p>
-          </div>
-          {topScorer.name.length > 1 ? (
-            topScorer.pic.map((playerPic, index) => (
-              <img key={index} src={playerPic} alt="Top Scorer" />
-            ))
-          ) : (
-            <img src={topScorer.pic} alt="top Scorer" />
-          )}
-        </div>
-      </article>
+      <TopScorerCard topScorer={topScorer} />
 
       <article className="season-buttons">
         <PrevSeasonButton
@@ -54,6 +38,9 @@ const TopScorer = () => {
           setTopScorerId={setTopScorerId}
           topScorerId={topScorerId}
           setTopScorer={setTopScorer}
+          setPichichiId={setPichichiId}
+          pichichiId={pichichiId}
+          setPichichi={setPichichi}
         />
 
         <NextSeasonButton
@@ -62,6 +49,9 @@ const TopScorer = () => {
           setTopScorerId={setTopScorerId}
           topScorerId={topScorerId}
           setTopScorer={setTopScorer}
+          setPichichiId={setPichichiId}
+          pichichiId={pichichiId}
+          setPichichi={setPichichi}
         />
       </article>
     </section>
