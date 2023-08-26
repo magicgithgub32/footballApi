@@ -31,49 +31,49 @@ const FootballHub = () => {
     setLeague,
   } = useContext(FootballContext);
 
-  const getFootballFetch = async () => {
-    const result = await fetch(
-      `https://api-football-standings.azharimm.dev/leagues/${league}/standings?season=${season}&sort=asc`
-    );
+  // const getFootballFetch = async () => {
+  //   const result = await fetch(
+  //     `https://api-football-standings.azharimm.dev/leagues/${league}/standings?season=${season}&sort=asc`
+  //   );
 
-    if (result.status === 200) {
-      const res = await result.json();
-      setStandingsData(res.data.standings);
-      setLeagueName(res.data.name);
-    } else {
-      setStandingsData(null);
-    }
-  };
+  //   if (result.status === 200) {
+  //     const res = await result.json();
+  //     setStandingsData(res.data.standings);
+  //     setLeagueName(res.data.name);
+  //   } else {
+  //     setStandingsData(null);
+  //   }
+  // };
 
-  const getLeagueLogoFetch = async () => {
-    const result = await fetch(
-      "https://api-football-standings.azharimm.dev/leagues"
-    );
+  // const getLeagueLogoFetch = async () => {
+  //   const result = await fetch(
+  //     "https://api-football-standings.azharimm.dev/leagues"
+  //   );
 
-    if (result.status === 200) {
-      const res = await result.json();
-      setLeagueLogo(res.data[5].logos);
-      console.log("leagueLogo", leagueLogo);
-    }
-  };
+  //   if (result.status === 200) {
+  //     const res = await result.json();
+  //     setLeagueLogo(res.data[5].logos);
+  //     console.log("leagueLogo", leagueLogo);
+  //   }
+  // };
 
-  useEffect(() => {
-    getLeagueLogoFetch();
-  }, [league]);
+  // useEffect(() => {
+  //   getLeagueLogoFetch();
+  // }, [league]);
 
-  useEffect(() => {
-    getFootballFetch();
-  }, [season, league]);
+  // useEffect(() => {
+  //   getFootballFetch();
+  // }, [season, league]);
 
-  console.log("footballTeam", footballTeam);
+  // console.log("footballTeam", footballTeam);
 
-  useEffect(() => {
-    if (standingsData) {
-      setFootballTeam(standingsData[teamId]?.team.name);
+  // useEffect(() => {
+  //   if (standingsData) {
+  //     setFootballTeam(standingsData[teamId]?.team.name);
 
-      setTeamLogo(standingsData[teamId]?.team.logos[0].href);
-    }
-  }, [standingsData, teamId, season]);
+  //     setTeamLogo(standingsData[teamId]?.team.logos[0].href);
+  //   }
+  // }, [standingsData, teamId, season]);
 
   const handlePrem = () => {
     setLeague("eng.1");
@@ -95,13 +95,13 @@ const FootballHub = () => {
       <article className="league-buttons">
         <Link to="/premierLeague">
           <button type="submit" className="premier-league" onClick={handlePrem}>
-            PREMIER LEAGUE
+            <img src="inglaterra.png" alt="england" />
           </button>
         </Link>
 
         <Link to="/laliga">
           <button type="submit" className="liga" onClick={handleLiga}>
-            LA LIGA
+            <img src="espana.png" alt="spain" />
           </button>
         </Link>
       </article>

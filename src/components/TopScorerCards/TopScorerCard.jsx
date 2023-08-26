@@ -10,27 +10,31 @@ const TopScorerCard = ({ topScorer }) => {
             <p key={index}>{playerName} -</p>
           ))
         ) : (
-          <p>{topScorer.name[0]}</p>
+          <p>{topScorer.name}</p>
         )}
         <p>{topScorer.goals} Goals</p>
       </div>
-      <div className="topscorer-card">
-        {topScorer.name.length > 1 ? (
-          topScorer.pic.map((playerPic, index) => (
-            <img key={index} src={playerPic} alt="Top Scorer" />
-          ))
-        ) : (
-          <>
-            <a href={topScorer.vid} target="_blank">
-              <img
-                className="top-scorer-pic"
-                src={topScorer.pic}
-                alt="top Scorer"
-              />
-            </a>
-          </>
-        )}
-      </div>
+
+      {topScorer.name.length > 1 ? (
+        topScorer.pic.map((playerPic, index) => (
+          <a href={topScorer.vid} target="_blank" rel="noreferrer">
+            <img
+              className="top-scorer-pic-two"
+              key={index}
+              src={playerPic}
+              alt="Top Scorer"
+            />
+          </a>
+        ))
+      ) : (
+        <a href={topScorer.vid} target="_blank" rel="noreferrer">
+          <img
+            className="top-scorer-pic"
+            src={topScorer.pic}
+            alt="top Scorer"
+          />
+        </a>
+      )}
     </article>
   );
 };
