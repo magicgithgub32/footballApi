@@ -10,6 +10,7 @@ import Premier from "./pages/Premier/Premier";
 import LaLiga from "./pages/LaLiga/LaLiga";
 import { pichichis } from "./data/pichichis";
 import Pichichi from "./pages/Pichichi/Pichichi";
+import LigaArgentina from "./pages/LigaArgentina/LigaArgentina";
 
 export const FootballContext = createContext();
 
@@ -437,19 +438,21 @@ const App = () => {
   const [league, setLeague] = useState("esp.1");
   const [leagueName, setLeagueName] = useState("");
   const [leagueLogo, setLeagueLogo] = useState("");
-
   const [standingsData, setStandingsData] = useState(null);
   const [footballTeam, setFootballTeam] = useState("");
   const [teamLogo, setTeamLogo] = useState("");
   const [teamId, setTeamId] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [season, setSeason] = useState(2001);
+
   const [topScorerId, setTopScorerId] = useState(0);
   const [topScorer, setTopScorer] = useState(topScorers[topScorerId]);
-
   const [pichichiId, setPichichiId] = useState(0);
   const [pichichi, setPichichi] = useState(pichichis[pichichiId]);
-
+  const [goleadorArgId, setGoleadorArgId] = useState(0);
+  // const [goleadorArg, setGoleadorArg] = useState(goleadoresArg[goleadorArgId]);
+  //? CREAR GOLEADORESARG con la lista de goleadores y descomentar esta línea y borrar la de abajo
+  const [goleadorArg, setGoleadorArg] = useState(1);
   return (
     <>
       <FootballContext.Provider
@@ -460,7 +463,6 @@ const App = () => {
           setLeagueName: setLeagueName,
           leagueLogo: leagueLogo,
           setLeagueLogo: setLeagueLogo,
-
           standingsData: standingsData,
           setStandingsData: setStandingsData,
           footballTeam: footballTeam,
@@ -473,6 +475,7 @@ const App = () => {
           setSearchQuery: setSearchQuery,
           season: season,
           setSeason: setSeason,
+
           topScorer: topScorer,
           setTopScorer: setTopScorer,
           topScorerId: topScorerId,
@@ -481,14 +484,19 @@ const App = () => {
           setPichichi: setPichichi,
           pichichiId: pichichiId,
           setPichichiId: setPichichiId,
+          goleadorArg: goleadorArg,
+          setGoleadorArg: setGoleadorArg,
+          goleadorArgId: goleadorArgId,
+          setGoleadorArgId: setGoleadorArgId,
         }}
       >
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<FootballHub />}></Route>
 
-            <Route path="/premier" element={<Premier />}></Route>
-            <Route path="/laliga" element={<LaLiga />}></Route>
+            <Route path="/eng.1" element={<Premier />}></Route>
+            <Route path="/esp.1" element={<LaLiga />}></Route>
+            <Route path="/arg.1" element={<LigaArgentina />}></Route>
             <Route path="*" element={<Home />}></Route>
             <Route path="/stats" element={<Stats />}></Route>
             <Route path="/topScorer" element={<TopScorer />}></Route>

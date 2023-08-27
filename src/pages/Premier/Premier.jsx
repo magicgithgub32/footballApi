@@ -31,8 +31,6 @@ const Premier = () => {
     setLeagueName,
     setLeagueLogo,
     leagueLogo,
-    league,
-    setLeague,
     setPichichiId,
     setPichichi,
     pichichiId,
