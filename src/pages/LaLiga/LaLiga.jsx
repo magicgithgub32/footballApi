@@ -27,13 +27,17 @@ const LaLiga = () => {
     setLeagueLogo,
     leagueLogo,
     league,
-    setLeague,
+    seasonDisplay,
+    setSeasonDisplay,
     pichichi,
     setPichichi,
     pichichiId,
     setPichichiId,
     setTopScorerId,
     setTopScorer,
+    goleadorArgId,
+    setGoleadorArgId,
+    setGoleadorArg,
   } = useContext(FootballContext);
 
   const getFootballFetch = async () => {
@@ -45,6 +49,7 @@ const LaLiga = () => {
       const res = await result.json();
       setStandingsData(res.data.standings);
       setLeagueName(res.data.name);
+      setSeasonDisplay(res.data.seasonDisplay);
     } else {
       setStandingsData(null);
     }
@@ -163,9 +168,12 @@ const LaLiga = () => {
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
                 leagueName={leagueName}
+                setTopScorerId={setTopScorerId}
+                setTopScorer={setTopScorer}
               />
 
-              <h2> - {season} - </h2>
+              {/* <h2> - {season} - </h2> */}
+              <h2> {seasonDisplay}</h2>
 
               <NextSeasonButton
                 season={season}

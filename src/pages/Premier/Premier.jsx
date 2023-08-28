@@ -23,6 +23,8 @@ const Premier = () => {
     teamLogo,
     season,
     setSeason,
+    seasonDisplay,
+    setSeasonDisplay,
     topScorerId,
     setTopScorerId,
     topScorer,
@@ -34,6 +36,9 @@ const Premier = () => {
     setPichichiId,
     setPichichi,
     pichichiId,
+    goleadorArgId,
+    setGoleadorArgId,
+    setGoleadorArg,
   } = useContext(FootballContext);
 
   // const { topScorerData } = useContext(TopScorerInfoContext);
@@ -49,6 +54,7 @@ const Premier = () => {
       const res = await result.json();
       setStandingsData(res.data.standings);
       setLeagueName(res.data.name);
+      setSeasonDisplay(res.data.seasonDisplay);
 
       // setLeagueLogo(res.data.logos.light);
     } else {
@@ -158,9 +164,13 @@ const Premier = () => {
                 leagueName={leagueName}
                 setPichichiId={setPichichiId}
                 setPichichi={setPichichi}
+                // goleadorArgId={goleadorArgId}
+                // setGoleadorArgId={setGoleadorArgId}
+                // setGoleadorArg={setGoleadorArg}
               />
 
-              <h2> - {season} -</h2>
+              {/* <h2> - {season} -</h2> */}
+              <h2>{seasonDisplay}</h2>
 
               <NextSeasonButton
                 season={season}
@@ -168,10 +178,13 @@ const Premier = () => {
                 setTopScorerId={setTopScorerId}
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
-                leagueName="English Premier League"
+                leagueName={leagueName}
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
+                // goleadorArgId={goleadorArgId}
+                // setGoleadorArgId={setGoleadorArgId}
+                // setGoleadorArg={setGoleadorArg}
               />
             </article>
 

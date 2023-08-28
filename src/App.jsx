@@ -11,6 +11,7 @@ import LaLiga from "./pages/LaLiga/LaLiga";
 import { pichichis } from "./data/pichichis";
 import Pichichi from "./pages/Pichichi/Pichichi";
 import LigaArgentina from "./pages/LigaArgentina/LigaArgentina";
+import GoleadorArg from "./pages/GoleadorArg/GoleadorArg";
 
 export const FootballContext = createContext();
 
@@ -444,6 +445,8 @@ const App = () => {
   const [teamId, setTeamId] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [season, setSeason] = useState(2001);
+  const [seasonDisplay, setSeasonDisplay] = useState("");
+  const [seasonArg, setSeasonArg] = useState(2002);
 
   const [topScorerId, setTopScorerId] = useState(0);
   const [topScorer, setTopScorer] = useState(topScorers[topScorerId]);
@@ -451,7 +454,7 @@ const App = () => {
   const [pichichi, setPichichi] = useState(pichichis[pichichiId]);
   const [goleadorArgId, setGoleadorArgId] = useState(0);
   // const [goleadorArg, setGoleadorArg] = useState(goleadoresArg[goleadorArgId]);
-  //? CREAR GOLEADORESARG con la lista de goleadores y descomentar esta línea y borrar la de abajo
+  //? CREAR goleadoresArg con la lista de goleadores y descomentar esta línea y borrar la de abajo. Y quizás, crear contexto de topScorer
   const [goleadorArg, setGoleadorArg] = useState(1);
   return (
     <>
@@ -475,6 +478,10 @@ const App = () => {
           setSearchQuery: setSearchQuery,
           season: season,
           setSeason: setSeason,
+          seasonArg: seasonArg,
+          setSeasonArg: setSeasonArg,
+          seasonDisplay: seasonDisplay,
+          setSeasonDisplay: setSeasonDisplay,
 
           topScorer: topScorer,
           setTopScorer: setTopScorer,
@@ -501,6 +508,7 @@ const App = () => {
             <Route path="/stats" element={<Stats />}></Route>
             <Route path="/topScorer" element={<TopScorer />}></Route>
             <Route path="/pichichi" element={<Pichichi />}></Route>
+            <Route path="/goleadorarg" element={<GoleadorArg />}></Route>
           </Routes>
         </BrowserRouter>
       </FootballContext.Provider>

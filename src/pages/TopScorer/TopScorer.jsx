@@ -12,6 +12,8 @@ const TopScorer = () => {
     season,
     topScorer,
     setSeason,
+    setSeasonArg,
+    seasonDisplay,
     setTopScorerId,
     topScorerId,
     setTopScorer,
@@ -19,6 +21,9 @@ const TopScorer = () => {
     setPichichiId,
     pichichiId,
     setPichichi,
+    setGoleadorArg,
+    setGoleadorArgId,
+    goleadorArgId,
   } = useContext(FootballContext);
   return (
     <section>
@@ -35,6 +40,7 @@ const TopScorer = () => {
         <PrevSeasonButton
           season={season}
           setSeason={setSeason}
+          setSeasonArg={setSeasonArg}
           setTopScorerId={setTopScorerId}
           topScorerId={topScorerId}
           setTopScorer={setTopScorer}
@@ -46,6 +52,7 @@ const TopScorer = () => {
         <NextSeasonButton
           season={season}
           setSeason={setSeason}
+          setSeasonArg={setSeasonArg}
           setTopScorerId={setTopScorerId}
           topScorerId={topScorerId}
           setTopScorer={setTopScorer}

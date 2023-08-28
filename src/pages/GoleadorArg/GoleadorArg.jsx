@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-import "./Pichichi.css";
+import "./GoleadorArg.css";
 import { FootballContext } from "../../App";
 import Header from "../../components/Header/Header";
 import HomeButton from "../../components/HomeButton/HomeButton";
-import NextSeasonButtonSp from "../../components/NextPrevSeasonsButtons/NextSeasonButtonSp";
-import PrevSeasonButtonSp from "../../components/NextPrevSeasonsButtons/PrevSeasonButtonSp";
 import PichichiCard from "../../components/TopScorercards/PichichiCard";
 
-const Pichichi = () => {
+const GoleadorArg = () => {
   const {
     season,
     leagueName,
@@ -32,30 +30,10 @@ const Pichichi = () => {
         />
         <HomeButton />
       </article>
-
+      //? Cambiar por GoleadorArgCard
       <PichichiCard pichichi={pichichi} />
-
       <article className="season-buttons">
-        {/* <PrevSeasonButton
-          season={season}
-          setSeason={setSeason}
-          setPichichiId={setPichichiId}
-          pichichiId={pichichiId}
-          setPichichi={setPichichi}
-          setTopScorer={setTopScorer}
-          setTopScorerId={setTopScorerId}
-        /> */}
-
-        {/* <NextSeasonButton
-          season={season}
-          setSeason={setSeason}
-          setPichichiId={setPichichiId}
-          pichichiId={pichichiId}
-          setPichichi={setPichichi}
-        /> */}
-
-        {console.log("season", season)}
-
+        //?Cambiar por PrevSeasonButton o PrevSeasonButtonArg
         <PrevSeasonButtonSp
           season={season}
           setSeason={setSeason}
@@ -67,7 +45,6 @@ const Pichichi = () => {
           topScorerId={topScorerId}
           setTopScorer={setTopScorer}
         />
-
         <NextSeasonButtonSp
           season={season}
           setSeason={setSeason}
@@ -84,4 +61,4 @@ const Pichichi = () => {
   );
 };
 
-export default Pichichi;
+export default GoleadorArg;

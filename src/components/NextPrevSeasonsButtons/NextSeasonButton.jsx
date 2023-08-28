@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { topScorers } from "../../data/topScorers";
 import { pichichis } from "../../data/pichichis";
 
@@ -8,6 +8,8 @@ var year = today.getFullYear();
 const NextSeasonButton = ({
   season,
   setSeason,
+  seasonArg,
+  setSeasonArg,
   setTopScorerId,
   topScorerId,
   setTopScorer,
@@ -15,6 +17,9 @@ const NextSeasonButton = ({
   setPichichiId,
   pichichiId,
   setPichichi,
+  // setGoleadorArgId,
+  // goleadorArgId,
+  // setGoleadorArg,
 }) => {
   // const getNextSeason = () => {
   //   if (leagueName === "English Premier League" && season <= year) {
@@ -33,10 +38,13 @@ const NextSeasonButton = ({
     console.log("leagueNameatNextSeasonB:", leagueName);
     if (season <= year) {
       setSeason(season + 1);
-      setTopScorerId(topScorerId + 1);
-      setTopScorer(topScorers[topScorerId + 1]);
+      setSeasonArg(seasonArg + 1);
       setPichichiId(pichichiId + 1);
       setPichichi(pichichis[pichichiId + 1]);
+      setTopScorerId(topScorerId + 1);
+      setTopScorer(topScorers[topScorerId + 1]);
+      // setGoleadorArgId(goleadorArgId + 1);
+      // setGoleadorArg(goleadoresArg + 1);
     }
   };
 
