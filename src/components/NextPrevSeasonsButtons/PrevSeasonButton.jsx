@@ -1,6 +1,7 @@
 import React from "react";
 import { topScorers } from "../../data/topScorers";
 import { pichichis } from "../../data/pichichis";
+import { goleadoresArg } from "../../data/goleadoresArg";
 
 const PrevSeasonButton = ({
   season,
@@ -19,15 +20,21 @@ const PrevSeasonButton = ({
   setGoleadorArg,
 }) => {
   const getPrevSeason = () => {
-    if (season > 2001) {
+    if (season > 2002) {
       setSeason(season - 1);
       setSeasonArg(seasonArg - 1);
       setTopScorerId(topScorerId - 1);
       setTopScorer(topScorers[topScorerId - 1]);
       setPichichiId(pichichiId - 1);
       setPichichi(pichichis[pichichiId - 1]);
-      // setGoleadorArgId(goleadorArgId - 1);
-      // setGoleadorArg(goleadoresArg - 1);
+      setGoleadorArgId(goleadorArgId - 1);
+      setGoleadorArg(goleadoresArg[goleadorArgId - 1]);
+    } else if (season === 2002) {
+      setSeason(season - 1);
+      setTopScorerId(topScorerId - 1);
+      setTopScorer(topScorers[topScorerId - 1]);
+      setPichichiId(pichichiId - 1);
+      setPichichi(pichichis[pichichiId - 1]);
     }
   };
 

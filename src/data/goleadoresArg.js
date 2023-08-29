@@ -3,7 +3,7 @@ export const goleadoresArg = [
     season: 2003,
     name: ["Luciano Figueroa"],
     goals: 17,
-    pic: ["LuF.jpeg"],
+    pic: ["LuF.png"],
     vid: "https://www.youtube.com/watch?v=BUWqrtCU3S0&ab_channel=canalla23",
   },
   {
@@ -73,7 +73,7 @@ export const goleadoresArg = [
     season: 2013,
     name: ["Emmanuel Gigliotti", "Ignacio Scocco"],
     goals: 50,
-    pic: ["EmmG", "IgS.jpeg"],
+    pic: ["EmG.jpeg", "IgS.jpeg"],
     vid: "https://www.youtube.com/watch?v=qe8bSB0yN74&ab_channel=WellmanLowhand",
   },
   {
@@ -122,7 +122,7 @@ export const goleadoresArg = [
     season: 2020,
     name: ["Rafael Borré", "Silvio Romero"],
     goals: 12,
-    pic: ["RaBo.jpeg", "SiRo"],
+    pic: ["RaBo.jpeg", "SiRo.jpeg"],
     vid: "https://www.youtube.com/watch?v=8DcSLRZ-n8Q&ab_channel=LigaProfesionaldeF%C3%BAtboldelaAFA",
   },
   {

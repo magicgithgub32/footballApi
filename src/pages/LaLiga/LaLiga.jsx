@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import "./LaLiga.css";
+import "../Premier/Premier.css";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { FootballContext } from "../../App";
+import { FootballContext, TopScorerContext } from "../../App";
 import { Link } from "react-router-dom";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
@@ -22,6 +22,8 @@ const LaLiga = () => {
     teamLogo,
     season,
     setSeason,
+    seasonArg,
+    setSeasonArg,
     leagueName,
     setLeagueName,
     setLeagueLogo,
@@ -29,16 +31,22 @@ const LaLiga = () => {
     league,
     seasonDisplay,
     setSeasonDisplay,
-    pichichi,
+  } = useContext(FootballContext);
+
+  const {
+    topScorerId,
+    setTopScorerId,
+    topScorer,
+    setTopScorer,
+    setPichichiId,
     setPichichi,
     pichichiId,
-    setPichichiId,
-    setTopScorerId,
-    setTopScorer,
+    pichichi,
     goleadorArgId,
     setGoleadorArgId,
+    goleadorArg,
     setGoleadorArg,
-  } = useContext(FootballContext);
+  } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
     const result = await fetch(
@@ -164,26 +172,39 @@ const LaLiga = () => {
               <PrevSeasonButton
                 season={season}
                 setSeason={setSeason}
+                seasonArg={seasonArg}
+                setSeasonArg={setSeasonArg}
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
+                pichichi={pichichi}
                 leagueName={leagueName}
                 setTopScorerId={setTopScorerId}
                 setTopScorer={setTopScorer}
+                topScorer={topScorer}
+                setGoleadorArgId={setGoleadorArgId}
+                setGoleadorArg={setGoleadorArg}
+                goleadorArg={goleadorArg}
               />
 
-              {/* <h2> - {season} - </h2> */}
               <h2> {seasonDisplay}</h2>
 
               <NextSeasonButton
                 season={season}
                 setSeason={setSeason}
+                seasonArg={seasonArg}
+                setSeasonArg={setSeasonArg}
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
+                pichichi={pichichi}
                 setPichichi={setPichichi}
                 leagueName={leagueName}
                 setTopScorerId={setTopScorerId}
                 setTopScorer={setTopScorer}
+                topScorer={topScorer}
+                setGoleadorArgId={setGoleadorArgId}
+                setGoleadorArg={setGoleadorArg}
+                goleadorArg={goleadorArg}
               />
             </article>
 
@@ -202,6 +223,14 @@ const LaLiga = () => {
             )}
 
             {console.log("standingsData", standingsData)}
+            {console.log("rank", rank)}
+            {console.log("seasonArg", seasonArg)}
+            {console.log("pichichi", pichichi)}
+
+            {console.log("leagueName", leagueName)}
+            {console.log("standingsData", standingsData)}
+            {console.log("season", season)}
+            {console.log("seasonArg", seasonArg)}
             {console.log("rank", rank)}
             {console.log("games Played", standingsData[teamId].stats[0].value)}
             {console.log("pichichi", pichichi)}

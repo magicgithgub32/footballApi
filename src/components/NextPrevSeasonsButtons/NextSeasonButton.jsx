@@ -1,6 +1,7 @@
 import React from "react";
 import { topScorers } from "../../data/topScorers";
 import { pichichis } from "../../data/pichichis";
+import { goleadoresArg } from "../../data/goleadoresArg";
 
 var today = new Date();
 var year = today.getFullYear();
@@ -17,58 +18,30 @@ const NextSeasonButton = ({
   setPichichiId,
   pichichiId,
   setPichichi,
-  // setGoleadorArgId,
-  // goleadorArgId,
-  // setGoleadorArg,
+  setGoleadorArgId,
+  goleadorArgId,
+  setGoleadorArg,
 }) => {
-  // const getNextSeason = () => {
-  //   if (leagueName === "English Premier League" && season <= year) {
-  //     setSeason(season + 1);
-  //     setTopScorerId(topScorerId + 1);
-  //     setTopScorer(topScorers[topScorerId + 1]);
-  //   } else if (leagueName === "Spanish LALIGA" && season <= year) {
-  //     setSeason(season + 1);
-  //     setPichichiId(pichichiId + 1);
-  //     setPichichi(pichichis[pichichiId + 1]);
-  //   }
-  // };
-
   const getNextSeason = () => {
     console.log("season at NextSeasonB", season);
-    console.log("leagueNameatNextSeasonB:", leagueName);
-    if (season <= year) {
+    console.log("seasonArg at nextSeasonB:", seasonArg);
+    if (season < year - 1) {
       setSeason(season + 1);
       setSeasonArg(seasonArg + 1);
       setPichichiId(pichichiId + 1);
       setPichichi(pichichis[pichichiId + 1]);
       setTopScorerId(topScorerId + 1);
       setTopScorer(topScorers[topScorerId + 1]);
-      // setGoleadorArgId(goleadorArgId + 1);
-      // setGoleadorArg(goleadoresArg + 1);
+      setGoleadorArgId(goleadorArgId + 1);
+      setGoleadorArg(goleadoresArg[goleadorArgId + 1]);
+    } else if (season < year) {
+      setSeason(season + 1);
+      setPichichiId(pichichiId + 1);
+      setPichichi(pichichis[pichichiId + 1]);
+      setTopScorerId(topScorerId + 1);
+      setTopScorer(topScorers[topScorerId + 1]);
     }
   };
-
-  // const getNextSeasonSp = () => {
-  //   if (season < year) {
-  //     setSeason(season + 1);
-  //     setPichichiId(pichichiId + 1);
-  //     setPichichi(pichichis[pichichiId + 1]);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (leagueName === "English Premier League" && season <= year) {
-  //     setTopScorerId(topScorerId + 1);
-  //     setTopScorer(topScorers[topScorerId + 1]);
-  //   }
-  // }, [leagueName, season]);
-
-  // useEffect(() => {
-  //   if (leagueName === "Spanish LALIGA" && season <= year) {
-  //     setPichichiId(pichichiId + 1);
-  //     setPichichi(pichichis[pichichiId + 1]);
-  //   }
-  // }, [leagueName, season]);
 
   return (
     <>

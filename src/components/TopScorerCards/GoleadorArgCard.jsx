@@ -1,23 +1,23 @@
 import React from "react";
 import "./TopScorerCard.css";
 
-const TopScorerCard = ({ topScorer }) => {
+const GoleadorArgCard = ({ goleadorArg }) => {
   return (
     <article className="topscorer-article">
       <div className="name-goals">
-        {topScorer.name && topScorer.name.length > 1 ? (
-          topScorer.name.map((playerName, index) => (
+        {goleadorArg.name && goleadorArg.name.length > 1 ? (
+          goleadorArg.name.map((playerName, index) => (
             <p key={index}>{playerName} -</p>
           ))
         ) : (
-          <p>{topScorer.name}</p>
+          <p>{goleadorArg.name}</p>
         )}
-        <p>{topScorer.goals} Goals</p>
+        <p>{goleadorArg.goals} Goals</p>
       </div>
 
-      {topScorer.name && topScorer.name.length > 1 ? (
-        topScorer.pic.map((playerPic, index) => (
-          <a href={topScorer.vid} target="_blank" rel="noreferrer">
+      {goleadorArg.name && goleadorArg.name.length > 1 ? (
+        goleadorArg.pic.map((playerPic, index) => (
+          <a href={goleadorArg.vid} target="_blank" rel="noreferrer">
             <img
               className="top-scorer-pic-two"
               key={index}
@@ -27,10 +27,10 @@ const TopScorerCard = ({ topScorer }) => {
           </a>
         ))
       ) : (
-        <a href={topScorer.vid} target="_blank" rel="noreferrer">
+        <a href={goleadorArg.vid} target="_blank" rel="noreferrer">
           <img
             className="top-scorer-pic"
-            src={topScorer.pic}
+            src={goleadorArg.pic}
             alt="top Scorer"
           />
         </a>
@@ -39,4 +39,4 @@ const TopScorerCard = ({ topScorer }) => {
   );
 };
 
-export default TopScorerCard;
+export default GoleadorArgCard;

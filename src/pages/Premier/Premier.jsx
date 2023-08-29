@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 
-import { FootballContext } from "../../App";
+import { FootballContext, TopScorerContext } from "../../App";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 import HomeButton from "../../components/HomeButton/HomeButton";
@@ -23,23 +23,28 @@ const Premier = () => {
     teamLogo,
     season,
     setSeason,
+    seasonArg,
+    setSeasonArg,
     seasonDisplay,
     setSeasonDisplay,
-    topScorerId,
-    setTopScorerId,
-    topScorer,
-    setTopScorer,
     leagueName,
     setLeagueName,
     setLeagueLogo,
     leagueLogo,
+  } = useContext(FootballContext);
+
+  const {
+    topScorerId,
+    setTopScorerId,
+    topScorer,
+    setTopScorer,
     setPichichiId,
     setPichichi,
     pichichiId,
     goleadorArgId,
     setGoleadorArgId,
     setGoleadorArg,
-  } = useContext(FootballContext);
+  } = useContext(TopScorerContext);
 
   // const { topScorerData } = useContext(TopScorerInfoContext);
 
@@ -55,8 +60,6 @@ const Premier = () => {
       setStandingsData(res.data.standings);
       setLeagueName(res.data.name);
       setSeasonDisplay(res.data.seasonDisplay);
-
-      // setLeagueLogo(res.data.logos.light);
     } else {
       setStandingsData(null);
     }
@@ -158,23 +161,26 @@ const Premier = () => {
               <PrevSeasonButton
                 season={season}
                 setSeason={setSeason}
+                seasonArg={seasonArg}
+                setSeasonArg={setSeasonArg}
                 setTopScorerId={setTopScorerId}
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
                 leagueName={leagueName}
                 setPichichiId={setPichichiId}
                 setPichichi={setPichichi}
-                // goleadorArgId={goleadorArgId}
-                // setGoleadorArgId={setGoleadorArgId}
-                // setGoleadorArg={setGoleadorArg}
+                goleadorArgId={goleadorArgId}
+                setGoleadorArgId={setGoleadorArgId}
+                setGoleadorArg={setGoleadorArg}
               />
 
-              {/* <h2> - {season} -</h2> */}
               <h2>{seasonDisplay}</h2>
 
               <NextSeasonButton
                 season={season}
                 setSeason={setSeason}
+                seasonArg={seasonArg}
+                setSeasonArg={setSeasonArg}
                 setTopScorerId={setTopScorerId}
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
@@ -182,9 +188,9 @@ const Premier = () => {
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
-                // goleadorArgId={goleadorArgId}
-                // setGoleadorArgId={setGoleadorArgId}
-                // setGoleadorArg={setGoleadorArg}
+                goleadorArgId={goleadorArgId}
+                setGoleadorArgId={setGoleadorArgId}
+                setGoleadorArg={setGoleadorArg}
               />
             </article>
 
@@ -208,8 +214,8 @@ const Premier = () => {
 
             {console.log("standingsData", standingsData)}
             {console.log("season", season)}
+            {console.log("seasonArg", seasonArg)}
             {console.log("rank", rank)}
-            {console.log("games Played", standingsData[teamId].stats[0].value)}
             {console.log("topSCorer", topScorer)}
             {console.log("leagueName", leagueName)}
 

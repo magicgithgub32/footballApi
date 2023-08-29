@@ -6,11 +6,14 @@ import { FootballContext } from "../../App";
 import LeagueButton from "../../components/LeagueButton/LeagueButton";
 
 const FootballHub = () => {
-  const { setLeague } = useContext(FootballContext);
+  const { setLeague, season } = useContext(FootballContext);
 
   const handleLeagueChange = (leagueId) => {
     setLeague(leagueId);
   };
+
+  var today = new Date();
+  var year = today.getFullYear();
 
   return (
     <>
@@ -34,12 +37,14 @@ const FootballHub = () => {
           onClick={() => handleLeagueChange("esp.1")}
         />
 
-        <LeagueButton
-          leagueId="arg.1"
-          imageSrc="argentina.png"
-          altText="argentina"
-          onClick={() => handleLeagueChange("arg.1")}
-        />
+        {season < year && (
+          <LeagueButton
+            leagueId="arg.1"
+            imageSrc="argentina.png"
+            altText="argentina"
+            onClick={() => handleLeagueChange("arg.1")}
+          />
+        )}
       </article>
 
       <Footer />

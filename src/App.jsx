@@ -12,8 +12,10 @@ import { pichichis } from "./data/pichichis";
 import Pichichi from "./pages/Pichichi/Pichichi";
 import LigaArgentina from "./pages/LigaArgentina/LigaArgentina";
 import GoleadorArg from "./pages/GoleadorArg/GoleadorArg";
+import { goleadoresArg } from "./data/goleadoresArg";
 
 export const FootballContext = createContext();
+export const TopScorerContext = createContext();
 
 // export const TopScorerInfoContext = ({ children }) => {
 //   const [topScorerData, setTopScorerData] = useState({
@@ -453,9 +455,7 @@ const App = () => {
   const [pichichiId, setPichichiId] = useState(0);
   const [pichichi, setPichichi] = useState(pichichis[pichichiId]);
   const [goleadorArgId, setGoleadorArgId] = useState(0);
-  // const [goleadorArg, setGoleadorArg] = useState(goleadoresArg[goleadorArgId]);
-  //? CREAR goleadoresArg con la lista de goleadores y descomentar esta línea y borrar la de abajo. Y quizás, crear contexto de topScorer
-  const [goleadorArg, setGoleadorArg] = useState(1);
+  const [goleadorArg, setGoleadorArg] = useState(goleadoresArg[goleadorArgId]);
   return (
     <>
       <FootballContext.Provider
@@ -482,35 +482,39 @@ const App = () => {
           setSeasonArg: setSeasonArg,
           seasonDisplay: seasonDisplay,
           setSeasonDisplay: setSeasonDisplay,
-
-          topScorer: topScorer,
-          setTopScorer: setTopScorer,
-          topScorerId: topScorerId,
-          setTopScorerId: setTopScorerId,
-          pichichi: pichichi,
-          setPichichi: setPichichi,
-          pichichiId: pichichiId,
-          setPichichiId: setPichichiId,
-          goleadorArg: goleadorArg,
-          setGoleadorArg: setGoleadorArg,
-          goleadorArgId: goleadorArgId,
-          setGoleadorArgId: setGoleadorArgId,
         }}
       >
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<FootballHub />}></Route>
+        <TopScorerContext.Provider
+          value={{
+            topScorer: topScorer,
+            setTopScorer: setTopScorer,
+            topScorerId: topScorerId,
+            setTopScorerId: setTopScorerId,
+            pichichi: pichichi,
+            setPichichi: setPichichi,
+            pichichiId: pichichiId,
+            setPichichiId: setPichichiId,
+            goleadorArg: goleadorArg,
+            setGoleadorArg: setGoleadorArg,
+            goleadorArgId: goleadorArgId,
+            setGoleadorArgId: setGoleadorArgId,
+          }}
+        >
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<FootballHub />}></Route>
 
-            <Route path="/eng.1" element={<Premier />}></Route>
-            <Route path="/esp.1" element={<LaLiga />}></Route>
-            <Route path="/arg.1" element={<LigaArgentina />}></Route>
-            <Route path="*" element={<Home />}></Route>
-            <Route path="/stats" element={<Stats />}></Route>
-            <Route path="/topScorer" element={<TopScorer />}></Route>
-            <Route path="/pichichi" element={<Pichichi />}></Route>
-            <Route path="/goleadorarg" element={<GoleadorArg />}></Route>
-          </Routes>
-        </BrowserRouter>
+              <Route path="/eng.1" element={<Premier />}></Route>
+              <Route path="/esp.1" element={<LaLiga />}></Route>
+              <Route path="/arg.1" element={<LigaArgentina />}></Route>
+              <Route path="*" element={<Home />}></Route>
+              <Route path="/stats" element={<Stats />}></Route>
+              <Route path="/topScorer" element={<TopScorer />}></Route>
+              <Route path="/pichichi" element={<Pichichi />}></Route>
+              <Route path="/goleadorarg" element={<GoleadorArg />}></Route>
+            </Routes>
+          </BrowserRouter>
+        </TopScorerContext.Provider>
       </FootballContext.Provider>
     </>
   );

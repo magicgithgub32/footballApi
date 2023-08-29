@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import "./LigaArgentina.css";
-import { FootballContext } from "../../App";
+import "../Premier/Premier.css";
+import { FootballContext, TopScorerContext } from "../../App";
 import Header from "../../components/Header/Header";
 import HomeButton from "../../components/HomeButton/HomeButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
@@ -20,10 +20,6 @@ const LigaArgentina = () => {
     teamLogo,
     season,
     setSeason,
-    topScorerId,
-    setTopScorerId,
-    topScorer,
-    setTopScorer,
     leagueName,
     setLeagueName,
     setLeagueLogo,
@@ -32,6 +28,13 @@ const LigaArgentina = () => {
     setSeasonDisplay,
     seasonArg,
     setSeasonArg,
+  } = useContext(FootballContext);
+
+  const {
+    topScorerId,
+    setTopScorerId,
+    topScorer,
+    setTopScorer,
     setPichichiId,
     setPichichi,
     pichichiId,
@@ -39,11 +42,13 @@ const LigaArgentina = () => {
     setGoleadorArgId,
     goleadorArg,
     setGoleadorArg,
-  } = useContext(FootballContext);
+  } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
     const result = await fetch(
-      `https://api-football-standings.azharimm.dev/leagues/arg.1/standings?season=${seasonArg}&sort=asc`
+      `https://api-football-standings.azharimm.dev/leagues/arg.1/standings?season=${
+        season + 1
+      }&sort=asc`
     );
 
     if (result.status === 200) {
@@ -73,8 +78,8 @@ const LigaArgentina = () => {
   }, []);
 
   useEffect(() => {
-    getFootballFetch();
-  }, [season]);
+    season < 2023 && getFootballFetch();
+  }, [seasonArg]);
 
   useEffect(() => {
     if (standingsData) {
@@ -119,27 +124,35 @@ const LigaArgentina = () => {
                 setSeason={setSeason}
                 seasonArg={seasonArg}
                 setSeasonArg={setSeasonArg}
+                setTopScorerId={setTopScorerId}
+                topScorerId={topScorerId}
+                setTopScorer={setTopScorer}
                 leagueName={leagueName}
+                setPichichiId={setPichichiId}
+                pichichiId={pichichiId}
+                setPichichi={setPichichi}
                 goleadorArgId={goleadorArgId}
                 setGoleadorArgId={setGoleadorArgId}
-                goleadorArg={goleadorArg}
                 setGoleadorArg={setGoleadorArg}
               />
 
-              {/* <h2> - CLAUSURA {season + 1} -</h2> */}
               <h2>{seasonDisplay}</h2>
 
-              {console.log("year", year)}
               {seasonArg < year && (
                 <NextSeasonButton
                   season={season}
                   setSeason={setSeason}
                   seasonArg={seasonArg}
                   setSeasonArg={setSeasonArg}
+                  setTopScorerId={setTopScorerId}
+                  topScorerId={topScorerId}
+                  setTopScorer={setTopScorer}
                   leagueName={leagueName}
+                  setPichichiId={setPichichiId}
+                  pichichiId={pichichiId}
+                  setPichichi={setPichichi}
                   goleadorArgId={goleadorArgId}
                   setGoleadorArgId={setGoleadorArgId}
-                  goleadorArg={goleadorArg}
                   setGoleadorArg={setGoleadorArg}
                 />
               )}
@@ -157,10 +170,12 @@ const LigaArgentina = () => {
 
             {console.log("standingsData", standingsData)}
             {console.log("season", season)}
+            {console.log("seasonArg", seasonArg)}
             {console.log("rank", rank)}
-            {console.log("games Played", standingsData[teamId].stats[0].value)}
+            {console.log("year", year)}
             {console.log("topSCorer", topScorer)}
             {console.log("leagueName", leagueName)}
+            {console.log("goleadorArg", goleadorArg)}
 
             <h2 className="team-name">{footballTeam}</h2>
             <Link to="/stats">
