@@ -2,6 +2,7 @@ import React from "react";
 import { topScorers } from "../../data/topScorers";
 import { pichichis } from "../../data/pichichis";
 import { goleadoresArg } from "../../data/goleadoresArg";
+import { capocannonieres } from "../../data/capocannonieres";
 
 var today = new Date();
 var year = today.getFullYear();
@@ -18,6 +19,10 @@ const NextSeasonButton = ({
   setGoleadorArgId,
   goleadorArgId,
   setGoleadorArg,
+  setCapoId,
+  capoId,
+  capo,
+  setCapo,
 }) => {
   const getNextSeason = () => {
     if (season < year - 1) {
@@ -34,6 +39,8 @@ const NextSeasonButton = ({
       setPichichi(pichichis[pichichiId + 1]);
       setTopScorerId(topScorerId + 1);
       setTopScorer(topScorers[topScorerId + 1]);
+      setCapoId(capoId + 1);
+      setCapo(capocannonieres[capoId + 1]);
     }
   };
 

@@ -38,6 +38,10 @@ const Calcio = () => {
     goleadorArgId,
     setGoleadorArgId,
     setGoleadorArg,
+    setCapoId,
+    capoId,
+    capo,
+    setCapo,
   } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
@@ -123,6 +127,10 @@ const Calcio = () => {
                 goleadorArgId={goleadorArgId}
                 setGoleadorArgId={setGoleadorArgId}
                 setGoleadorArg={setGoleadorArg}
+                setCapoId={setCapoId}
+                capoId={capoId}
+                capo={capo}
+                setCapo={setCapo}
               />
 
               <h2>{seasonDisplay}</h2>
@@ -140,10 +148,14 @@ const Calcio = () => {
                 goleadorArgId={goleadorArgId}
                 setGoleadorArgId={setGoleadorArgId}
                 setGoleadorArg={setGoleadorArg}
+                setCapoId={setCapoId}
+                capoId={capoId}
+                capo={capo}
+                setCapo={setCapo}
               />
             </article>
 
-            <Link to="/topscorer">
+            <Link to="/capo">
               <button type="submit" className="top-scorer">
                 CAPOCANNONIERE
               </button>

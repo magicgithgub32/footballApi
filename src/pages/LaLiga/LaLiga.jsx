@@ -44,6 +44,10 @@ const LaLiga = () => {
     setGoleadorArgId,
     goleadorArg,
     setGoleadorArg,
+    setCapoId,
+    capoId,
+    capo,
+    setCapo,
   } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
@@ -181,6 +185,10 @@ const LaLiga = () => {
                 setGoleadorArgId={setGoleadorArgId}
                 setGoleadorArg={setGoleadorArg}
                 goleadorArg={goleadorArg}
+                setCapoId={setCapoId}
+                capoId={capoId}
+                capo={capo}
+                setCapo={setCapo}
               />
 
               <h2> {seasonDisplay}</h2>
@@ -199,6 +207,10 @@ const LaLiga = () => {
                 setGoleadorArgId={setGoleadorArgId}
                 setGoleadorArg={setGoleadorArg}
                 goleadorArg={goleadorArg}
+                setCapoId={setCapoId}
+                capoId={capoId}
+                capo={capo}
+                setCapo={setCapo}
               />
             </article>
 

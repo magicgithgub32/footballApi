@@ -14,6 +14,7 @@ import LigaArgentina from "./pages/LigaArgentina/LigaArgentina";
 import GoleadorArg from "./pages/GoleadorArg/GoleadorArg";
 import { goleadoresArg } from "./data/goleadoresArg";
 import Calcio from "./pages/Calcio/Calcio";
+import { capocannonieres } from "./data/capocannonieres";
 
 export const FootballContext = createContext();
 export const TopScorerContext = createContext();
@@ -510,12 +511,13 @@ const App = () => {
 
               <Route path="/eng.1" element={<Premier />}></Route>
               <Route path="/esp.1" element={<LaLiga />}></Route>
-              <Route path="/arg.1" element={<LigaArgentina />}></Route>
               <Route path="/ita.1" element={<Calcio />}></Route>
+              <Route path="/arg.1" element={<LigaArgentina />}></Route>
               <Route path="*" element={<Home />}></Route>
               <Route path="/stats" element={<Stats />}></Route>
               <Route path="/topScorer" element={<TopScorer />}></Route>
               <Route path="/pichichi" element={<Pichichi />}></Route>
+              <Route path="/capo" element={<Capo />}></Route>
               <Route path="/goleadorarg" element={<GoleadorArg />}></Route>
             </Routes>
           </BrowserRouter>

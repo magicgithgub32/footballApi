@@ -40,6 +40,10 @@ const LigaArgentina = () => {
     setGoleadorArgId,
     goleadorArg,
     setGoleadorArg,
+    setCapoId,
+    capoId,
+    capo,
+    setCapo,
   } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
@@ -148,6 +152,10 @@ const LigaArgentina = () => {
                 goleadorArgId={goleadorArgId}
                 setGoleadorArgId={setGoleadorArgId}
                 setGoleadorArg={setGoleadorArg}
+                setCapoId={setCapoId}
+                capoId={capoId}
+                capo={capo}
+                setCapo={setCapo}
               />
 
               <h2>{seasonDisplay}</h2>
@@ -166,6 +174,10 @@ const LigaArgentina = () => {
                   goleadorArgId={goleadorArgId}
                   setGoleadorArgId={setGoleadorArgId}
                   setGoleadorArg={setGoleadorArg}
+                  setCapoId={setCapoId}
+                  capoId={capoId}
+                  capo={capo}
+                  setCapo={setCapo}
                 />
               )}
             </article>
