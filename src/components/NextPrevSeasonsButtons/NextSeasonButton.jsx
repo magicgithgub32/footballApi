@@ -9,12 +9,9 @@ var year = today.getFullYear();
 const NextSeasonButton = ({
   season,
   setSeason,
-  seasonArg,
-  setSeasonArg,
   setTopScorerId,
   topScorerId,
   setTopScorer,
-  leagueName,
   setPichichiId,
   pichichiId,
   setPichichi,
@@ -23,11 +20,8 @@ const NextSeasonButton = ({
   setGoleadorArg,
 }) => {
   const getNextSeason = () => {
-    console.log("season at NextSeasonB", season);
-    console.log("seasonArg at nextSeasonB:", seasonArg);
     if (season < year - 1) {
       setSeason(season + 1);
-      setSeasonArg(seasonArg + 1);
       setPichichiId(pichichiId + 1);
       setPichichi(pichichis[pichichiId + 1]);
       setTopScorerId(topScorerId + 1);

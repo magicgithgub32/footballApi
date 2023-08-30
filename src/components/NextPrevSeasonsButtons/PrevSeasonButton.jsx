@@ -11,7 +11,6 @@ const PrevSeasonButton = ({
   setTopScorerId,
   topScorerId,
   setTopScorer,
-  leagueName,
   setPichichiId,
   pichichiId,
   setPichichi,
@@ -22,7 +21,6 @@ const PrevSeasonButton = ({
   const getPrevSeason = () => {
     if (season > 2002) {
       setSeason(season - 1);
-      setSeasonArg(seasonArg - 1);
       setTopScorerId(topScorerId - 1);
       setTopScorer(topScorers[topScorerId - 1]);
       setPichichiId(pichichiId - 1);

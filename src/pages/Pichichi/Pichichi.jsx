@@ -8,8 +8,7 @@ import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeason
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 
 const Pichichi = () => {
-  const { season, leagueName, setSeason, setSeasonArg } =
-    useContext(FootballContext);
+  const { season, leagueName, setSeason } = useContext(FootballContext);
 
   const {
     pichichi,
@@ -70,7 +69,6 @@ const Pichichi = () => {
         <PrevSeasonButton
           season={season}
           setSeason={setSeason}
-          setSeasonArg={setSeasonArg}
           setPichichiId={setPichichiId}
           pichichiId={pichichiId}
           setPichichi={setPichichi}
@@ -97,7 +95,6 @@ const Pichichi = () => {
         <NextSeasonButton
           season={season}
           setSeason={setSeason}
-          setSeasonArg={setSeasonArg}
           setPichichiId={setPichichiId}
           pichichiId={pichichiId}
           setPichichi={setPichichi}

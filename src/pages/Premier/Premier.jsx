@@ -23,8 +23,6 @@ const Premier = () => {
     teamLogo,
     season,
     setSeason,
-    seasonArg,
-    setSeasonArg,
     seasonDisplay,
     setSeasonDisplay,
     leagueName,
@@ -73,7 +71,6 @@ const Premier = () => {
     if (result.status === 200) {
       const res = await result.json();
       setLeagueLogo(res.data[5].logos);
-      console.log("leagueLogo", leagueLogo);
     }
   };
 
@@ -161,8 +158,6 @@ const Premier = () => {
               <PrevSeasonButton
                 season={season}
                 setSeason={setSeason}
-                seasonArg={seasonArg}
-                setSeasonArg={setSeasonArg}
                 setTopScorerId={setTopScorerId}
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
@@ -179,8 +174,6 @@ const Premier = () => {
               <NextSeasonButton
                 season={season}
                 setSeason={setSeason}
-                seasonArg={seasonArg}
-                setSeasonArg={setSeasonArg}
                 setTopScorerId={setTopScorerId}
                 topScorerId={topScorerId}
                 setTopScorer={setTopScorer}
@@ -214,7 +207,6 @@ const Premier = () => {
 
             {console.log("standingsData", standingsData)}
             {console.log("season", season)}
-            {console.log("seasonArg", seasonArg)}
             {console.log("rank", rank)}
             {console.log("topSCorer", topScorer)}
             {console.log("leagueName", leagueName)}
@@ -235,7 +227,7 @@ const Premier = () => {
               </button>
             )}
 
-            {teamId < 19 && (
+            {teamId < standingsData.length - 1 && (
               <button
                 type="submit"
                 className="nextButton"

@@ -8,8 +8,7 @@ import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeason
 import GoleadorArgCard from "../../components/TopScorerCards/GoleadorArgCard";
 
 const GoleadorArg = () => {
-  const { season, seasonArg, leagueName, setSeason, setSeasonArg } =
-    useContext(FootballContext);
+  const { season, leagueName, setSeason } = useContext(FootballContext);
 
   const {
     setPichichi,
@@ -36,13 +35,14 @@ const GoleadorArg = () => {
 
       {console.log("goleadorArg", goleadorArg)}
       {console.log("season", season)}
+      {console.log("leagueName", leagueName)}
+      {console.log("year", year)}
       <GoleadorArgCard goleadorArg={goleadorArg} />
 
       <article className="season-buttons">
         <PrevSeasonButton
           season={season}
           setSeason={setSeason}
-          setSeasonArg={setSeasonArg}
           setPichichiId={setPichichiId}
           pichichiId={pichichiId}
           setPichichi={setPichichi}
@@ -57,7 +57,6 @@ const GoleadorArg = () => {
           <NextSeasonButton
             season={season}
             setSeason={setSeason}
-            setSeasonArg={setSeasonArg}
             setPichichiId={setPichichiId}
             pichichiId={pichichiId}
             setPichichi={setPichichi}

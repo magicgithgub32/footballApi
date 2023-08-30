@@ -72,7 +72,7 @@ export const goleadoresArg = [
   {
     season: 2013,
     name: ["Emmanuel Gigliotti", "Ignacio Scocco"],
-    goals: 50,
+    goals: 11,
     pic: ["EmG.jpeg", "IgS.jpeg"],
     vid: "https://www.youtube.com/watch?v=qe8bSB0yN74&ab_channel=WellmanLowhand",
   },

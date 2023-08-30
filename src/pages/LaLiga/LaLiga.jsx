@@ -22,8 +22,6 @@ const LaLiga = () => {
     teamLogo,
     season,
     setSeason,
-    seasonArg,
-    setSeasonArg,
     leagueName,
     setLeagueName,
     setLeagueLogo,
@@ -114,7 +112,7 @@ const LaLiga = () => {
   };
 
   const getNextTeam = () => {
-    if (teamId < 20) {
+    if (teamId < 19) {
       setTeamId(teamId + 1);
     }
   };
@@ -172,8 +170,6 @@ const LaLiga = () => {
               <PrevSeasonButton
                 season={season}
                 setSeason={setSeason}
-                seasonArg={seasonArg}
-                setSeasonArg={setSeasonArg}
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
@@ -192,8 +188,6 @@ const LaLiga = () => {
               <NextSeasonButton
                 season={season}
                 setSeason={setSeason}
-                seasonArg={seasonArg}
-                setSeasonArg={setSeasonArg}
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
                 pichichi={pichichi}
@@ -224,13 +218,11 @@ const LaLiga = () => {
 
             {console.log("standingsData", standingsData)}
             {console.log("rank", rank)}
-            {console.log("seasonArg", seasonArg)}
             {console.log("pichichi", pichichi)}
 
             {console.log("leagueName", leagueName)}
             {console.log("standingsData", standingsData)}
             {console.log("season", season)}
-            {console.log("seasonArg", seasonArg)}
             {console.log("rank", rank)}
             {console.log("games Played", standingsData[teamId].stats[0].value)}
             {console.log("pichichi", pichichi)}
@@ -252,7 +244,7 @@ const LaLiga = () => {
               </button>
             )}
 
-            {teamId < 19 && (
+            {teamId < standingsData.length - 1 && (
               <button
                 type="submit"
                 className="nextButton"

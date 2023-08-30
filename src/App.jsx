@@ -13,6 +13,7 @@ import Pichichi from "./pages/Pichichi/Pichichi";
 import LigaArgentina from "./pages/LigaArgentina/LigaArgentina";
 import GoleadorArg from "./pages/GoleadorArg/GoleadorArg";
 import { goleadoresArg } from "./data/goleadoresArg";
+import Calcio from "./pages/Calcio/Calcio";
 
 export const FootballContext = createContext();
 export const TopScorerContext = createContext();
@@ -448,7 +449,6 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [season, setSeason] = useState(2001);
   const [seasonDisplay, setSeasonDisplay] = useState("");
-  const [seasonArg, setSeasonArg] = useState(2002);
 
   const [topScorerId, setTopScorerId] = useState(0);
   const [topScorer, setTopScorer] = useState(topScorers[topScorerId]);
@@ -456,6 +456,8 @@ const App = () => {
   const [pichichi, setPichichi] = useState(pichichis[pichichiId]);
   const [goleadorArgId, setGoleadorArgId] = useState(0);
   const [goleadorArg, setGoleadorArg] = useState(goleadoresArg[goleadorArgId]);
+  const [capoId, setCapoId] = useState(0);
+  const [capo, setCapo] = useState(capocannonieres[capoId]);
   return (
     <>
       <FootballContext.Provider
@@ -478,8 +480,6 @@ const App = () => {
           setSearchQuery: setSearchQuery,
           season: season,
           setSeason: setSeason,
-          seasonArg: seasonArg,
-          setSeasonArg: setSeasonArg,
           seasonDisplay: seasonDisplay,
           setSeasonDisplay: setSeasonDisplay,
         }}
@@ -498,6 +498,10 @@ const App = () => {
             setGoleadorArg: setGoleadorArg,
             goleadorArgId: goleadorArgId,
             setGoleadorArgId: setGoleadorArgId,
+            capoId: capoId,
+            setCapoId: setCapoId,
+            capo: capo,
+            setCapo: setCapo,
           }}
         >
           <BrowserRouter>
@@ -507,6 +511,7 @@ const App = () => {
               <Route path="/eng.1" element={<Premier />}></Route>
               <Route path="/esp.1" element={<LaLiga />}></Route>
               <Route path="/arg.1" element={<LigaArgentina />}></Route>
+              <Route path="/ita.1" element={<Calcio />}></Route>
               <Route path="*" element={<Home />}></Route>
               <Route path="/stats" element={<Stats />}></Route>
               <Route path="/topScorer" element={<TopScorer />}></Route>

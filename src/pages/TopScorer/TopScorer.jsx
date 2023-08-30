@@ -8,8 +8,7 @@ import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeason
 import TopScorerCard from "../../components/TopScorercards/TopScorerCard";
 
 const TopScorer = () => {
-  const { season, setSeason, setSeasonArg, leagueName } =
-    useContext(FootballContext);
+  const { season, setSeason, leagueName } = useContext(FootballContext);
 
   const {
     topScorer,
@@ -40,7 +39,6 @@ const TopScorer = () => {
         <PrevSeasonButton
           season={season}
           setSeason={setSeason}
-          setSeasonArg={setSeasonArg}
           setTopScorerId={setTopScorerId}
           topScorerId={topScorerId}
           setTopScorer={setTopScorer}
@@ -55,7 +53,6 @@ const TopScorer = () => {
         <NextSeasonButton
           season={season}
           setSeason={setSeason}
-          setSeasonArg={setSeasonArg}
           setTopScorerId={setTopScorerId}
           topScorerId={topScorerId}
           setTopScorer={setTopScorer}
