@@ -33,6 +33,8 @@ const NextSeasonButton = ({
       setTopScorer(topScorers[topScorerId + 1]);
       setGoleadorArgId(goleadorArgId + 1);
       setGoleadorArg(goleadoresArg[goleadorArgId + 1]);
+      setCapoId(capoId + 1);
+      setCapo(capocannonieres[capoId + 1]);
     } else if (season < year) {
       setSeason(season + 1);
       setPichichiId(pichichiId + 1);

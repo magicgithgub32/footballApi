@@ -29,8 +29,8 @@ const PrevSeasonButton = ({
       setTopScorer(topScorers[topScorerId - 1]);
       setPichichiId(pichichiId - 1);
       setPichichi(pichichis[pichichiId - 1]);
-      setCapoId(capoId + 1);
-      setCapo(capocannonieres[capoId + 1]);
+      setCapoId(capoId - 1);
+      setCapo(capocannonieres[capoId - 1]);
       setGoleadorArgId(goleadorArgId - 1);
       setGoleadorArg(goleadoresArg[goleadorArgId - 1]);
     } else if (season === 2002) {
@@ -39,8 +39,8 @@ const PrevSeasonButton = ({
       setTopScorer(topScorers[topScorerId - 1]);
       setPichichiId(pichichiId - 1);
       setPichichi(pichichis[pichichiId - 1]);
-      setCapoId(capoId + 1);
-      setCapo(capocannonieres[capoId + 1]);
+      setCapoId(capoId - 1);
+      setCapo(capocannonieres[capoId - 1]);
     }
   };
 

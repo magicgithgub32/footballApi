@@ -5,7 +5,7 @@ import { FootballContext, TopScorerContext } from "../../App";
 import HomeButton from "../../components/HomeButton/HomeButton";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
-import TopScorerCard from "../../components/TopScorercards/TopScorerCard";
+import TopScorerCard from "../../components/TopScorerCard/TopScorerCard";
 
 const TopScorer = () => {
   const { season, setSeason, leagueName } = useContext(FootballContext);
@@ -21,6 +21,9 @@ const TopScorer = () => {
     setGoleadorArg,
     setGoleadorArgId,
     goleadorArgId,
+    setCapo,
+    setCapoId,
+    capoId,
   } = useContext(TopScorerContext);
   return (
     <section>
@@ -48,6 +51,9 @@ const TopScorer = () => {
           setGoleadorArgId={setGoleadorArgId}
           goleadorArgId={goleadorArgId}
           setGoleadorArg={setGoleadorArg}
+          setCapo={setCapo}
+          setCapoId={setCapoId}
+          capoId={capoId}
         />
 
         <NextSeasonButton
@@ -62,6 +68,9 @@ const TopScorer = () => {
           setGoleadorArgId={setGoleadorArgId}
           goleadorArgId={goleadorArgId}
           setGoleadorArg={setGoleadorArg}
+          setCapo={setCapo}
+          setCapoId={setCapoId}
+          capoId={capoId}
         />
       </article>
     </section>

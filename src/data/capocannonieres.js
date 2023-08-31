@@ -3,7 +3,7 @@ export const capocannonieres = [
     season: 2001,
     name: ["David Trezeguet", "Dario Hübner"],
     goals: 24,
-    pic: ["DaTr.jpeg", "DaHu.jpeg"],
+    pic: ["DaTre.jpeg", "DaHu.jpeg"],
     vid: "https://www.youtube.com/watch?v=fMrehMEvRW4&ab_channel=FZisback4football",
   },
   {
@@ -136,7 +136,7 @@ export const capocannonieres = [
     season: 2020,
     name: ["Cristiano Ronaldo"],
     goals: 29,
-    pic: ["Cr7Ju.jpeg"],
+    pic: ["CR7Ju.jpeg"],
     vid: "https://www.youtube.com/watch?v=ys8vkmmNNyg&ab_channel=SerieA",
   },
   {
@@ -151,6 +151,13 @@ export const capocannonieres = [
     name: ["Victor Osimhen"],
     goals: 26,
     pic: ["Osi.jpeg"],
+    vid: "https://www.youtube.com/watch?v=J1UnAsJolsU&ab_channel=SerieA",
+  },
+  {
+    season: 2023,
+    name: ["Will Lautaro beat Osimhen?"],
+    goals: "?",
+    pic: ["OsLau.jpeg"],
     vid: "https://www.youtube.com/watch?v=J1UnAsJolsU&ab_channel=SerieA",
   },
 ];

@@ -15,6 +15,7 @@ import GoleadorArg from "./pages/GoleadorArg/GoleadorArg";
 import { goleadoresArg } from "./data/goleadoresArg";
 import Calcio from "./pages/Calcio/Calcio";
 import { capocannonieres } from "./data/capocannonieres";
+import Capo from "./pages/Capo/Capo";
 
 export const FootballContext = createContext();
 export const TopScorerContext = createContext();

@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import HomeButton from "../../components/HomeButton/HomeButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
-import GoleadorArgCard from "../../components/TopScorerCards/GoleadorArgCard";
+import TopScorerCard from "../../components/TopScorerCard/TopScorerCard";
 
 const GoleadorArg = () => {
   const { season, leagueName, setSeason } = useContext(FootballContext);
@@ -21,6 +21,9 @@ const GoleadorArg = () => {
     setGoleadorArg,
     setGoleadorArgId,
     goleadorArgId,
+    setCapo,
+    setCapoId,
+    capoId,
   } = useContext(TopScorerContext);
 
   var today = new Date();
@@ -37,7 +40,7 @@ const GoleadorArg = () => {
       {console.log("season", season)}
       {console.log("leagueName", leagueName)}
       {console.log("year", year)}
-      <GoleadorArgCard goleadorArg={goleadorArg} />
+      <TopScorerCard topScorer={goleadorArg} />
 
       <article className="season-buttons">
         <PrevSeasonButton
@@ -52,6 +55,9 @@ const GoleadorArg = () => {
           setGoleadorArg={setGoleadorArg}
           setGoleadorArgId={setGoleadorArgId}
           goleadorArgId={goleadorArgId}
+          setCapo={setCapo}
+          setCapoId={setCapoId}
+          capoId={capoId}
         />
         {season < year - 2 && (
           <NextSeasonButton
@@ -66,6 +72,9 @@ const GoleadorArg = () => {
             setGoleadorArg={setGoleadorArg}
             setGoleadorArgId={setGoleadorArgId}
             goleadorArgId={goleadorArgId}
+            setCapo={setCapo}
+            setCapoId={setCapoId}
+            capoId={capoId}
           />
         )}
       </article>

@@ -3,9 +3,9 @@ import "../TopScorer/TopScorer.css";
 import { FootballContext, TopScorerContext } from "../../App";
 import Header from "../../components/Header/Header";
 import HomeButton from "../../components/HomeButton/HomeButton";
-import PichichiCard from "../../components/TopScorercards/PichichiCard";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
+import TopScorerCard from "../../components/TopScorerCard/TopScorerCard";
 
 const Pichichi = () => {
   const { season, leagueName, setSeason } = useContext(FootballContext);
@@ -21,6 +21,9 @@ const Pichichi = () => {
     setGoleadorArg,
     setGoleadorArgId,
     goleadorArgId,
+    setCapo,
+    setCapoId,
+    capoId,
   } = useContext(TopScorerContext);
   return (
     <section>
@@ -31,7 +34,7 @@ const Pichichi = () => {
         <HomeButton />
       </article>
 
-      <PichichiCard pichichi={pichichi} />
+      <TopScorerCard topScorer={pichichi} />
 
       <article className="season-buttons">
         {/* <PrevSeasonButton
@@ -78,6 +81,9 @@ const Pichichi = () => {
           setGoleadorArgId={setGoleadorArgId}
           goleadorArgId={goleadorArgId}
           setGoleadorArg={setGoleadorArg}
+          setCapo={setCapo}
+          setCapoId={setCapoId}
+          capoId={capoId}
         />
 
         {/* <NextSeasonButtonSp
@@ -104,6 +110,9 @@ const Pichichi = () => {
           setGoleadorArgId={setGoleadorArgId}
           goleadorArgId={goleadorArgId}
           setGoleadorArg={setGoleadorArg}
+          setCapo={setCapo}
+          setCapoId={setCapoId}
+          capoId={capoId}
         />
       </article>
     </section>
