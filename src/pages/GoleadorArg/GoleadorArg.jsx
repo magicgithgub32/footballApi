@@ -33,7 +33,7 @@ const GoleadorArg = () => {
     <section>
       <article className="header-season">
         <Header headerText={`${season + 2} - ${leagueName}`} />
-        <h1 className="top-scorer-title">TOP SCORER</h1>
+        <h1 className="top-scorer-title">GOLEADOR</h1>
 
         <HomeButton />
       </article>

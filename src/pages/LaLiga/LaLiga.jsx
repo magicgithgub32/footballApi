@@ -268,7 +268,6 @@ const LaLiga = () => {
           </article>
         </section>
       )}
-      {/* <Footer /> */}
     </>
   );
 };

@@ -44,7 +44,7 @@ const FootballHub = () => {
           onClick={() => handleLeagueChange("ita.1")}
         />
 
-        {season < year && (
+        {season < year - 1 && (
           <LeagueButton
             leagueId="arg.1"
             imageSrc="argentina.png"
