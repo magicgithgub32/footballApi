@@ -1,6 +1,5 @@
 footer {
-    /* height: 20vh; */
-    margin: 10px;
+    margin-top: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,7 +7,11 @@ footer {
 }
 
 
-
+@media screen and (max-width: 435px) {
+    footer {
+        margin-top: 100px;
+    }
+}
 
 
 

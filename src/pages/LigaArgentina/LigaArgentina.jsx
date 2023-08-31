@@ -184,7 +184,7 @@ const LigaArgentina = () => {
 
             <Link to="/goleadorarg">
               <button type="submit" className="top-scorer">
-                GOLEADOR
+                GOL EADOR
               </button>
             </Link>
           </article>
@@ -227,8 +227,6 @@ const LigaArgentina = () => {
           </article>
         </section>
       )}
-
-      <Footer />
     </>
   );
 };

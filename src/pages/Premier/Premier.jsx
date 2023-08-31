@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "./Premier.css";
 import { Link } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 
 import { FootballContext, TopScorerContext } from "../../App";
@@ -130,6 +129,9 @@ const Premier = () => {
 
   const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
 
+  var today = new Date();
+  var year = today.getFullYear();
+
   return (
     <>
       <Header
@@ -211,11 +213,7 @@ const Premier = () => {
           </article>
 
           <article className="name-logo-wrapper">
-            {rank === 1 && standingsData[teamId].stats[0].value === 38 ? (
-              <p>🍾 CHAMPION 🍾</p>
-            ) : (
-              rank
-            )}
+            {rank === 1 && season < year ? <p>🍾 CHAMPION 🍾</p> : rank}
 
             {console.log("standingsData", standingsData)}
             {console.log("season", season)}
@@ -251,7 +249,6 @@ const Premier = () => {
           </article>
         </section>
       )}
-      <Footer />
     </>
   );
 };

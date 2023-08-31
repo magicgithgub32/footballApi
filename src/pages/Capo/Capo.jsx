@@ -28,9 +28,10 @@ const Capo = () => {
   return (
     <section>
       <article className="header-season">
-        <Header
-          headerText={`${season} - ${season + 1} ${leagueName} CAPOCANNONIERE`}
-        />
+        <Header headerText={`${season} - ${season + 1} ${leagueName}`} />
+
+        <h1 className="top-scorer-title">TOP SCORER</h1>
+
         <HomeButton />
       </article>
 

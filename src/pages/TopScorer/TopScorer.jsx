@@ -28,9 +28,9 @@ const TopScorer = () => {
   return (
     <section>
       <article className="header-season">
-        <Header
-          headerText={`${season} - ${season + 1} ${leagueName} TOP SCORER`}
-        />
+        <Header headerText={`${season} - ${season + 1} ${leagueName} `} />
+        <h1 className="top-scorer-title">TOP SCORER</h1>
+
         <HomeButton />
       </article>
 

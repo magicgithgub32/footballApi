@@ -79,14 +79,34 @@ const Calcio = () => {
   }, [season]);
 
   console.log("footballTeam", footballTeam);
+  console.log("standingsData", standingsData);
 
   useEffect(() => {
     if (standingsData) {
-      setFootballTeam(standingsData[teamId]?.team.name);
-
-      setTeamLogo(standingsData[teamId]?.team.logos[0].href);
+      const currentFootballTeam = standingsData[teamId]?.team.name;
+      setFootballTeam(currentFootballTeam);
     }
-  }, [standingsData, teamId, season]);
+  }, [standingsData, teamId]);
+
+  useEffect(() => {
+    if (footballTeam) {
+      if (footballTeam === "Piacenza") {
+        setTeamLogo("./Piacenza.png");
+      } else if (footballTeam === "Venezia") {
+        setTeamLogo("./Venezia.png");
+      } else if (footballTeam === "Ancona") {
+        setTeamLogo("./Ancona.png");
+      } else if (footballTeam === "Messina") {
+        setTeamLogo("./Messina.png");
+      } else if (footballTeam === "Treviso") {
+        setTeamLogo("./Treviso.png");
+      } else {
+        setTeamLogo(
+          standingsData[teamId]?.team.logos[0]?.href || "./etrusco.png"
+        );
+      }
+    }
+  }, [footballTeam]);
 
   const getPreviousTeam = () => {
     if (teamId > 0) {
@@ -101,6 +121,9 @@ const Calcio = () => {
   };
 
   const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
+
+  var today = new Date();
+  var year = today.getFullYear();
 
   return (
     <>
@@ -157,17 +180,13 @@ const Calcio = () => {
 
             <Link to="/capo">
               <button type="submit" className="top-scorer">
-                CAPOCANNONIERE
+                CAPO CANNO NIERE
               </button>
             </Link>
           </article>
 
           <article className="name-logo-wrapper">
-            {rank === 1 && standingsData[teamId].stats[0].value === 38 ? (
-              <p>🍾 CHAMPION 🍾</p>
-            ) : (
-              rank
-            )}
+            {rank === 1 && season < year ? <p>🍾 CHAMPION 🍾</p> : rank}
 
             <h2 className="team-name">{footballTeam}</h2>
             <Link to="/stats">
@@ -197,8 +216,6 @@ const Calcio = () => {
           </article>
         </section>
       )}
-
-      <Footer />
     </>
   );
 };

@@ -142,6 +142,10 @@ const LaLiga = () => {
   // };
 
   const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
+
+  var today = new Date();
+  var year = today.getFullYear();
+
   return (
     <>
       <Header
@@ -216,17 +220,13 @@ const LaLiga = () => {
 
             <Link to="/pichichi">
               <button type="submit" className="top-scorer">
-                PICHICHI
+                PI CHI CHI
               </button>
             </Link>
           </article>
 
           <article className="name-logo-wrapper">
-            {rank === 1 && standingsData[teamId].stats[0].value === 38 ? (
-              <p>🍾 CHAMPION 🍾</p>
-            ) : (
-              rank
-            )}
+            {rank === 1 && season < year ? <p>🍾 CHAMPION 🍾</p> : rank}
 
             {console.log("standingsData", standingsData)}
             {console.log("rank", rank)}
@@ -268,7 +268,7 @@ const LaLiga = () => {
           </article>
         </section>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
