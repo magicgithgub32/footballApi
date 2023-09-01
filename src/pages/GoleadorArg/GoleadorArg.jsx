@@ -32,7 +32,7 @@ const GoleadorArg = () => {
   return (
     <section>
       <article className="header-season">
-        <Header headerText={`${season + 2} - ${leagueName}`} />
+        <Header headerText={`${season + 1} - ${leagueName}`} />
         <h1 className="top-scorer-title">GOLEADOR</h1>
 
         <HomeButton />
@@ -45,23 +45,25 @@ const GoleadorArg = () => {
       <TopScorerCard topScorer={goleadorArg} />
 
       <article className="season-buttons">
-        <PrevSeasonButton
-          season={season}
-          setSeason={setSeason}
-          setPichichiId={setPichichiId}
-          pichichiId={pichichiId}
-          setPichichi={setPichichi}
-          setTopScorerId={setTopScorerId}
-          topScorerId={topScorerId}
-          setTopScorer={setTopScorer}
-          setGoleadorArg={setGoleadorArg}
-          setGoleadorArgId={setGoleadorArgId}
-          goleadorArgId={goleadorArgId}
-          setCapo={setCapo}
-          setCapoId={setCapoId}
-          capoId={capoId}
-        />
-        {season < year - 2 && (
+        {season > 2002 && (
+          <PrevSeasonButton
+            season={season}
+            setSeason={setSeason}
+            setPichichiId={setPichichiId}
+            pichichiId={pichichiId}
+            setPichichi={setPichichi}
+            setTopScorerId={setTopScorerId}
+            topScorerId={topScorerId}
+            setTopScorer={setTopScorer}
+            setGoleadorArg={setGoleadorArg}
+            setGoleadorArgId={setGoleadorArgId}
+            goleadorArgId={goleadorArgId}
+            setCapo={setCapo}
+            setCapoId={setCapoId}
+            capoId={capoId}
+          />
+        )}
+        {season < year - 1 && (
           <NextSeasonButton
             season={season}
             setSeason={setSeason}

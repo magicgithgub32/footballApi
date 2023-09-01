@@ -25,24 +25,35 @@ const NextSeasonButton = ({
   setCapo,
 }) => {
   const getNextSeason = () => {
-    if (season < year - 1) {
+    // if (season < year - 1) {
+    //   setSeason(season + 1);
+    //   setPichichiId(pichichiId + 1);
+    //   setPichichi(pichichis[pichichiId + 1]);
+    //   setTopScorerId(topScorerId + 1);
+    //   setTopScorer(topScorers[topScorerId + 1]);
+    //   setGoleadorArgId(goleadorArgId + 1);
+    //   setGoleadorArg(goleadoresArg[goleadorArgId + 1]);
+    //   setCapoId(capoId + 1);
+    //   setCapo(capocannonieres[capoId + 1]);
+
+    if (season === 2001) {
       setSeason(season + 1);
       setPichichiId(pichichiId + 1);
       setPichichi(pichichis[pichichiId + 1]);
       setTopScorerId(topScorerId + 1);
       setTopScorer(topScorers[topScorerId + 1]);
+    }
+    if (season < year) {
+      setSeason(season + 1);
+      setPichichiId(pichichiId + 1);
+      setPichichi(pichichis[pichichiId + 1]);
+      setTopScorerId(topScorerId + 1);
+      setTopScorer(topScorers[topScorerId + 1]);
+      setCapoId(capoId + 1);
+      setCapo(capocannonieres[capoId + 1]);
+
       setGoleadorArgId(goleadorArgId + 1);
       setGoleadorArg(goleadoresArg[goleadorArgId + 1]);
-      setCapoId(capoId + 1);
-      setCapo(capocannonieres[capoId + 1]);
-    } else if (season < year) {
-      setSeason(season + 1);
-      setPichichiId(pichichiId + 1);
-      setPichichi(pichichis[pichichiId + 1]);
-      setTopScorerId(topScorerId + 1);
-      setTopScorer(topScorers[topScorerId + 1]);
-      setCapoId(capoId + 1);
-      setCapo(capocannonieres[capoId + 1]);
     }
   };
 

@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from "react";
 import "../Premier/Premier.css";
 import { FootballContext, TopScorerContext } from "../../App";
 import Header from "../../components/Header/Header";
+import { Link } from "react-router-dom";
 import HomeButton from "../../components/HomeButton/HomeButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
-import { Link } from "react-router-dom";
 
-const LigaArgentina = () => {
+const Ligue_1 = () => {
   const {
     setStandingsData,
     standingsData,
@@ -43,11 +43,15 @@ const LigaArgentina = () => {
     capoId,
     capo,
     setCapo,
+    //setButeurId,
+    //setButeur,
+    //buteurId,
+    //buteur
   } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
     const result = await fetch(
-      `https://api-football-standings.azharimm.dev/leagues/arg.1/standings?season=${season}&sort=asc`
+      `https://api-football-standings.azharimm.dev/leagues/fra.1/standings?season=${season}&sort=asc`
     );
 
     if (result.status === 200) {
@@ -60,19 +64,6 @@ const LigaArgentina = () => {
     } else {
       setStandingsData(null);
     }
-    // };
-
-    // if (result.status === 200) {
-    //   const res = await result.json();
-    //   console.log("res", res);
-    //   if (res.data.seasonDisplay !== "Group A2") {
-    //     setStandingsData(res.data.standings);
-    //     setLeagueName(res.data.name);
-    //     setSeasonDisplay(res.data.seasonDisplay);
-    //   } else {
-    //     setStandingsData(null);
-    //   }
-    // }
   };
 
   const getLeagueLogoFetch = async () => {
@@ -82,7 +73,7 @@ const LigaArgentina = () => {
 
     if (result.status === 200) {
       const res = await result.json();
-      setLeagueLogo(res.data[0].logos);
+      setLeagueLogo(res.data[6].logos);
       console.log("leagueLogo", leagueLogo);
     }
   };
@@ -104,15 +95,14 @@ const LigaArgentina = () => {
 
   useEffect(() => {
     if (footballTeam) {
-      if (
-        footballTeam === "Huracán de Tres Arroyos" ||
-        footballTeam === "Huracán"
-      ) {
-        setTeamLogo("./Huracan.png");
-      } else if (footballTeam === "Tiro Federal") {
-        setTeamLogo("./Tiro.png");
-      } else if (footballTeam === "San Martín de Tucumán") {
-        setTeamLogo("./San_martin_tucuman.png");
+      if (footballTeam === "Sedan") {
+        setTeamLogo("./Sedan.png");
+      } else if (footballTeam === "FC Istres") {
+        setTeamLogo("./Istres.png");
+      } else if (footballTeam === "Boulogne") {
+        setTeamLogo("./Boulogne.png");
+      } else if (footballTeam === "Arles") {
+        setTeamLogo("Arles.png");
       } else {
         setTeamLogo(
           standingsData[teamId]?.team.logos[0]?.href || "./etrusco.png"
@@ -140,7 +130,6 @@ const LigaArgentina = () => {
 
   return (
     <>
-      {console.log("standingsData", standingsData)}
       <Header
         headerText={leagueName}
         img={leagueLogo ? leagueLogo.light : ""}
@@ -151,68 +140,78 @@ const LigaArgentina = () => {
           <article className="seasons-scorer-article">
             <HomeButton />
             <article className="season-buttons">
-              {season > 2002 && (
+              {season > 2003 && (
                 <PrevSeasonButton
                   season={season}
                   setSeason={setSeason}
-                  setTopScorerId={setTopScorerId}
-                  topScorerId={topScorerId}
-                  setTopScorer={setTopScorer}
-                  leagueName={leagueName}
                   setPichichiId={setPichichiId}
                   pichichiId={pichichiId}
                   setPichichi={setPichichi}
-                  goleadorArgId={goleadorArgId}
+                  leagueName={leagueName}
+                  setTopScorerId={setTopScorerId}
+                  setTopScorer={setTopScorer}
+                  topScorer={topScorer}
                   setGoleadorArgId={setGoleadorArgId}
                   setGoleadorArg={setGoleadorArg}
+                  goleadorArg={goleadorArg}
                   setCapoId={setCapoId}
                   capoId={capoId}
                   capo={capo}
                   setCapo={setCapo}
+                  //setButeurId={setButeurId}
+                  //setButeur={setButeur}
+                  //buteurId={buteurId}
+                  //buteur={buteur}
                 />
               )}
 
-              <h2>{seasonDisplay}</h2>
+              <h2> {seasonDisplay}</h2>
 
-              {season < year && (
-                <NextSeasonButton
-                  season={season}
-                  setSeason={setSeason}
-                  setTopScorerId={setTopScorerId}
-                  topScorerId={topScorerId}
-                  setTopScorer={setTopScorer}
-                  leagueName={leagueName}
-                  setPichichiId={setPichichiId}
-                  pichichiId={pichichiId}
-                  setPichichi={setPichichi}
-                  goleadorArgId={goleadorArgId}
-                  setGoleadorArgId={setGoleadorArgId}
-                  setGoleadorArg={setGoleadorArg}
-                  setCapoId={setCapoId}
-                  capoId={capoId}
-                  capo={capo}
-                  setCapo={setCapo}
-                />
-              )}
+              <NextSeasonButton
+                season={season}
+                setSeason={setSeason}
+                setPichichiId={setPichichiId}
+                pichichiId={pichichiId}
+                setPichichi={setPichichi}
+                leagueName={leagueName}
+                setTopScorerId={setTopScorerId}
+                setTopScorer={setTopScorer}
+                topScorer={topScorer}
+                setGoleadorArgId={setGoleadorArgId}
+                setGoleadorArg={setGoleadorArg}
+                goleadorArg={goleadorArg}
+                setCapoId={setCapoId}
+                capoId={capoId}
+                capo={capo}
+                setCapo={setCapo}
+                //setButeurId={setButeurId}
+                //setButeur={setButeur}
+                //buteurId={buteurId}
+                //buteur={buteur}
+              />
             </article>
 
-            <Link to="/goleadorarg">
+            {/* <Link to="/buteur">
               <button type="submit" className="top-scorer">
-                GOL EADOR
+                BUTEUR
               </button>
-            </Link>
+            </Link> */}
           </article>
 
           <article className="name-logo-wrapper">
             {rank === 1 && season < year ? <p>🍾 CHAMPION 🍾</p> : rank}
 
             {console.log("standingsData", standingsData)}
+            {console.log("rank", rank)}
+            {/* {console.log("pichichi", buteur)} */}
+
+            {console.log("leagueName", leagueName)}
+            {console.log("standingsData", standingsData)}
             {console.log("season", season)}
             {console.log("rank", rank)}
-            {console.log("year", year)}
-            {console.log("topSCorer", topScorer)}
+            {console.log("games Played", standingsData[teamId].stats[0].value)}
+            {/* {console.log("pichichi", buteur)} */}
             {console.log("leagueName", leagueName)}
-            {console.log("goleadorArg", goleadorArg)}
 
             <h2 className="team-name">{footballTeam}</h2>
             <Link to="/stats">
@@ -229,6 +228,7 @@ const LigaArgentina = () => {
                 Prev Club
               </button>
             )}
+
             {teamId < standingsData.length - 1 && (
               <button
                 type="submit"
@@ -245,4 +245,4 @@ const LigaArgentina = () => {
   );
 };
 
-export default LigaArgentina;
+export default Ligue_1;

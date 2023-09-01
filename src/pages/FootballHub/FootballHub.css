@@ -3,9 +3,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 50px;
+    margin: 20px;
+}
+.season-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
 }
 
+.season-year-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
 .league-buttons {
     display: flex;
     align-items: center;

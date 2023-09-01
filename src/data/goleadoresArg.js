@@ -8,18 +8,19 @@ export const goleadoresArg = [
   },
   {
     season: 2004,
+    name: ["Rolando Zárate"],
+    goals: 13,
+    pic: ["RoZ.jpeg"],
+    vid: "https://www.youtube.com/watch?v=25Lf5-bnTIk&ab_channel=rolandozarateblog",
+  },
+  {
+    season: 2005,
     name: ["Mariano Pavone"],
     goals: 16,
     pic: ["MaP.jpeg"],
     vid: "https://www.youtube.com/watch?v=1GVp7QhCYf8&ab_channel=CIELOSPORTS103.5",
   },
-  {
-    season: 2005,
-    name: ["Javier Cámpora"],
-    goals: 13,
-    pic: ["JaC.jpeg"],
-    vid: "https://www.youtube.com/watch?v=i12UD0_eT58&ab_channel=Santiago12",
-  },
+
   {
     season: 2006,
     name: ["Rodrigo Palacio", "Mauro Zárate"],
@@ -78,10 +79,10 @@ export const goleadoresArg = [
   },
   {
     season: 2014,
-    name: ["Lucas Pratto", "Maxi Rodríguez"],
-    goals: 11,
-    pic: ["LuP.jpeg", "Maxi.jpeg"],
-    vid: "https://www.youtube.com/watch?v=7XNx-kqxhDQ",
+    name: ["Mauro Zárate"],
+    goals: 13,
+    pic: ["MaZ.jpeg"],
+    vid: "https://www.youtube.com/watch?v=mAzy5gcpr38",
   },
   {
     season: 2015,
@@ -125,6 +126,7 @@ export const goleadoresArg = [
     pic: ["RaBo.jpeg", "SiRo.jpeg"],
     vid: "https://www.youtube.com/watch?v=8DcSLRZ-n8Q&ab_channel=LigaProfesionaldeF%C3%BAtboldelaAFA",
   },
+
   {
     season: 2021,
     name: ["Julián Álvarez"],
