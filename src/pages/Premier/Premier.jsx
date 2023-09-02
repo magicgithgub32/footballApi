@@ -45,6 +45,9 @@ const Premier = () => {
     capoId,
     capo,
     setCapo,
+    setButeur,
+    setButeurId,
+    buteurId,
   } = useContext(TopScorerContext);
 
   // const { topScorerData } = useContext(TopScorerInfoContext);
@@ -177,6 +180,9 @@ const Premier = () => {
                 capoId={capoId}
                 capo={capo}
                 setCapo={setCapo}
+                setButeur={setButeur}
+                setButeurId={setButeurId}
+                buteurId={buteurId}
               />
 
               <h2>{seasonDisplay}</h2>
@@ -198,6 +204,9 @@ const Premier = () => {
                 capoId={capoId}
                 capo={capo}
                 setCapo={setCapo}
+                setButeur={setButeur}
+                setButeurId={setButeurId}
+                buteurId={buteurId}
               />
             </article>
 

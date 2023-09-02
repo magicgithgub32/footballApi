@@ -24,6 +24,9 @@ const GoleadorArg = () => {
     setCapo,
     setCapoId,
     capoId,
+    setButeur,
+    setButeurId,
+    buteurId,
   } = useContext(TopScorerContext);
 
   var today = new Date();
@@ -61,6 +64,9 @@ const GoleadorArg = () => {
             setCapo={setCapo}
             setCapoId={setCapoId}
             capoId={capoId}
+            setButeur={setButeur}
+            setButeurId={setButeurId}
+            buteurId={buteurId}
           />
         )}
         {season < year - 1 && (
@@ -79,6 +85,9 @@ const GoleadorArg = () => {
             setCapo={setCapo}
             setCapoId={setCapoId}
             capoId={capoId}
+            setButeur={setButeur}
+            setButeurId={setButeurId}
+            buteurId={buteurId}
           />
         )}
       </article>

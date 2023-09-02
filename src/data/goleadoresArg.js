@@ -1,4 +1,11 @@
 export const goleadoresArg = [
+  // {
+  //   season: 2002,
+  //   name: ["Cuqui Silvera"],
+  //   goals: 16,
+  //   pic: ["ASi.jpeg"],
+  //   vid: "https://www.youtube.com/watch?v=gASe7IjsC2Y",
+  // },
   {
     season: 2003,
     name: ["Luciano Figueroa"],

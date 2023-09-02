@@ -7,7 +7,7 @@ import TopScorerCard from "../../components/TopScorerCard/TopScorerCard";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 
-const Capo = () => {
+const Buteur = () => {
   const { season, setSeason, leagueName } = useContext(FootballContext);
   const {
     setTopScorerId,
@@ -19,10 +19,10 @@ const Capo = () => {
     setGoleadorArg,
     setGoleadorArgId,
     goleadorArgId,
-    capo,
     setCapo,
     setCapoId,
     capoId,
+    buteur,
     setButeur,
     setButeurId,
     buteurId,
@@ -33,7 +33,7 @@ const Capo = () => {
       <article className="header-season">
         <Header headerText={`${season} - ${season + 1} ${leagueName}`} />
 
-        <h1 className="top-scorer-title">CAPOCANNONIERE</h1>
+        <h1 className="top-scorer-title">BUTEUR</h1>
 
         {console.log("season", season)}
         {console.log("leagueName", leagueName)}
@@ -41,7 +41,7 @@ const Capo = () => {
         <HomeButton />
       </article>
 
-      <TopScorerCard topScorer={capo} />
+      <TopScorerCard topScorer={buteur} />
 
       <article className="season-buttons">
         <PrevSeasonButton
@@ -63,6 +63,7 @@ const Capo = () => {
           setButeurId={setButeurId}
           buteurId={buteurId}
         />
+
         <NextSeasonButton
           season={season}
           setSeason={setSeason}
@@ -87,4 +88,4 @@ const Capo = () => {
   );
 };
 
-export default Capo;
+export default Buteur;

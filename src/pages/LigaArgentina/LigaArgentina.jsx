@@ -43,6 +43,9 @@ const LigaArgentina = () => {
     capoId,
     capo,
     setCapo,
+    setButeur,
+    setButeurId,
+    buteurId,
   } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
@@ -169,6 +172,9 @@ const LigaArgentina = () => {
                   capoId={capoId}
                   capo={capo}
                   setCapo={setCapo}
+                  setButeur={setButeur}
+                  setButeurId={setButeurId}
+                  buteurId={buteurId}
                 />
               )}
 
@@ -192,6 +198,9 @@ const LigaArgentina = () => {
                   capoId={capoId}
                   capo={capo}
                   setCapo={setCapo}
+                  setButeur={setButeur}
+                  setButeurId={setButeurId}
+                  buteurId={buteurId}
                 />
               )}
             </article>

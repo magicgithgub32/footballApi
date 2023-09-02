@@ -3,6 +3,7 @@ import { topScorers } from "../../data/topScorers";
 import { pichichis } from "../../data/pichichis";
 import { goleadoresArg } from "../../data/goleadoresArg";
 import { capocannonieres } from "../../data/capocannonieres";
+import { buteurs } from "../../data/buteurs";
 
 var today = new Date();
 var year = today.getFullYear();
@@ -21,21 +22,12 @@ const NextSeasonButton = ({
   setGoleadorArg,
   setCapoId,
   capoId,
-  capo,
   setCapo,
+  setButeurId,
+  buteurId,
+  setButeur,
 }) => {
   const getNextSeason = () => {
-    // if (season < year - 1) {
-    //   setSeason(season + 1);
-    //   setPichichiId(pichichiId + 1);
-    //   setPichichi(pichichis[pichichiId + 1]);
-    //   setTopScorerId(topScorerId + 1);
-    //   setTopScorer(topScorers[topScorerId + 1]);
-    //   setGoleadorArgId(goleadorArgId + 1);
-    //   setGoleadorArg(goleadoresArg[goleadorArgId + 1]);
-    //   setCapoId(capoId + 1);
-    //   setCapo(capocannonieres[capoId + 1]);
-
     if (season === 2001) {
       setSeason(season + 1);
       setPichichiId(pichichiId + 1);
@@ -51,7 +43,8 @@ const NextSeasonButton = ({
       setTopScorer(topScorers[topScorerId + 1]);
       setCapoId(capoId + 1);
       setCapo(capocannonieres[capoId + 1]);
-
+      setButeurId(buteurId + 1);
+      setButeur(buteurs[buteurId + 1]);
       setGoleadorArgId(goleadorArgId + 1);
       setGoleadorArg(goleadoresArg[goleadorArgId + 1]);
     }

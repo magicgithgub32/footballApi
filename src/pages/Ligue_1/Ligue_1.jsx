@@ -35,7 +35,6 @@ const Ligue_1 = () => {
     setPichichiId,
     setPichichi,
     pichichiId,
-    goleadorArgId,
     setGoleadorArgId,
     goleadorArg,
     setGoleadorArg,
@@ -43,10 +42,10 @@ const Ligue_1 = () => {
     capoId,
     capo,
     setCapo,
-    //setButeurId,
-    //setButeur,
-    //buteurId,
-    //buteur
+    setButeurId,
+    setButeur,
+    buteurId,
+    buteur,
   } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
@@ -158,10 +157,10 @@ const Ligue_1 = () => {
                   capoId={capoId}
                   capo={capo}
                   setCapo={setCapo}
-                  //setButeurId={setButeurId}
-                  //setButeur={setButeur}
-                  //buteurId={buteurId}
-                  //buteur={buteur}
+                  setButeurId={setButeurId}
+                  setButeur={setButeur}
+                  buteurId={buteurId}
+                  buteur={buteur}
                 />
               )}
 
@@ -184,18 +183,18 @@ const Ligue_1 = () => {
                 capoId={capoId}
                 capo={capo}
                 setCapo={setCapo}
-                //setButeurId={setButeurId}
-                //setButeur={setButeur}
-                //buteurId={buteurId}
-                //buteur={buteur}
+                setButeurId={setButeurId}
+                setButeur={setButeur}
+                buteurId={buteurId}
+                buteur={buteur}
               />
             </article>
 
-            {/* <Link to="/buteur">
+            <Link to="/buteur">
               <button type="submit" className="top-scorer">
                 BUTEUR
               </button>
-            </Link> */}
+            </Link>
           </article>
 
           <article className="name-logo-wrapper">
@@ -203,14 +202,13 @@ const Ligue_1 = () => {
 
             {console.log("standingsData", standingsData)}
             {console.log("rank", rank)}
-            {/* {console.log("pichichi", buteur)} */}
+            {console.log("pichichi", buteur)}
 
             {console.log("leagueName", leagueName)}
             {console.log("standingsData", standingsData)}
             {console.log("season", season)}
             {console.log("rank", rank)}
             {console.log("games Played", standingsData[teamId].stats[0].value)}
-            {/* {console.log("pichichi", buteur)} */}
             {console.log("leagueName", leagueName)}
 
             <h2 className="team-name">{footballTeam}</h2>

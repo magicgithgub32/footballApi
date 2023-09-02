@@ -42,6 +42,9 @@ const Calcio = () => {
     capoId,
     capo,
     setCapo,
+    setButeur,
+    setButeurId,
+    buteurId,
   } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
@@ -154,6 +157,9 @@ const Calcio = () => {
                 capoId={capoId}
                 capo={capo}
                 setCapo={setCapo}
+                setButeur={setButeur}
+                setButeurId={setButeurId}
+                buteurId={buteurId}
               />
 
               <h2>{seasonDisplay}</h2>
@@ -175,6 +181,9 @@ const Calcio = () => {
                 capoId={capoId}
                 capo={capo}
                 setCapo={setCapo}
+                setButeur={setButeur}
+                setButeurId={setButeurId}
+                buteurId={buteurId}
               />
             </article>
 

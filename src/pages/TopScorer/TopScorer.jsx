@@ -24,6 +24,9 @@ const TopScorer = () => {
     setCapo,
     setCapoId,
     capoId,
+    setButeur,
+    setButeurId,
+    buteurId,
   } = useContext(TopScorerContext);
   return (
     <section>
@@ -54,6 +57,9 @@ const TopScorer = () => {
           setCapo={setCapo}
           setCapoId={setCapoId}
           capoId={capoId}
+          setButeur={setButeur}
+          setButeurId={setButeurId}
+          buteurId={buteurId}
         />
 
         <NextSeasonButton
@@ -71,6 +77,9 @@ const TopScorer = () => {
           setCapo={setCapo}
           setCapoId={setCapoId}
           capoId={capoId}
+          setButeur={setButeur}
+          setButeurId={setButeurId}
+          buteurId={buteurId}
         />
       </article>
     </section>

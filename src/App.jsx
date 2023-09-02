@@ -17,6 +17,8 @@ import Calcio from "./pages/Calcio/Calcio";
 import { capocannonieres } from "./data/capocannonieres";
 import Capo from "./pages/Capo/Capo";
 import Ligue_1 from "./pages/Ligue_1/Ligue_1";
+import Buteur from "./pages/Buteur/Buteur";
+import { buteurs } from "./data/buteurs";
 
 export const FootballContext = createContext();
 export const TopScorerContext = createContext();
@@ -461,6 +463,8 @@ const App = () => {
   const [goleadorArg, setGoleadorArg] = useState(goleadoresArg[goleadorArgId]);
   const [capoId, setCapoId] = useState(0);
   const [capo, setCapo] = useState(capocannonieres[capoId]);
+  const [buteurId, setButeurId] = useState(0);
+  const [buteur, setButeur] = useState(buteurs[buteurId]);
   return (
     <>
       <FootballContext.Provider
@@ -505,6 +509,10 @@ const App = () => {
             setCapoId: setCapoId,
             capo: capo,
             setCapo: setCapo,
+            buteurId: buteurId,
+            setButeurId: setButeurId,
+            buteur: buteur,
+            setButeur: setButeur,
           }}
         >
           <BrowserRouter>
@@ -521,6 +529,7 @@ const App = () => {
               <Route path="/topScorer" element={<TopScorer />}></Route>
               <Route path="/pichichi" element={<Pichichi />}></Route>
               <Route path="/capo" element={<Capo />}></Route>
+              <Route path="/buteur" element={<Buteur />}></Route>
               <Route path="/goleadorarg" element={<GoleadorArg />}></Route>
             </Routes>
           </BrowserRouter>

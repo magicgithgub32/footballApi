@@ -24,6 +24,9 @@ const Pichichi = () => {
     setCapo,
     setCapoId,
     capoId,
+    setButeur,
+    setButeurId,
+    buteurId,
   } = useContext(TopScorerContext);
   return (
     <section>
@@ -37,37 +40,7 @@ const Pichichi = () => {
       <TopScorerCard topScorer={pichichi} />
 
       <article className="season-buttons">
-        {/* <PrevSeasonButton
-          season={season}
-          setSeason={setSeason}
-          setPichichiId={setPichichiId}
-          pichichiId={pichichiId}
-          setPichichi={setPichichi}
-          setTopScorer={setTopScorer}
-          setTopScorerId={setTopScorerId}
-        /> */}
-
-        {/* <NextSeasonButton
-          season={season}
-          setSeason={setSeason}
-          setPichichiId={setPichichiId}
-          pichichiId={pichichiId}
-          setPichichi={setPichichi}
-        /> */}
-
         {console.log("season", season)}
-
-        {/* <PrevSeasonButtonSp
-          season={season}
-          setSeason={setSeason}
-          setSeasonArg={setSeasonArg}
-          setPichichiId={setPichichiId}
-          pichichiId={pichichiId}
-          setPichichi={setPichichi}
-          setTopScorerId={setTopScorerId}
-          topScorerId={topScorerId}
-          setTopScorer={setTopScorer}
-        /> */}
 
         <PrevSeasonButton
           season={season}
@@ -84,19 +57,10 @@ const Pichichi = () => {
           setCapo={setCapo}
           setCapoId={setCapoId}
           capoId={capoId}
+          setButeur={setButeur}
+          setButeurId={setButeurId}
+          buteurId={buteurId}
         />
-
-        {/* <NextSeasonButtonSp
-          season={season}
-          setSeason={setSeason}
-          setSeasonArg={setSeasonArg}
-          setPichichiId={setPichichiId}
-          pichichiId={pichichiId}
-          setPichichi={setPichichi}
-          setTopScorerId={setTopScorerId}
-          topScorerId={topScorerId}
-          setTopScorer={setTopScorer}
-        /> */}
 
         <NextSeasonButton
           season={season}
@@ -113,6 +77,9 @@ const Pichichi = () => {
           setCapo={setCapo}
           setCapoId={setCapoId}
           capoId={capoId}
+          setButeur={setButeur}
+          setButeurId={setButeurId}
+          buteurId={buteurId}
         />
       </article>
     </section>
