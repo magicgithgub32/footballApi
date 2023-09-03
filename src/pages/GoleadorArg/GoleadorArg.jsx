@@ -35,7 +35,7 @@ const GoleadorArg = () => {
   return (
     <section>
       <article className="header-season">
-        <Header headerText={`${season + 1} - ${leagueName}`} />
+        <Header headerText={`${season} - ${leagueName}`} />
         <h1 className="top-scorer-title">GOLEADOR</h1>
 
         <HomeButton />
@@ -45,6 +45,13 @@ const GoleadorArg = () => {
       {console.log("season", season)}
       {console.log("leagueName", leagueName)}
       {console.log("year", year)}
+      {console.log("season", season)}
+      {console.log("pichichiId", pichichiId)}
+      {console.log("topScorerId", topScorerId)}
+      {console.log("capoId", capoId)}
+      {console.log("buteurId", buteurId)}
+      {console.log("goleadorArgId", goleadorArgId)}
+
       <TopScorerCard topScorer={goleadorArg} />
 
       <article className="season-buttons">
@@ -69,7 +76,7 @@ const GoleadorArg = () => {
             buteurId={buteurId}
           />
         )}
-        {season < year - 1 && (
+        {season < year && (
           <NextSeasonButton
             season={season}
             setSeason={setSeason}

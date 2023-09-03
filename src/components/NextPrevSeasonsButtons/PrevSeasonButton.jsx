@@ -8,8 +8,6 @@ import { buteurs } from "../../data/buteurs";
 const PrevSeasonButton = ({
   season,
   setSeason,
-  seasonArg,
-  setSeasonArg,
   setTopScorerId,
   topScorerId,
   setTopScorer,

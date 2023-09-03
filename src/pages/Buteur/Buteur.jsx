@@ -37,6 +37,12 @@ const Buteur = () => {
 
         {console.log("season", season)}
         {console.log("leagueName", leagueName)}
+        {console.log("leagueName", leagueName)}
+        {console.log("pichichiId", pichichiId)}
+        {console.log("topScorerId", topScorerId)}
+        {console.log("capoId", capoId)}
+        {console.log("buteurId", buteurId)}
+        {console.log("goleadorArgId", goleadorArgId)}
 
         <HomeButton />
       </article>
@@ -44,25 +50,27 @@ const Buteur = () => {
       <TopScorerCard topScorer={buteur} />
 
       <article className="season-buttons">
-        <PrevSeasonButton
-          season={season}
-          setSeason={setSeason}
-          setTopScorerId={setTopScorerId}
-          topScorerId={topScorerId}
-          setTopScorer={setTopScorer}
-          setPichichiId={setPichichiId}
-          pichichiId={pichichiId}
-          setPichichi={setPichichi}
-          setGoleadorArgId={setGoleadorArgId}
-          goleadorArgId={goleadorArgId}
-          setGoleadorArg={setGoleadorArg}
-          setCapo={setCapo}
-          setCapoId={setCapoId}
-          capoId={capoId}
-          setButeur={setButeur}
-          setButeurId={setButeurId}
-          buteurId={buteurId}
-        />
+        {season > 2002 && (
+          <PrevSeasonButton
+            season={season}
+            setSeason={setSeason}
+            setTopScorerId={setTopScorerId}
+            topScorerId={topScorerId}
+            setTopScorer={setTopScorer}
+            setPichichiId={setPichichiId}
+            pichichiId={pichichiId}
+            setPichichi={setPichichi}
+            setGoleadorArgId={setGoleadorArgId}
+            goleadorArgId={goleadorArgId}
+            setGoleadorArg={setGoleadorArg}
+            setCapo={setCapo}
+            setCapoId={setCapoId}
+            capoId={capoId}
+            setButeur={setButeur}
+            setButeurId={setButeurId}
+            buteurId={buteurId}
+          />
+        )}
 
         <NextSeasonButton
           season={season}

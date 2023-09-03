@@ -37,6 +37,12 @@ const Capo = () => {
 
         {console.log("season", season)}
         {console.log("leagueName", leagueName)}
+        {console.log("season", season)}
+        {console.log("pichichiId", pichichiId)}
+        {console.log("topScorerId", topScorerId)}
+        {console.log("capoId", capoId)}
+        {console.log("buteurId", buteurId)}
+        {console.log("goleadorArgId", goleadorArgId)}
 
         <HomeButton />
       </article>

@@ -133,6 +133,13 @@ export const goleadoresArg = [
     pic: ["RaBo.jpeg", "SiRo.jpeg"],
     vid: "https://www.youtube.com/watch?v=8DcSLRZ-n8Q&ab_channel=LigaProfesionaldeF%C3%BAtboldelaAFA",
   },
+  {
+    season: 2020,
+    name: ["Rafael Borré", "Silvio Romero"],
+    goals: 12,
+    pic: ["RaBo.jpeg", "SiRo.jpeg"],
+    vid: "https://www.youtube.com/watch?v=8DcSLRZ-n8Q&ab_channel=LigaProfesionaldeF%C3%BAtboldelaAFA",
+  },
 
   {
     season: 2021,
