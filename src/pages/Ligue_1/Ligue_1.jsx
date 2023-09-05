@@ -12,23 +12,23 @@ const Ligue_1 = () => {
     setStandingsData,
     standingsData,
     setFootballTeam,
-    setTeamLogo,
+    // setTeamLogo,
     teamId,
     setTeamId,
     footballTeam,
-    teamLogo,
+    // teamLogo,
     season,
     setSeason,
     leagueName,
     setLeagueName,
-    setLeagueLogo,
-    leagueLogo,
     seasonDisplay,
     setSeasonDisplay,
+    dataLogos,
+    setDataLogos,
   } = useContext(FootballContext);
 
   const {
-    topScorerId,
+    // topScorerId,
     setTopScorerId,
     topScorer,
     setTopScorer,
@@ -72,8 +72,7 @@ const Ligue_1 = () => {
 
     if (result.status === 200) {
       const res = await result.json();
-      setLeagueLogo(res.data[6].logos);
-      console.log("leagueLogo", leagueLogo);
+      setDataLogos(res.data);
     }
   };
 
@@ -92,23 +91,23 @@ const Ligue_1 = () => {
     }
   }, [standingsData, teamId]);
 
-  useEffect(() => {
-    if (footballTeam) {
-      if (footballTeam === "Sedan") {
-        setTeamLogo("./Sedan.png");
-      } else if (footballTeam === "FC Istres") {
-        setTeamLogo("./Istres.png");
-      } else if (footballTeam === "Boulogne") {
-        setTeamLogo("./Boulogne.png");
-      } else if (footballTeam === "Arles") {
-        setTeamLogo("Arles.png");
-      } else {
-        setTeamLogo(
-          standingsData[teamId]?.team.logos[0]?.href || "./etrusco.png"
-        );
-      }
-    }
-  }, [footballTeam]);
+  // useEffect(() => {
+  //   if (footballTeam) {
+  //     if (footballTeam === "Sedan") {
+  //       setTeamLogo("./Sedan.png");
+  //     } else if (footballTeam === "FC Istres") {
+  //       setTeamLogo("./Istres.png");
+  //     } else if (footballTeam === "Boulogne") {
+  //       setTeamLogo("./Boulogne.png");
+  //     } else if (footballTeam === "Arles") {
+  //       setTeamLogo("Arles.png");
+  //     } else {
+  //       setTeamLogo(
+  //         standingsData[teamId]?.team.logos[0]?.href || "./etrusco.png"
+  //       );
+  //     }
+  //   }
+  // }, [footballTeam]);
 
   const getPreviousTeam = () => {
     if (teamId > 0) {
@@ -129,11 +128,16 @@ const Ligue_1 = () => {
 
   return (
     <>
-      <Header
-        headerText={leagueName}
-        img={leagueLogo ? leagueLogo.light : ""}
-        alt="League Logo"
-      />
+      {dataLogos && leagueName && (
+        <Header
+          headerText={leagueName}
+          img={
+            dataLogos.find((item) => item.name === leagueName)?.logos.dark ||
+            dataLogos[16].logos.light
+          }
+          alt="League Logo"
+        />
+      )}
       {footballTeam && (
         <section className="hero-wrapper">
           <article className="seasons-scorer-article">
@@ -212,9 +216,32 @@ const Ligue_1 = () => {
             {console.log("leagueName", leagueName)}
 
             <h2 className="team-name">{footballTeam}</h2>
-            <Link to="/stats">
-              <img className="logo" src={teamLogo} alt="logo" />
-            </Link>
+
+            {standingsData && footballTeam && (
+              <Link to="/stats">
+                <img
+                  className="logo"
+                  src={
+                    footballTeam === "Sedan"
+                      ? "./Sedan.png"
+                      : footballTeam === "FC Istres"
+                      ? "./Istres.png"
+                      : footballTeam === "Boulogne"
+                      ? "./Boulogne.png"
+                      : footballTeam === "Arles"
+                      ? "./Arles.png"
+                      : standingsData.find(
+                          (item) => item.team.name === footballTeam
+                        )
+                      ? standingsData.find(
+                          (item) => item.team.name === footballTeam
+                        ).team.logos[0]?.href
+                      : ""
+                  }
+                  alt="team logo"
+                />
+              </Link>
+            )}
           </article>
           <article className="next-prev-buttons">
             {teamId > 0 && (

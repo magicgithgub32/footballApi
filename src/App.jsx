@@ -446,14 +446,14 @@ export const TopScorerContext = createContext();
 const App = () => {
   const [league, setLeague] = useState("esp.1");
   const [leagueName, setLeagueName] = useState("");
-  const [leagueLogo, setLeagueLogo] = useState("");
   const [standingsData, setStandingsData] = useState(null);
   const [footballTeam, setFootballTeam] = useState("");
-  const [teamLogo, setTeamLogo] = useState("");
   const [teamId, setTeamId] = useState(0);
-  const [searchQuery, setSearchQuery] = useState("");
   const [season, setSeason] = useState(2001);
   const [seasonDisplay, setSeasonDisplay] = useState("");
+
+  const [dataLogos, setDataLogos] = useState("");
+  const [teamLogo, setTeamLogo] = useState("");
 
   const [topScorerId, setTopScorerId] = useState(0);
   const [topScorer, setTopScorer] = useState(topScorers[topScorerId]);
@@ -473,8 +473,7 @@ const App = () => {
           setLeague: setLeague,
           leagueName: leagueName,
           setLeagueName: setLeagueName,
-          leagueLogo: leagueLogo,
-          setLeagueLogo: setLeagueLogo,
+
           standingsData: standingsData,
           setStandingsData: setStandingsData,
           footballTeam: footballTeam,
@@ -483,12 +482,13 @@ const App = () => {
           setTeamLogo: setTeamLogo,
           teamId: teamId,
           setTeamId: setTeamId,
-          searchQuery: searchQuery,
-          setSearchQuery: setSearchQuery,
+
           season: season,
           setSeason: setSeason,
           seasonDisplay: seasonDisplay,
           setSeasonDisplay: setSeasonDisplay,
+          dataLogos: dataLogos,
+          setDataLogos: setDataLogos,
         }}
       >
         <TopScorerContext.Provider

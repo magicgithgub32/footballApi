@@ -16,18 +16,15 @@ const Premier = () => {
     setTeamLogo,
     teamId,
     setTeamId,
-    // setSearchQuery,
-    // searchQuery,
     footballTeam,
-    teamLogo,
     season,
     setSeason,
     seasonDisplay,
     setSeasonDisplay,
     leagueName,
     setLeagueName,
-    setLeagueLogo,
-    leagueLogo,
+    dataLogos,
+    setDataLogos,
   } = useContext(FootballContext);
 
   const {
@@ -49,10 +46,6 @@ const Premier = () => {
     setButeurId,
     buteurId,
   } = useContext(TopScorerContext);
-
-  // const { topScorerData } = useContext(TopScorerInfoContext);
-
-  // const premierTopScorers = topScorerData.eng;
 
   const getFootballFetch = async () => {
     const result = await fetch(
@@ -76,7 +69,7 @@ const Premier = () => {
 
     if (result.status === 200) {
       const res = await result.json();
-      setLeagueLogo(res.data[5].logos);
+      setDataLogos(res.data);
     }
   };
 
@@ -110,26 +103,6 @@ const Premier = () => {
     }
   };
 
-  // const handleSearchInputChange = (event) => {
-  //   setSearchQuery(event.target.value);
-  // };
-
-  // const handleClick = () => {
-  //   if (standingsData) {
-  //     const foundTeam = standingsData.find(
-  //       (team) => team.name?.toLowerCase() === searchQuery.toLowerCase()
-  //     );
-  //     console.log("foundTeam", foundTeam);
-
-  //     if (foundTeam) {
-  //       setTeamId(foundTeam.stats[0].rank - 1);
-  //     } else {
-  //       setFootballTeam(null);
-  //       setTeamLogo("");
-  //     }
-  //   }
-  // };
-
   const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
 
   var today = new Date();
@@ -137,30 +110,18 @@ const Premier = () => {
 
   return (
     <>
-      <Header
-        headerText={leagueName}
-        img={leagueLogo ? leagueLogo.light : ""}
-        alt="League Logo"
-      />
+      {dataLogos && leagueName && (
+        <Header
+          headerText={leagueName}
+          img={
+            dataLogos.find((item) => item.name === leagueName)?.logos.light ||
+            ""
+          }
+          alt="League Logo"
+        />
+      )}
       {footballTeam && (
         <section className="hero-wrapper">
-          {/* <article className="search-buttons">
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Search your club"
-              value={searchQuery}
-              onChange={handleSearchInputChange}
-            />
-            <button
-              type="button"
-              className="search-button"
-              onClick={handleClick}
-            >
-              Go!{" "}
-            </button>
-          </article> */}
-
           <article className="seasons-scorer-article">
             <HomeButton />
             <article className="season-buttons">
@@ -215,10 +176,6 @@ const Premier = () => {
                 TOP SCORER
               </button>
             </Link>
-
-            {/* <Link to="/topScorer?league=eng">
-              View Premier League Top Scorer
-            </Link> */}
           </article>
 
           <article className="name-logo-wrapper">
@@ -229,11 +186,23 @@ const Premier = () => {
             {console.log("rank", rank)}
             {console.log("topSCorer", topScorer)}
             {console.log("leagueName", leagueName)}
+            {console.log("footballTeam", footballTeam)}
 
             <h2 className="team-name">{footballTeam}</h2>
-            <Link to="/stats">
-              <img className="logo" src={teamLogo} alt="logo" />
-            </Link>
+
+            {standingsData && footballTeam && (
+              <Link to="/stats">
+                <img
+                  className="logo"
+                  src={
+                    standingsData.find(
+                      (item) => item.team.name === footballTeam
+                    )?.team.logos[0]?.href || "Nope"
+                  }
+                  alt=""
+                />
+              </Link>
+            )}
           </article>
           <article className="next-prev-buttons">
             {teamId > 0 && (

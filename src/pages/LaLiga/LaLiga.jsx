@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../Premier/Premier.css";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import { FootballContext, TopScorerContext } from "../../App";
 import { Link } from "react-router-dom";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
@@ -16,17 +15,14 @@ const LaLiga = () => {
     setTeamLogo,
     teamId,
     setTeamId,
-    // setSearchQuery,
-    // searchQuery,
     footballTeam,
-    teamLogo,
     season,
     setSeason,
     leagueName,
     setLeagueName,
-    setLeagueLogo,
-    leagueLogo,
     league,
+    dataLogos,
+    setDataLogos,
     seasonDisplay,
     setSeasonDisplay,
   } = useContext(FootballContext);
@@ -73,10 +69,9 @@ const LaLiga = () => {
 
     if (result.status === 200) {
       const res = await result.json();
-      setLeagueLogo(res.data[16].logos);
+      setDataLogos(res.data);
     }
   };
-
   useEffect(() => {
     getLeagueLogoFetch();
   }, []);
@@ -122,26 +117,6 @@ const LaLiga = () => {
     }
   };
 
-  // const handleSearchInputChange = (event) => {
-  //   setSearchQuery(event.target.value);
-  // };
-
-  // const handleClick = () => {
-  //   if (standingsData) {
-  //     const foundTeam = standingsData.find(
-  //       (team) => team.name?.toLowerCase() === searchQuery.toLowerCase()
-  //     );
-  //     console.log("foundTeam", foundTeam);
-
-  //     if (foundTeam) {
-  //       setTeamId(foundTeam.stats[0].rank - 1);
-  //     } else {
-  //       setFootballTeam(null);
-  //       setTeamLogo("");
-  //     }
-  //   }
-  // };
-
   const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
 
   var today = new Date();
@@ -149,30 +124,18 @@ const LaLiga = () => {
 
   return (
     <>
-      <Header
-        headerText={leagueName}
-        img={leagueLogo ? leagueLogo.light : ""}
-        alt="League Logo"
-      />
+      {dataLogos && leagueName && (
+        <Header
+          headerText={leagueName}
+          img={
+            dataLogos.find((item) => item.name === leagueName)?.logos.dark ||
+            dataLogos[16].logos.light
+          }
+          alt="League Logo"
+        />
+      )}
       {footballTeam && (
         <section className="hero-wrapper">
-          {/* <article className="search-buttons">
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Search your club"
-              value={searchQuery}
-              onChange={handleSearchInputChange}
-            />
-            <button
-              type="button"
-              className="search-button"
-              onClick={handleClick}
-            >
-              Go!{" "}
-            </button>
-          </article> */}
-
           <article className="seasons-scorer-article">
             <HomeButton />
             <article className="season-buttons">
@@ -246,11 +209,33 @@ const LaLiga = () => {
             {console.log("games Played", standingsData[teamId].stats[0].value)}
             {console.log("pichichi", pichichi)}
             {console.log("leagueName", leagueName)}
+            {console.log("footballteam", footballTeam)}
 
             <h2 className="team-name">{footballTeam}</h2>
-            <Link to="/stats">
-              <img className="logo" src={teamLogo} alt="logo" />
-            </Link>
+
+            {standingsData && footballTeam && (
+              <Link to="/stats">
+                <img
+                  className="logo"
+                  src={
+                    footballTeam === "Real Murcia"
+                      ? "./Murcia.png"
+                      : footballTeam === "Recreativo Huelva"
+                      ? "./Recre.png"
+                      : footballTeam === "Hercules"
+                      ? "./Hercules.png"
+                      : standingsData.find(
+                          (item) => item.team.name === footballTeam
+                        )
+                      ? standingsData.find(
+                          (item) => item.team.name === footballTeam
+                        ).team.logos[0]?.href
+                      : ""
+                  }
+                  alt="team logo"
+                />
+              </Link>
+            )}
           </article>
           <article className="next-prev-buttons">
             {teamId > 0 && (

@@ -12,17 +12,17 @@ const LigaArgentina = () => {
     setStandingsData,
     standingsData,
     setFootballTeam,
-    setTeamLogo,
+    // setTeamLogo,
     teamId,
     setTeamId,
     footballTeam,
-    teamLogo,
+    // teamLogo,
     season,
     setSeason,
     leagueName,
     setLeagueName,
-    setLeagueLogo,
-    leagueLogo,
+    dataLogos,
+    setDataLogos,
     seasonDisplay,
     setSeasonDisplay,
   } = useContext(FootballContext);
@@ -63,19 +63,6 @@ const LigaArgentina = () => {
     } else {
       setStandingsData(null);
     }
-    // };
-
-    // if (result.status === 200) {
-    //   const res = await result.json();
-    //   console.log("res", res);
-    //   if (res.data.seasonDisplay !== "Group A2") {
-    //     setStandingsData(res.data.standings);
-    //     setLeagueName(res.data.name);
-    //     setSeasonDisplay(res.data.seasonDisplay);
-    //   } else {
-    //     setStandingsData(null);
-    //   }
-    // }
   };
 
   const getLeagueLogoFetch = async () => {
@@ -85,8 +72,7 @@ const LigaArgentina = () => {
 
     if (result.status === 200) {
       const res = await result.json();
-      setLeagueLogo(res.data[0].logos);
-      console.log("leagueLogo", leagueLogo);
+      setDataLogos(res.data);
     }
   };
 
@@ -105,24 +91,24 @@ const LigaArgentina = () => {
     }
   }, [standingsData, teamId]);
 
-  useEffect(() => {
-    if (footballTeam) {
-      if (
-        footballTeam === "Huracán de Tres Arroyos" ||
-        footballTeam === "Huracán"
-      ) {
-        setTeamLogo("./Huracan.png");
-      } else if (footballTeam === "Tiro Federal") {
-        setTeamLogo("./Tiro.png");
-      } else if (footballTeam === "San Martín de Tucumán") {
-        setTeamLogo("./San_martin_tucuman.png");
-      } else {
-        setTeamLogo(
-          standingsData[teamId]?.team.logos[0]?.href || "./etrusco.png"
-        );
-      }
-    }
-  }, [footballTeam]);
+  // useEffect(() => {
+  //   if (footballTeam) {
+  //     if (
+  //       footballTeam === "Huracán de Tres Arroyos" ||
+  //       footballTeam === "Huracán"
+  //     ) {
+  //       setTeamLogo("./Huracan.png");
+  //     } else if (footballTeam === "Tiro Federal") {
+  //       setTeamLogo("./Tiro.png");
+  //     } else if (footballTeam === "San Martín de Tucumán") {
+  //       setTeamLogo("./San_martin_tucuman.png");
+  //     } else {
+  //       setTeamLogo(
+  //         standingsData[teamId]?.team.logos[0]?.href || "./etrusco.png"
+  //       );
+  //     }
+  //   }
+  // }, [footballTeam]);
 
   const getPreviousTeam = () => {
     if (teamId > 0) {
@@ -144,11 +130,16 @@ const LigaArgentina = () => {
   return (
     <>
       {console.log("standingsData", standingsData)}
-      <Header
-        headerText={leagueName}
-        img={leagueLogo ? leagueLogo.light : ""}
-        alt="League Logo"
-      />
+      {dataLogos && leagueName && (
+        <Header
+          headerText={leagueName}
+          img={
+            dataLogos.find((item) => item.name === leagueName)?.logos.dark ||
+            dataLogos[16].logos.light
+          }
+          alt="League Logo"
+        />
+      )}
       {footballTeam && (
         <section className="hero-wrapper">
           <article className="seasons-scorer-article">
@@ -224,9 +215,30 @@ const LigaArgentina = () => {
             {console.log("goleadorArg", goleadorArg)}
 
             <h2 className="team-name">{footballTeam}</h2>
-            <Link to="/stats">
-              <img className="logo" src={teamLogo} alt="logo" />
-            </Link>
+
+            {standingsData && footballTeam && (
+              <Link to="/stats">
+                <img
+                  className="logo"
+                  src={
+                    footballTeam === "Huracán de Tres Arroyos"
+                      ? "./Huracan.png"
+                      : footballTeam === "Tiro Federal"
+                      ? "./Tiro.png"
+                      : footballTeam === "San Martín de Tucumán"
+                      ? "./San_martin_tucuman.png"
+                      : standingsData.find(
+                          (item) => item.team.name === footballTeam
+                        )
+                      ? standingsData.find(
+                          (item) => item.team.name === footballTeam
+                        ).team.logos[0]?.href
+                      : ""
+                  }
+                  alt="team logo"
+                />
+              </Link>
+            )}
           </article>
           <article className="next-prev-buttons">
             {teamId > 0 && (
