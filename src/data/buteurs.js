@@ -1,11 +1,4 @@
 export const buteurs = [
-  // {
-  //   season: 2001,
-  //   name: ["Djibril Cissé", "Pedro Pauleta"],
-  //   goals: 22,
-  //   pic: ["DCi.jpeg", "PePa.jpeg"],
-  //   vid: "https://www.youtube.com/watch?v=Y1EX_c0xOBI",
-  // },
   {
     season: 2002,
     name: ["Shabani Nonda"],

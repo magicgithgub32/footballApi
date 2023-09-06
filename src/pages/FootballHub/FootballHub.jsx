@@ -228,7 +228,7 @@
 
 // export default FootballHub;
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./FootballHub.css";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -241,7 +241,7 @@ import { buteurs } from "../../data/buteurs";
 import { goleadoresArg } from "../../data/goleadoresArg";
 
 const FootballHub = () => {
-  const { setLeague, season, setSeason } = useContext(FootballContext);
+  const { setLeague, league, season, setSeason } = useContext(FootballContext);
   const {
     setTopScorerId,
     topScorerId,
@@ -260,9 +260,13 @@ const FootballHub = () => {
     setButeur,
   } = useContext(TopScorerContext);
 
-  const handleLeagueChange = (leagueId) => {
-    setLeague(leagueId);
-  };
+  // const handleLeagueChange = (leagueId) => {
+  //   setLeague(leagueId);
+  // };
+
+  // useEffect(() => {
+  //   setLeague(league);
+  // }, [league]);
 
   var today = new Date();
   var year = today.getFullYear();
@@ -357,6 +361,7 @@ const FootballHub = () => {
   console.log("capoId", capoId);
   console.log("buteurId", buteurId);
   console.log("goleadorArgId", goleadorArgId);
+  console.log("league", league);
 
   return (
     <>
@@ -376,7 +381,7 @@ const FootballHub = () => {
               className="add-substract-year"
               onClick={substractYear}
             >
-              -
+              Prev
             </button>
           )}
           {season} - {season + 1}
@@ -386,7 +391,7 @@ const FootballHub = () => {
               className="add-substract-year"
               onClick={addYear}
             >
-              +
+              Next
             </button>
           )}
         </article>
@@ -397,21 +402,10 @@ const FootballHub = () => {
           leagueId="eng.1"
           imageSrc="inglaterra.png"
           altText="england"
-          onClick={() => handleLeagueChange("eng.1")}
         />
-        <LeagueButton
-          leagueId="esp.1"
-          imageSrc="espana.png"
-          altText="spain"
-          onClick={() => handleLeagueChange("esp.1")}
-        />
+        <LeagueButton leagueId="esp.1" imageSrc="espana.png" altText="spain" />
 
-        <LeagueButton
-          leagueId="ita.1"
-          imageSrc="italia.png"
-          altText="italy"
-          onClick={() => handleLeagueChange("ita.1")}
-        />
+        <LeagueButton leagueId="ita.1" imageSrc="italia.png" altText="italy" />
 
         {season > 2001 && (
           <>
@@ -419,25 +413,14 @@ const FootballHub = () => {
               leagueId="fra.1"
               imageSrc="francia.png"
               altText="france"
-              onClick={() => handleLeagueChange("fra.1")}
             />
             <LeagueButton
               leagueId="arg.1"
               imageSrc="argentina.png"
               altText="argentina"
-              onClick={() => handleLeagueChange("arg.1")}
             />
           </>
         )}
-
-        {/* {season < year && season > 2001 && (
-          <LeagueButton
-            leagueId="arg.1"
-            imageSrc="argentina.png"
-            altText="argentina"
-            onClick={() => handleLeagueChange("arg.1")}
-          />
-        )} */}
       </article>
 
       <Footer />

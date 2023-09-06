@@ -255,13 +255,12 @@ const Calcio = () => {
     setStandingsData,
     standingsData,
     setFootballTeam,
-    // setTeamLogo,
     teamId,
     setTeamId,
     footballTeam,
-    // teamLogo,
     season,
     setSeason,
+    league,
     seasonDisplay,
     setSeasonDisplay,
     leagueName,
@@ -291,7 +290,7 @@ const Calcio = () => {
 
   const getFootballFetch = async () => {
     const result = await fetch(
-      `https://api-football-standings.azharimm.dev/leagues/ita.1/standings?season=${season}&sort=asc`
+      `https://api-football-standings.azharimm.dev/leagues/${league}/standings?season=${season}&sort=asc`
     );
 
     if (result.status === 200) {

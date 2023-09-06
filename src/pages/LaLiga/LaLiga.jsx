@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 import HomeButton from "../../components/HomeButton/HomeButton";
+import MissingLogosChecks from "../../data/missingLogosChecks";
 
 const LaLiga = () => {
   const {
@@ -88,22 +89,6 @@ const LaLiga = () => {
       setFootballTeam(currentFootballTeam);
     }
   }, [standingsData, teamId]);
-
-  useEffect(() => {
-    if (footballTeam) {
-      if (footballTeam === "Real Murcia" || footballTeam === "Murcia") {
-        setTeamLogo("./Murcia.png");
-      } else if (footballTeam === "Recreativo Huelva") {
-        setTeamLogo("./Recre.png");
-      } else if (footballTeam === "Hercules") {
-        setTeamLogo("./Hercules.png");
-      } else {
-        setTeamLogo(
-          standingsData[teamId]?.team.logos[0]?.href || "./etrusco.png"
-        );
-      }
-    }
-  }, [footballTeam]);
 
   const getPreviousTeam = () => {
     if (teamId > 0) {
@@ -215,7 +200,7 @@ const LaLiga = () => {
 
             {standingsData && footballTeam && (
               <Link to="/stats">
-                <img
+                {/* <img
                   className="logo"
                   src={
                     footballTeam === "Real Murcia"
@@ -232,8 +217,9 @@ const LaLiga = () => {
                         ).team.logos[0]?.href
                       : ""
                   }
-                  alt="team logo"
-                />
+                  alt="team logo" */}
+                {/* /> */}
+                <MissingLogosChecks footballTeam={footballTeam} />
               </Link>
             )}
           </article>

@@ -1,60 +1,62 @@
 import React, { useContext, useEffect } from "react";
-import "./Premier.css";
-import { Link } from "react-router-dom";
-import Header from "../../components/Header/Header";
-
+import "./League.css";
 import { FootballContext, TopScorerContext } from "../../App";
-import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
-import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
+import Header from "../../components/Header/Header";
 import HomeButton from "../../components/HomeButton/HomeButton";
+import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
+import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
+import { Link } from "react-router-dom";
+import MissingLogosChecks from "../../data/missingLogosChecks";
 
-const Premier = () => {
+const League = () => {
   const {
     setStandingsData,
     standingsData,
     setFootballTeam,
-    setTeamLogo,
     teamId,
     setTeamId,
     footballTeam,
+    league,
     season,
     setSeason,
-    seasonDisplay,
-    setSeasonDisplay,
     leagueName,
     setLeagueName,
+    seasonDisplay,
+    setSeasonDisplay,
     dataLogos,
     setDataLogos,
-    league,
   } = useContext(FootballContext);
 
   const {
-    topScorerId,
     setTopScorerId,
     topScorer,
     setTopScorer,
     setPichichiId,
     setPichichi,
     pichichiId,
-    goleadorArgId,
     setGoleadorArgId,
+    goleadorArg,
     setGoleadorArg,
     setCapoId,
     capoId,
     capo,
     setCapo,
-    setButeur,
     setButeurId,
+    setButeur,
     buteurId,
+    buteur,
   } = useContext(TopScorerContext);
+
+  console.log("league", league);
 
   const getFootballFetch = async () => {
     const result = await fetch(
       `https://api-football-standings.azharimm.dev/leagues/${league}/standings?season=${season}&sort=asc`
     );
-
     if (result.status === 200) {
       const res = await result.json();
+      console.log("res", res);
+
       setStandingsData(res.data.standings);
       setLeagueName(res.data.name);
       setSeasonDisplay(res.data.seasonDisplay);
@@ -80,17 +82,14 @@ const Premier = () => {
 
   useEffect(() => {
     getFootballFetch();
-  }, [season]);
-
-  console.log("footballTeam", footballTeam);
+  }, [season, league]);
 
   useEffect(() => {
     if (standingsData) {
-      setFootballTeam(standingsData[teamId]?.team.name);
-
-      setTeamLogo(standingsData[teamId]?.team.logos[0].href);
+      const currentFootballTeam = standingsData[teamId]?.team.name;
+      setFootballTeam(currentFootballTeam);
     }
-  }, [standingsData, teamId, season]);
+  }, [standingsData, teamId]);
 
   const getPreviousTeam = () => {
     if (teamId > 0) {
@@ -116,7 +115,7 @@ const Premier = () => {
           headerText={leagueName}
           img={
             dataLogos.find((item) => item.name === leagueName)?.logos.light ||
-            ""
+            dataLogos[16].logos.light
           }
           alt="League Logo"
         />
@@ -126,53 +125,58 @@ const Premier = () => {
           <article className="seasons-scorer-article">
             <HomeButton />
             <article className="season-buttons">
-              <PrevSeasonButton
-                season={season}
-                setSeason={setSeason}
-                setTopScorerId={setTopScorerId}
-                topScorerId={topScorerId}
-                setTopScorer={setTopScorer}
-                leagueName={leagueName}
-                setPichichiId={setPichichiId}
-                setPichichi={setPichichi}
-                goleadorArgId={goleadorArgId}
-                setGoleadorArgId={setGoleadorArgId}
-                setGoleadorArg={setGoleadorArg}
-                setCapoId={setCapoId}
-                capoId={capoId}
-                capo={capo}
-                setCapo={setCapo}
-                setButeur={setButeur}
-                setButeurId={setButeurId}
-                buteurId={buteurId}
-              />
+              {season > 2003 && (
+                <PrevSeasonButton
+                  season={season}
+                  setSeason={setSeason}
+                  setPichichiId={setPichichiId}
+                  pichichiId={pichichiId}
+                  setPichichi={setPichichi}
+                  leagueName={leagueName}
+                  setTopScorerId={setTopScorerId}
+                  setTopScorer={setTopScorer}
+                  topScorer={topScorer}
+                  setGoleadorArgId={setGoleadorArgId}
+                  setGoleadorArg={setGoleadorArg}
+                  goleadorArg={goleadorArg}
+                  setCapoId={setCapoId}
+                  capoId={capoId}
+                  capo={capo}
+                  setCapo={setCapo}
+                  setButeurId={setButeurId}
+                  setButeur={setButeur}
+                  buteurId={buteurId}
+                  buteur={buteur}
+                />
+              )}
 
-              <h2>{seasonDisplay}</h2>
+              <h2> {seasonDisplay}</h2>
 
               <NextSeasonButton
                 season={season}
                 setSeason={setSeason}
-                setTopScorerId={setTopScorerId}
-                topScorerId={topScorerId}
-                setTopScorer={setTopScorer}
-                leagueName={leagueName}
                 setPichichiId={setPichichiId}
                 pichichiId={pichichiId}
                 setPichichi={setPichichi}
-                goleadorArgId={goleadorArgId}
+                leagueName={leagueName}
+                setTopScorerId={setTopScorerId}
+                setTopScorer={setTopScorer}
+                topScorer={topScorer}
                 setGoleadorArgId={setGoleadorArgId}
                 setGoleadorArg={setGoleadorArg}
+                goleadorArg={goleadorArg}
                 setCapoId={setCapoId}
                 capoId={capoId}
                 capo={capo}
                 setCapo={setCapo}
-                setButeur={setButeur}
                 setButeurId={setButeurId}
+                setButeur={setButeur}
                 buteurId={buteurId}
+                buteur={buteur}
               />
             </article>
 
-            <Link to="/topscorer">
+            <Link to="/buteur">
               <button type="submit" className="top-scorer">
                 TOP SCORER
               </button>
@@ -183,28 +187,68 @@ const Premier = () => {
             {rank === 1 && season < year ? <p>🍾 CHAMPION 🍾</p> : rank}
 
             {console.log("standingsData", standingsData)}
+            {console.log("rank", rank)}
+            {console.log("pichichi", buteur)}
+
+            {console.log("leagueName", leagueName)}
+            {console.log("standingsData", standingsData)}
             {console.log("season", season)}
             {console.log("rank", rank)}
-            {console.log("topSCorer", topScorer)}
+            {console.log("games Played", standingsData[teamId].stats[0].value)}
             {console.log("leagueName", leagueName)}
-            {console.log("footballTeam", footballTeam)}
 
             <h2 className="team-name">{footballTeam}</h2>
 
             {standingsData && footballTeam && (
               <Link to="/stats">
-                <img
+                {/* <img
                   className="logo"
                   src={
-                    standingsData.find(
-                      (item) => item.team.name === footballTeam
-                    )?.team.logos[0]?.href || "Nope"
+                    footballTeam === "Sedan"
+                      ? "./Sedan.png"
+                      : footballTeam === "FC Istres"
+                      ? "./Istres.png"
+                      : footballTeam === "Boulogne"
+                      ? "./Boulogne.png"
+                      : footballTeam === "Arles"
+                      ? "./Arles.png"
+                      : footballTeam === "Murcia"
+                      ? "./Murcia.png"
+                      : footballTeam === "Recreativo Huelva"
+                      ? "./Recre.png"
+                      : footballTeam === "Hercules"
+                      ? "./Hercules.png"
+                      : footballTeam === "Piacenza"
+                      ? "./Piacenza.png"
+                      : footballTeam === "Venezia"
+                      ? "./Venezia.png"
+                      : footballTeam === "Ancona"
+                      ? "./Ancona.png"
+                      : footballTeam === "Messina"
+                      ? "./Messina.png"
+                      : footballTeam === "Treviso"
+                      ? "./Treviso.png"
+                      : footballTeam === "Huracán de Tres Arroyos"
+                      ? "./Huracan.png"
+                      : footballTeam === "Tiro Federal"
+                      ? "./Tiro.png"
+                      : footballTeam === "San Martín de Tucumán"
+                      ? "./San_martin_tucuman.png"
+                      : standingsData.find(
+                          (item) => item.team.name === footballTeam
+                        )
+                      ? standingsData.find(
+                          (item) => item.team.name === footballTeam
+                        ).team.logos[0]?.href
+                      : ""
                   }
-                  alt=""
-                />
+                  alt="team logo" */}
+
+                <MissingLogosChecks footballTeam={footballTeam} />
               </Link>
             )}
           </article>
+
           <article className="next-prev-buttons">
             {teamId > 0 && (
               <button
@@ -215,7 +259,6 @@ const Premier = () => {
                 Prev Club
               </button>
             )}
-
             {teamId < standingsData.length - 1 && (
               <button
                 type="submit"
@@ -231,4 +274,5 @@ const Premier = () => {
     </>
   );
 };
-export default Premier;
+
+export default League;

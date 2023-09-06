@@ -12,11 +12,10 @@ const Ligue_1 = () => {
     setStandingsData,
     standingsData,
     setFootballTeam,
-    // setTeamLogo,
     teamId,
     setTeamId,
     footballTeam,
-    // teamLogo,
+    league,
     season,
     setSeason,
     leagueName,
@@ -28,7 +27,6 @@ const Ligue_1 = () => {
   } = useContext(FootballContext);
 
   const {
-    // topScorerId,
     setTopScorerId,
     topScorer,
     setTopScorer,
@@ -50,9 +48,8 @@ const Ligue_1 = () => {
 
   const getFootballFetch = async () => {
     const result = await fetch(
-      `https://api-football-standings.azharimm.dev/leagues/fra.1/standings?season=${season}&sort=asc`
+      `https://api-football-standings.azharimm.dev/leagues/${league}/standings?season=${season}&sort=asc`
     );
-
     if (result.status === 200) {
       const res = await result.json();
       console.log("res", res);

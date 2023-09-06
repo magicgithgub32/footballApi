@@ -19,6 +19,7 @@ import Capo from "./pages/Capo/Capo";
 import Ligue_1 from "./pages/Ligue_1/Ligue_1";
 import Buteur from "./pages/Buteur/Buteur";
 import { buteurs } from "./data/buteurs";
+import League from "./pages/League/League";
 
 export const FootballContext = createContext();
 export const TopScorerContext = createContext();
@@ -444,7 +445,7 @@ export const TopScorerContext = createContext();
 // };
 
 const App = () => {
-  const [league, setLeague] = useState("esp.1");
+  const [league, setLeague] = useState("");
   const [leagueName, setLeagueName] = useState("");
   const [standingsData, setStandingsData] = useState(null);
   const [footballTeam, setFootballTeam] = useState("");
@@ -519,11 +520,13 @@ const App = () => {
             <Routes>
               <Route path="/" element={<FootballHub />}></Route>
 
-              <Route path="/eng.1" element={<Premier />}></Route>
+              {/* <Route path="/eng.1" element={<Premier />}></Route>
               <Route path="/esp.1" element={<LaLiga />}></Route>
               <Route path="/ita.1" element={<Calcio />}></Route>
               <Route path="/fra.1" element={<Ligue_1 />}></Route>
-              <Route path="/arg.1" element={<LigaArgentina />}></Route>
+              <Route path="/arg.1" element={<LigaArgentina />}></Route> */}
+              <Route path="/league" element={<League />}></Route>
+              {/*path="/league/:leagueId" */}
               <Route path="*" element={<Home />}></Route>
               <Route path="/stats" element={<Stats />}></Route>
               <Route path="/topScorer" element={<TopScorer />}></Route>
