@@ -1,11 +1,18 @@
 import React from "react";
 import "./StatsCard.css";
 
-const StatsCard = ({ footballTeam, standingsData, teamId, rank, teamLogo }) => {
+const StatsCard = ({ footballTeam, standingsData, teamId, rank }) => {
+  const getLogoSrc = () => {
+    const team = standingsData.find((item) => item.team.name === footballTeam);
+    return team ? team.team.logos[0]?.href : "";
+  };
+
+  const logoSrc = getLogoSrc();
+
   return (
     <section className="stats-card">
       <article className="name-logo-stats">
-        <img className="logo-stats" src={teamLogo} alt="logo" />
+        <img className="logo-stats" src={logoSrc} alt="logo" />
         <h4>{footballTeam.toUpperCase()}</h4>
         <p>{rank == 1 ? "🏆" : rank}</p>
       </article>

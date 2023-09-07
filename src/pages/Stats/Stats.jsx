@@ -7,7 +7,7 @@ import StatsCard from "../../components/StatsCard/StatsCard";
 import HomeButton from "../../components/HomeButton/HomeButton";
 
 const Stats = () => {
-  const { standingsData, footballTeam, teamId, season, teamLogo, leagueName } =
+  const { standingsData, footballTeam, teamId, season, leagueName } =
     useContext(FootballContext);
 
   const rank = standingsData && standingsData[teamId] ? teamId + 1 : null;
@@ -26,7 +26,6 @@ const Stats = () => {
 
           <article className="stats-wrapper">
             <StatsCard
-              teamLogo={teamLogo}
               footballTeam={footballTeam}
               standingsData={standingsData}
               teamId={teamId}

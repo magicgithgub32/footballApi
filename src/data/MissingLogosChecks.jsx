@@ -35,6 +35,10 @@ const MissingLogosChecks = ({ footballTeam }) => {
       ? "./Tiro.png"
       : footballTeam === "San Martín de Tucumán"
       ? "./San_martin_tucuman.png"
+      : footballTeam === "Energie Cottbus"
+      ? "./Energie.png"
+      : footballTeam === "Alemannia Aachen"
+      ? "./Aachen.png"
       : standingsData.find((item) => item.team.name === footballTeam)
       ? standingsData.find((item) => item.team.name === footballTeam).team
           .logos[0]?.href

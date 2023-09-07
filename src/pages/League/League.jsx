@@ -27,28 +27,6 @@ const League = () => {
     setDataLogos,
   } = useContext(FootballContext);
 
-  // const {
-  //   setTopScorerId,
-  //   topScorer,
-  //   setTopScorer,
-  //   setPichichiId,
-  //   setPichichi,
-  //   pichichiId,
-  //   setGoleadorArgId,
-  //   goleadorArg,
-  //   setGoleadorArg,
-  //   setCapoId,
-  //   capoId,
-  //   capo,
-  //   setCapo,
-  //   setButeurId,
-  //   setButeur,
-  //   buteurId,
-  //   buteur,
-  // } = useContext(TopScorerContext);
-
-  console.log("league", league);
-
   const getFootballFetch = async () => {
     const result = await fetch(
       `https://api-football-standings.azharimm.dev/leagues/${league}/standings?season=${season}&sort=asc`
@@ -125,57 +103,23 @@ const League = () => {
           <article className="seasons-scorer-article">
             <HomeButton />
             <article className="season-buttons">
-              {season > 2003 && (
+              {season > 2001 && (
                 <PrevSeasonButton
                   season={season}
                   setSeason={setSeason}
                   leagueName={leagueName}
-                  // setPichichiId={setPichichiId}
-                  // pichichiId={pichichiId}
-                  // setPichichi={setPichichi}
-
-                  // setTopScorerId={setTopScorerId}
-                  // setTopScorer={setTopScorer}
-                  // topScorer={topScorer}
-                  // setGoleadorArgId={setGoleadorArgId}
-                  // setGoleadorArg={setGoleadorArg}
-                  // goleadorArg={goleadorArg}
-                  // setCapoId={setCapoId}
-                  // capoId={capoId}
-                  // capo={capo}
-                  // setCapo={setCapo}
-                  // setButeurId={setButeurId}
-                  // setButeur={setButeur}
-                  // buteurId={buteurId}
-                  // buteur={buteur}
                 />
               )}
 
               <h2> {seasonDisplay}</h2>
 
-              <NextSeasonButton
-                season={season}
-                setSeason={setSeason}
-                leagueName={leagueName}
-                // setPichichiId={setPichichiId}
-                // pichichiId={pichichiId}
-                // setPichichi={setPichichi}
-
-                // setTopScorerId={setTopScorerId}
-                // setTopScorer={setTopScorer}
-                // topScorer={topScorer}
-                // setGoleadorArgId={setGoleadorArgId}
-                // setGoleadorArg={setGoleadorArg}
-                // goleadorArg={goleadorArg}
-                // setCapoId={setCapoId}
-                // capoId={capoId}
-                // capo={capo}
-                // setCapo={setCapo}
-                // setButeurId={setButeurId}
-                // setButeur={setButeur}
-                // buteurId={buteurId}
-                // buteur={buteur}
-              />
+              {season < year && (
+                <NextSeasonButton
+                  season={season}
+                  setSeason={setSeason}
+                  leagueName={leagueName}
+                />
+              )}
             </article>
 
             <Link to="/maxScorer">
@@ -187,16 +131,6 @@ const League = () => {
 
           <article className="name-logo-wrapper">
             {rank === 1 && season < year ? <p>🍾 CHAMPION 🍾</p> : rank}
-
-            {console.log("standingsData", standingsData)}
-            {console.log("rank", rank)}
-
-            {console.log("leagueName", leagueName)}
-            {console.log("standingsData", standingsData)}
-            {console.log("season", season)}
-            {console.log("rank", rank)}
-            {console.log("games Played", standingsData[teamId].stats[0].value)}
-            {console.log("leagueName", leagueName)}
 
             <h2 className="team-name">{footballTeam}</h2>
 
