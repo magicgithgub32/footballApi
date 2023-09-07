@@ -28,25 +28,25 @@ const LaLiga = () => {
     setSeasonDisplay,
   } = useContext(FootballContext);
 
-  const {
-    setTopScorerId,
-    topScorer,
-    setTopScorer,
-    setPichichiId,
-    setPichichi,
-    pichichiId,
-    pichichi,
-    setGoleadorArgId,
-    goleadorArg,
-    setGoleadorArg,
-    setCapoId,
-    capoId,
-    capo,
-    setCapo,
-    setButeur,
-    setButeurId,
-    buteurId,
-  } = useContext(TopScorerContext);
+  // const {
+  //   setTopScorerId,
+  //   topScorer,
+  //   setTopScorer,
+  //   setPichichiId,
+  //   setPichichi,
+  //   pichichiId,
+  //   pichichi,
+  //   setGoleadorArgId,
+  //   goleadorArg,
+  //   setGoleadorArg,
+  //   setCapoId,
+  //   capoId,
+  //   capo,
+  //   setCapo,
+  //   setButeur,
+  //   setButeurId,
+  //   buteurId,
+  // } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
     const result = await fetch(

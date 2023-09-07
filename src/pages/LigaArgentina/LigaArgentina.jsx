@@ -26,26 +26,26 @@ const LigaArgentina = () => {
     setSeasonDisplay,
   } = useContext(FootballContext);
 
-  const {
-    topScorerId,
-    setTopScorerId,
-    topScorer,
-    setTopScorer,
-    setPichichiId,
-    setPichichi,
-    pichichiId,
-    goleadorArgId,
-    setGoleadorArgId,
-    goleadorArg,
-    setGoleadorArg,
-    setCapoId,
-    capoId,
-    capo,
-    setCapo,
-    setButeur,
-    setButeurId,
-    buteurId,
-  } = useContext(TopScorerContext);
+  // const {
+  //   topScorerId,
+  //   setTopScorerId,
+  //   topScorer,
+  //   setTopScorer,
+  //   setPichichiId,
+  //   setPichichi,
+  //   pichichiId,
+  //   goleadorArgId,
+  //   setGoleadorArgId,
+  //   goleadorArg,
+  //   setGoleadorArg,
+  //   setCapoId,
+  //   capoId,
+  //   capo,
+  //   setCapo,
+  //   setButeur,
+  //   setButeurId,
+  //   buteurId,
+  // } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
     const result = await fetch(

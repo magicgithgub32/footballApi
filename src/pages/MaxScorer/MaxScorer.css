@@ -1,0 +1,9 @@
+.header-season {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-scorer-title {
+    display: flex;
+    justify-content: center;
+}

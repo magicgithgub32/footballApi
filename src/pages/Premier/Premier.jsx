@@ -3,7 +3,7 @@ import "./Premier.css";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 
-import { FootballContext, TopScorerContext } from "../../App";
+import { FootballContext } from "../../App";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 import HomeButton from "../../components/HomeButton/HomeButton";
@@ -28,25 +28,25 @@ const Premier = () => {
     league,
   } = useContext(FootballContext);
 
-  const {
-    topScorerId,
-    setTopScorerId,
-    topScorer,
-    setTopScorer,
-    setPichichiId,
-    setPichichi,
-    pichichiId,
-    goleadorArgId,
-    setGoleadorArgId,
-    setGoleadorArg,
-    setCapoId,
-    capoId,
-    capo,
-    setCapo,
-    setButeur,
-    setButeurId,
-    buteurId,
-  } = useContext(TopScorerContext);
+  // const {
+  //   topScorerId,
+  //   setTopScorerId,
+  //   topScorer,
+  //   setTopScorer,
+  //   setPichichiId,
+  //   setPichichi,
+  //   pichichiId,
+  //   goleadorArgId,
+  //   setGoleadorArgId,
+  //   setGoleadorArg,
+  //   setCapoId,
+  //   capoId,
+  //   capo,
+  //   setCapo,
+  //   setButeur,
+  //   setButeurId,
+  //   buteurId,
+  // } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
     const result = await fetch(
@@ -129,22 +129,23 @@ const Premier = () => {
               <PrevSeasonButton
                 season={season}
                 setSeason={setSeason}
-                setTopScorerId={setTopScorerId}
-                topScorerId={topScorerId}
-                setTopScorer={setTopScorer}
                 leagueName={leagueName}
-                setPichichiId={setPichichiId}
-                setPichichi={setPichichi}
-                goleadorArgId={goleadorArgId}
-                setGoleadorArgId={setGoleadorArgId}
-                setGoleadorArg={setGoleadorArg}
-                setCapoId={setCapoId}
-                capoId={capoId}
-                capo={capo}
-                setCapo={setCapo}
-                setButeur={setButeur}
-                setButeurId={setButeurId}
-                buteurId={buteurId}
+
+                // setTopScorerId={setTopScorerId}
+                // topScorerId={topScorerId}
+                // setTopScorer={setTopScorer}
+                // setPichichiId={setPichichiId}
+                // setPichichi={setPichichi}
+                // goleadorArgId={goleadorArgId}
+                // setGoleadorArgId={setGoleadorArgId}
+                // setGoleadorArg={setGoleadorArg}
+                // setCapoId={setCapoId}
+                // capoId={capoId}
+                // capo={capo}
+                // setCapo={setCapo}
+                // setButeur={setButeur}
+                // setButeurId={setButeurId}
+                // buteurId={buteurId}
               />
 
               <h2>{seasonDisplay}</h2>
@@ -152,23 +153,24 @@ const Premier = () => {
               <NextSeasonButton
                 season={season}
                 setSeason={setSeason}
-                setTopScorerId={setTopScorerId}
-                topScorerId={topScorerId}
-                setTopScorer={setTopScorer}
                 leagueName={leagueName}
-                setPichichiId={setPichichiId}
-                pichichiId={pichichiId}
-                setPichichi={setPichichi}
-                goleadorArgId={goleadorArgId}
-                setGoleadorArgId={setGoleadorArgId}
-                setGoleadorArg={setGoleadorArg}
-                setCapoId={setCapoId}
-                capoId={capoId}
-                capo={capo}
-                setCapo={setCapo}
-                setButeur={setButeur}
-                setButeurId={setButeurId}
-                buteurId={buteurId}
+                // setTopScorerId={setTopScorerId}
+                // topScorerId={topScorerId}
+                // setTopScorer={setTopScorer}
+
+                // setPichichiId={setPichichiId}
+                // pichichiId={pichichiId}
+                // setPichichi={setPichichi}
+                // goleadorArgId={goleadorArgId}
+                // setGoleadorArgId={setGoleadorArgId}
+                // setGoleadorArg={setGoleadorArg}
+                // setCapoId={setCapoId}
+                // capoId={capoId}
+                // capo={capo}
+                // setCapo={setCapo}
+                // setButeur={setButeur}
+                // setButeurId={setButeurId}
+                // buteurId={buteurId}
               />
             </article>
 
@@ -185,7 +187,6 @@ const Premier = () => {
             {console.log("standingsData", standingsData)}
             {console.log("season", season)}
             {console.log("rank", rank)}
-            {console.log("topSCorer", topScorer)}
             {console.log("leagueName", leagueName)}
             {console.log("footballTeam", footballTeam)}
 

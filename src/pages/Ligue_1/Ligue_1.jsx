@@ -26,25 +26,25 @@ const Ligue_1 = () => {
     setDataLogos,
   } = useContext(FootballContext);
 
-  const {
-    setTopScorerId,
-    topScorer,
-    setTopScorer,
-    setPichichiId,
-    setPichichi,
-    pichichiId,
-    setGoleadorArgId,
-    goleadorArg,
-    setGoleadorArg,
-    setCapoId,
-    capoId,
-    capo,
-    setCapo,
-    setButeurId,
-    setButeur,
-    buteurId,
-    buteur,
-  } = useContext(TopScorerContext);
+  // const {
+  //   setTopScorerId,
+  //   topScorer,
+  //   setTopScorer,
+  //   setPichichiId,
+  //   setPichichi,
+  //   pichichiId,
+  //   setGoleadorArgId,
+  //   goleadorArg,
+  //   setGoleadorArg,
+  //   setCapoId,
+  //   capoId,
+  //   capo,
+  //   setCapo,
+  //   setButeurId,
+  //   setButeur,
+  //   buteurId,
+  //   buteur,
+  // } = useContext(TopScorerContext);
 
   const getFootballFetch = async () => {
     const result = await fetch(
