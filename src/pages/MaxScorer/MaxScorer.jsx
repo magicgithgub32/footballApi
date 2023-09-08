@@ -151,44 +151,8 @@ const MaxScorer = () => {
       />
 
       <article className="season-buttons">
-        <PrevSeasonButton
-          season={season}
-          setSeason={setSeason}
-          // setTopScorerId={setTopScorerId}
-          // topScorerId={topScorerId}
-          // setTopScorer={setTopScorer}
-          // setPichichiId={setPichichiId}
-          // pichichiId={pichichiId}
-          // setPichichi={setPichichi}
-          // setGoleadorArgId={setGoleadorArgId}
-          // goleadorArgId={goleadorArgId}
-          // setGoleadorArg={setGoleadorArg}
-          // setCapo={setCapo}
-          // setCapoId={setCapoId}
-          // capoId={capoId}
-          // setButeur={setButeur}
-          // setButeurId={setButeurId}
-          // buteurId={buteurId}
-        />
-        <NextSeasonButton
-          season={season}
-          setSeason={setSeason}
-          // setTopScorerId={setTopScorerId}
-          // topScorerId={topScorerId}
-          // setTopScorer={setTopScorer}
-          // setPichichiId={setPichichiId}
-          // pichichiId={pichichiId}
-          // setPichichi={setPichichi}
-          // setGoleadorArgId={setGoleadorArgId}
-          // goleadorArgId={goleadorArgId}
-          // setGoleadorArg={setGoleadorArg}
-          // setCapo={setCapo}
-          // setCapoId={setCapoId}
-          // capoId={capoId}
-          // setButeur={setButeur}
-          // setButeurId={setButeurId}
-          // buteurId={buteurId}
-        />
+        <PrevSeasonButton season={season} setSeason={setSeason} />
+        <NextSeasonButton season={season} setSeason={setSeason} />
       </article>
     </section>
   );
