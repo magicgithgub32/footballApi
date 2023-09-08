@@ -6,7 +6,7 @@ import HomeButton from "../../components/HomeButton/HomeButton";
 import PrevSeasonButton from "../../components/NextPrevSeasonsButtons/PrevSeasonButton";
 import NextSeasonButton from "../../components/NextPrevSeasonsButtons/NextSeasonButton";
 import { Link } from "react-router-dom";
-import MissingLogosChecks from "../../data/missingLogosChecks";
+import MissingLogosChecks from "../../data/MissingLogosChecks";
 
 const League = () => {
   const {
